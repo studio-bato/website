@@ -9,13 +9,15 @@ import {
   SkipBack,
   ChevronUp,
   ChevronDown,
+  Radio,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { cn } from "@/lib/utils";
 import { usePlayer } from "./context";
+import { getInitialPlaylist } from "./initialPlaylist";
 
-export type { PlayerTrack as Track } from "./context";
+export type { PlayerTrack } from "./context";
 export { PlayerProvider, usePlayer } from "./context";
 
 function formatTime(seconds: number): string {
@@ -35,6 +37,7 @@ export function Player() {
     currentTime,
     duration,
     seek,
+    replaceAndPlay,
   } = usePlayer();
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -90,6 +93,10 @@ export function Player() {
 
   if (!currentTrack) return null;
 
+  function startRadio() {
+    const tracks = getInitialPlaylist();
+    replaceAndPlay(tracks);
+  }
   return (
     <>
       {/* Expanded half-screen panel with backdrop */}
@@ -256,6 +263,11 @@ export function Player() {
             </p>
           </div>
 
+          <Button variant="outline" size="sm" onClick={startRadio}>
+            <span className="hidden md:block">Tune radio</span>
+            <Radio className="w-4 h-4" color="#ff4800" />
+          </Button>
+
           {/* Expand */}
           <Button
             variant="ghost"
@@ -264,6 +276,16 @@ export function Player() {
           >
             <ChevronUp className="h-4 w-4" />
           </Button>
+        </div>
+
+        {/* Thin progress bar at bottom */}
+        <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-muted">
+          <div
+            className="h-full bg-foreground transition-[width] duration-200 ease-linear"
+            style={{
+              width: `${duration ? (currentTime / duration) * 100 : 0}%`,
+            }}
+          />
         </div>
       </div>
     </>

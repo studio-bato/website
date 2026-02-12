@@ -15,7 +15,7 @@ export default async function ArtistPage({
 
   return (
     <main>
-      <section id="artist" className="py-24 lg:py-32">
+      <section id="artist" className="py-12 lg:py-32">
         <div className="mx-auto max-w-6xl px-6">
           <Artist artist={artist} />
         </div>

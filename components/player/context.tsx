@@ -24,7 +24,7 @@ interface PlayerContextValue {
   setIsPlaying: (playing: boolean) => void;
   setPlaylist: (tracks: PlayerTrack[]) => void;
   addToPlaylist: (tracks: PlayerTrack[]) => void;
-  replaceAndPlay: (tracks: PlayerTrack[]) => void;
+  replaceAndPlay: (tracks: PlayerTrack[], index?: number) => void;
   currentTrackIndex: number;
   setCurrentTrackIndex: (index: number) => void;
   currentTime: number;
@@ -114,11 +114,14 @@ export function PlayerProvider({
     setPlaylist((prev) => [...prev, ...tracks]);
   }, []);
 
-  const replaceAndPlay = useCallback((tracks: PlayerTrack[]) => {
-    setPlaylist(tracks);
-    setCurrentTrackIndex(0);
-    setIsPlaying(true);
-  }, []);
+  const replaceAndPlay = useCallback(
+    (tracks: PlayerTrack[], index: number = 0) => {
+      setPlaylist(tracks);
+      setCurrentTrackIndex(index);
+      setIsPlaying(true);
+    },
+    [],
+  );
 
   return (
     <PlayerContext.Provider

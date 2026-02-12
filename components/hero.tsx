@@ -1,11 +1,9 @@
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowDown } from "lucide-react";
+import { getRandomFeatures } from "@/data/features";
 
 export function Hero() {
   return (
-    <section className="relative h-[calc(100dvh-16rem)]  flex flex-col justify-between">
-      <div className="flex-1 flex flex-col items-center justify-center px-6 py-16">
+    <section className="relative min-h-[calc(100dvh-16rem)] overflow-hidden flex flex-col justify-between">
+      <div className="flex-1 flex flex-col items-center justify-center px-6 py-16 lg:py-32">
         <p className="text-sm text-muted-foreground tracking-widest uppercase mb-8">
           Independent Music Label
         </p>
@@ -19,18 +17,20 @@ export function Hero() {
         </p>
       </div>
 
-      <div className="mx-auto flex justify-center w-full max-w-6xl h-2/5 pb-10">
-        <iframe
-          width="100%"
-          height="100%"
-          src="https://www.youtube.com/embed/pUBC_AoIMEQ?si=yl3UBPle6y--hju8"
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerPolicy="strict-origin-when-cross-origin"
-          allowFullScreen
-        ></iframe>
+      <div className="mx-auto w-full max-w-6xl px-6 pb-10">
+        <div className="relative w-full aspect-video">
+          <iframe
+            className="absolute inset-0 w-full h-full"
+            src={`https://www.youtube.com/embed/${getRandomFeatures().heroYTEmbed}`}
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          ></iframe>
+        </div>
       </div>
+
       {/*<div className="mx-auto max-w-6xl w-full px-6 pb-6">
        
         <div className="grid grid-cols-3 gap-3 h-72 sm:h-96">

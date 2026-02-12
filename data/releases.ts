@@ -66,15 +66,11 @@ export const releases: Array<Release> = [
         url: "/assets/dzuko-walass/clavier-a-la-mer/WALASS ET DZUKO - Clavier à la mer - 03 - Remède__16b-44k-.mp3",
       },
       {
-        title: "Moola Mantra",
-        url: "/assets/dzuko-walass/clavier-a-la-mer/WALASS ET DZUKO - Clavier à la mer - 01 - Autour de moi__16b-44k-.mp3",
-      },
-      {
         title: "Habeas Corpus",
         url: "/assets/dzuko-walass/clavier-a-la-mer/WALASS ET DZUKO - Clavier à la mer - 04 - Habeas Corpus__16b-44k-.mp3",
       },
       {
-        title: "La prise et l'épine",
+        title: "La prose et l'épine",
         url: "/assets/dzuko-walass/clavier-a-la-mer/WALASS ET DZUKO - Clavier à la mer - 05 - La prose et l'épine__16b-44k-.mp3",
       },
     ],

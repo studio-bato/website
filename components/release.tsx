@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Play } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Play } from "lucide-react";
 import { ExternalLink } from "lucide-react";
 
 import type { Release } from "@/data";
@@ -12,27 +12,26 @@ export function Release({ release }: ReleaseProps) {
   return (
     <Link
       href={`/releases/${release.id}`}
-      className="group grid grid-cols-1 md:grid-cols-12 gap-6 cursor-pointer"
+      className="group cursor-pointer py-2 hover:bg-card/50 "
     >
-      <div className="relative aspect-square overflow-hidden md:col-span-4">
-        <Image
-          src={release.cover || "/placeholder.svg"}
-          alt={`${release.title} by ${release.artists.join(", ")} album cover`}
-          fill
-          className="object-cover transition-transform duration-700 md:group-hover:scale-105"
-        />
-        <div className="absolute inset-0 bg-foreground/30 flex items-center justify-center transition-opacity duration-300 opacity-0 md:group-hover:opacity-100 ">
-          <div className="bg-background text-foreground p-3">
-            <ExternalLink className="h-4 w-4" />
-          </div>
+      <div className="flex items-start space-x-4 lg:space-x-8">
+        <div className="relative aspect-[1/1] overflow-hidden w-36 lg:w-96 shrink-0">
+          <Image
+            src={release.cover || "/placeholder.svg"}
+            alt={`${release.title} by ${release.artists.join(", ")} album cover`}
+            fill
+            className="object-cover group-hover:grayscale-0 transition-all duration-500"
+          />
         </div>
-      </div>
-
-      <div className="flex flex-col md:col-span-8">
-        <div className="flex-1 flex flex-col">
-          <p className="text-xs text-muted-foreground mb-1">
-            {release.type} &middot; {release.date}
-          </p>
+        <div className="flex flex-col flex-1">
+          <div className="flex justify-between">
+            <div className="text-xs text-muted-foreground mb-1">
+              {release.type} &middot; {release.date}
+            </div>
+            <div className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
+              <ArrowUpRight className="h-3.5 w-3.5 mr-2" />
+            </div>
+          </div>
           <h3 className="font-display text-lg text-foreground leading-snug">
             {release.title}
           </h3>
@@ -43,15 +42,6 @@ export function Release({ release }: ReleaseProps) {
             {release.genres.join(", ")}
           </p>
           <p className="text-sm text-foreground mt-2">{release.description}</p>
-        </div>
-
-        <div className="flex-col my-4 flex md:hidden">
-          <div className="flex">
-            <div className="inline-flex w-full justify-center items-center gap-1.5 text-md text-muted-foreground hover:text-foreground transition-colors border px-4 py-2 rounded-xl">
-              Open
-              <ExternalLink className="w-5 h-5 mr-2" />
-            </div>
-          </div>
         </div>
       </div>
     </Link>

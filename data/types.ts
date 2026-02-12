@@ -43,3 +43,7 @@ export interface Release {
   links: AudioPlatformLinks;
   tracks?: Array<Track>;
 }
+
+export interface Features {
+  heroYTEmbed: Array<string>;
+}
