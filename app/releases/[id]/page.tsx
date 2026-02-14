@@ -1,4 +1,4 @@
-import { releases } from "@/data";
+import { getReleaseArtists, releases } from "@/data";
 import { mapReleaseToPlayer } from "@/components/player/utils";
 import { redirect } from "next/navigation";
 import Image from "next/image";
@@ -20,6 +20,7 @@ export default async function ReleasePage({
   }
 
   const playerTracks = mapReleaseToPlayer(release);
+  const artists = getReleaseArtists(release);
 
   return (
     <main>
@@ -38,7 +39,7 @@ export default async function ReleasePage({
             <div className="relative aspect-square overflow-hidden md:col-span-5">
               <Image
                 src={release.cover || "/placeholder.svg"}
-                alt={`${release.title} by ${release.artists.join(", ")} album cover`}
+                alt={`${release.title} album cover`}
                 fill
                 className="object-cover"
                 priority
@@ -53,8 +54,13 @@ export default async function ReleasePage({
               <h1 className="font-display text-3xl sm:text-4xl tracking-tight text-foreground">
                 {release.title}
               </h1>
-              <p className="text-lg text-muted-foreground mt-1">
-                {release.artists.join(", ")}
+              <p className="text-lg text-muted-foreground mt-1 flex gap-1">
+                {artists.map((artist, index) => (
+                  <span key={artist.id}>
+                    <Link href={`/artists/${artist.id}`}>{artist.name}</Link>
+                    {index < artists.length - 1 && ","}
+                  </span>
+                ))}
               </p>
               <p className="text-sm text-muted-foreground mt-1">
                 {release.genres.join(", ")}

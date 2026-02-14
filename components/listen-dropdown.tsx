@@ -8,6 +8,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
+import { icons } from "@/lib/icons";
 
 import type { AudioPlatformLinks } from "@/data";
 
@@ -30,18 +31,23 @@ export function ListenDropdown({ links }: ListenDropdownProps) {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="start">
-        {entries.map(([platform, url]) => (
-          <DropdownMenuItem key={platform} asChild>
-            <a
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="capitalize"
-            >
-              {platform.replace(/([A-Z])/g, " $1").trim()}
-            </a>
-          </DropdownMenuItem>
-        ))}
+        {entries.map(([platform, url]) => {
+          const entry = icons[platform];
+          const Icon = entry?.icon;
+          return (
+            <DropdownMenuItem key={platform} asChild>
+              <a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 cursor-pointer"
+              >
+                {Icon && <Icon className="h-4 w-4" />}
+                {entry?.label ?? platform}
+              </a>
+            </DropdownMenuItem>
+          );
+        })}
       </DropdownMenuContent>
     </DropdownMenu>
   );

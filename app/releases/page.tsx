@@ -9,7 +9,7 @@ export default function Releases() {
           Releases
         </h2>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col gap-4 sm:grid sm:grid-cols-2 xl:grid-cols-3 lg:gap-8">
           {releases.map((release, index) => (
             <Release release={release} key={index} />
           ))}

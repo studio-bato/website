@@ -34,7 +34,7 @@ export interface Track {
 export interface Release {
   id: string;
   title: string;
-  artists: Array<string>;
+  artistIds: Array<string>;
   cover: string;
   description?: string;
   date: string;

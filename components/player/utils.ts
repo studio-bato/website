@@ -1,13 +1,14 @@
 import { PlayerTrack } from "./context";
-import type { Release } from "@/data";
+import { getReleaseArtists, type Release } from "@/data";
 
 export function mapReleaseToPlayer(release: Release): Array<PlayerTrack> {
   if (!release.tracks) return [];
+  const artists = getReleaseArtists(release);
 
   return release.tracks.map((t) => ({
     ...t,
     cover: release.cover,
-    artist: release.artists.join(", "),
+    artist: artists.map((a) => a.name).join(", "),
     album: release.title,
   }));
 }

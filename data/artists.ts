@@ -5,7 +5,7 @@ export const artists: Array<Artist> = [
     id: "radiobato",
     name: "RadioBato",
     bio: "Robotic Poetry eats mushrooms at party",
-    image: "/assets/radiobato/profile.jpg",
+    image: "/assets/artists/radiobato/profile.jpg",
     socials: {
       instagram: "https://instagram.com/radiobato",
       soundcloud: "https://soundcloud.com/radiobato",
@@ -16,7 +16,7 @@ export const artists: Array<Artist> = [
     id: "walass",
     name: "Walass",
     bio: "Quand c'est pas l'angoissse",
-    image: "/assets/walass/profile.jpg",
+    image: "/assets/artists/walass/profile.jpg",
     socials: {
       instagram: "https://instagram.com/walass",
     },
@@ -25,9 +25,24 @@ export const artists: Array<Artist> = [
     id: "youyou",
     name: "Youyou",
     bio: "des Bisous",
-    image: "/assets/youyou/profile.jpg",
+    image: "/assets/artists/youyou/profile.jpg",
+    socials: {
+      instagram: "https://instagram.com/youyou",
+    },
+  },
+  {
+    id: "dzuko",
+    name: "Dzuko",
+    bio: "Lyriciste",
+    image: "/assets/artists/dzuko/profile.jpg",
     socials: {
       instagram: "https://instagram.com/youyou",
     },
   },
 ];
+
+const featuredArtistsIds = ["radiobato", "walass"];
+
+export const featuredArtists = artists.filter((a) =>
+  featuredArtistsIds.includes(a.id),
+);

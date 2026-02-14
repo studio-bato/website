@@ -9,7 +9,7 @@ export default function Artists() {
           Artists
         </h2>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col gap-4 sm:grid sm:grid-cols-2 xl:grid-cols-3 lg:gap-8">
           {artists.map((artist, index) => (
             <Artist artist={artist} key={index} />
           ))}
