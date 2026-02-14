@@ -16,13 +16,14 @@ export interface AudioPlatformLinks {
   qobuz?: string;
   appleMusic?: string;
   bandcamp?: string;
+  youtube?: string;
 }
 
 export interface Artist {
   id: string;
   name: string;
-  bio: string;
-  image: string;
+  bio?: string;
+  image?: string;
   socials?: Socials;
   featuredReleases?: Array<string>;
 }
@@ -31,17 +32,24 @@ export interface Track {
   title: string;
   url: string;
 }
+
+export interface ReleaseVideoClip {
+  title: string;
+  url: string;
+}
+
 export interface Release {
   id: string;
   title: string;
   artistIds: Array<string>;
-  cover: string;
+  cover?: string;
   description?: string;
   date: string;
   genres: Array<string>;
   type: string;
-  links: AudioPlatformLinks;
+  links?: AudioPlatformLinks;
   tracks?: Array<Track>;
+  videoClips?: Array<ReleaseVideoClip>;
 }
 
 export interface Features {

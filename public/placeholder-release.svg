@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" fill="none">
+  <rect width="1200" height="1200" fill="hsl(40,10%,90%)"/>
+
+  <!-- outer disc -->
+  <circle cx="600" cy="600" r="340" fill="hsl(40,8%,86%)" stroke="hsl(30,8%,78%)" stroke-width="2"/>
+
+  <!-- grooves -->
+  <circle cx="600" cy="600" r="290" fill="none" stroke="hsl(30,6%,80%)" stroke-width=".75"/>
+  <circle cx="600" cy="600" r="260" fill="none" stroke="hsl(30,6%,80%)" stroke-width=".75"/>
+  <circle cx="600" cy="600" r="230" fill="none" stroke="hsl(30,6%,80%)" stroke-width=".75"/>
+  <circle cx="600" cy="600" r="200" fill="none" stroke="hsl(30,6%,80%)" stroke-width=".75"/>
+  <circle cx="600" cy="600" r="170" fill="none" stroke="hsl(30,6%,80%)" stroke-width=".75"/>
+  <circle cx="600" cy="600" r="140" fill="none" stroke="hsl(30,6%,80%)" stroke-width=".75"/>
+
+  <!-- label area -->
+  <circle cx="600" cy="600" r="110" fill="hsl(40,10%,90%)" stroke="hsl(30,8%,78%)" stroke-width="1.5"/>
+
+  <!-- center hole -->
+  <circle cx="600" cy="600" r="24" fill="hsl(40,10%,90%)" stroke="hsl(30,8%,78%)" stroke-width="1.5"/>
+</svg>

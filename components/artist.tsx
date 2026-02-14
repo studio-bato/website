@@ -11,7 +11,7 @@ export function Artist({ artist }: { artist: Artist }) {
 
   return (
     <CardRow
-      src={artist.image || "/placeholder.svg"}
+      src={artist.image || "/placeholder-artist.svg"}
       alt={`${artist.name} artist`}
       href={`/artists/${artist.id}`}
     >

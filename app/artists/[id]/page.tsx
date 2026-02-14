@@ -12,9 +12,14 @@ export default async function ArtistPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const artist = artists.find((a) => a.id === id);
+  let artist = artists.find((a) => a.id === id);
+  
   if (!artist) {
-    redirect(`/404`);
+    artist = {
+      id,
+      name: id,
+      bio: "We don't have much info about this artist yet. Check back later!",
+    };
   }
 
   const releases = getArtistReleases(artist);

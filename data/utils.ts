@@ -10,7 +10,11 @@ export function getReleaseArtists(releases: Release): Array<Artist> {
   return releases.artistIds
     .map((id) => {
       const artist = artists.find((a) => a.id === id);
-      if (!artist) console.error("missing artist", id);
+      if (!artist)
+        return {
+          id,
+          name: id,
+        };
       return artist;
     })
     .filter((a) => !!a);

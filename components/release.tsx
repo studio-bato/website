@@ -10,7 +10,7 @@ export function Release({ release }: ReleaseProps) {
 
   return (
     <CardRow
-      src={release.cover || "/placeholder.svg"}
+      src={release.cover || "/placeholder-release.svg"}
       alt={`${release.title} album cover`}
       href={`/releases/${release.id}`}
     >
