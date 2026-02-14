@@ -109,7 +109,9 @@ export default async function ReleasePage({
                             {track.artistIds.map((id, idx) => (
                               <Link key={id} href={`/artists/${id}`}>
                                 {artists.find((a) => a.id === id)?.name || id}
-                                {idx < track.artistIds.length - 1 && ","}
+                                {track.artistIds &&
+                                  idx < track.artistIds.length - 1 &&
+                                  ","}
                               </Link>
                             ))}
                           </span>

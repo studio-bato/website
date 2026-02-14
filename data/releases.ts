@@ -2,6 +2,34 @@ import type { Release } from "./types";
 
 export const releases: Array<Release> = [
   {
+    id: "kmn-tard-sur-la-rive",
+    title: "Tard sur la rive",
+    artistIds: ["kmn"],
+    cover: "/assets/releases/kmn/tslr.jpg",
+    date: "2025-12-25",
+    genres: ["Hip Hop"],
+    type: "Single",
+    links: {
+      spotify: "https://open.spotify.com/track/79yapO0Gvr767LzNVDXrUh",
+      appleMusic:
+        "https://music.apple.com/fr/album/tard-sur-la-rive-feat-la-pierrre-b%C3%A9r%C3%A9sina-i20cestcarre/1863456762?at=1001l384B&ct=music_redirect&itsct=music_box_link&itscg=30200&ls=1",
+      deezer:
+        "https://www.deezer.com/us/track/3733699302?host=0&utm_campaign=clipboard-generic&utm_source=user_sharing&utm_content=track-3733699302&deferredFl=1&universal_link=1",
+      soundcloud: "https://soundcloud.com/studiobato/kmn-tard-sur-la-rive",
+    },
+    tracks: [
+      {
+        title: "Tard sur la rive",
+      },
+    ],
+    videoClips: [
+      {
+        title: "Tard sur la rive",
+        url: "https://www.youtube.com/watch?v=pUBC_AoIMEQ",
+      },
+    ],
+  },
+  {
     id: "radiobato-chappal-pehenke-chalo",
     title: "Chappal Pehenke Challo",
     artistIds: ["radiobato"],
@@ -11,9 +39,13 @@ export const releases: Array<Release> = [
     description: "A trip through india",
     type: "EP",
     links: {
-      spotify: "https://open.spotify.com/album/nocturnal-reflections",
-      appleMusic: "https://music.apple.com/album/nocturnal-reflections",
-      bandcamp: "https://label.bandcamp.com/album/nocturnal-reflections",
+      spotify: "https://open.spotify.com/artist/5R712bVV3bkwrzKocBIOao",
+      deezer: "https://www.deezer.com/fr/artist/164362757",
+      appleMusic: "https://www.deezer.com/fr/artist/164362757",
+      soundcloud: "https://soundcloud.com/radiobato",
+      youtube:
+        "https://www.youtube.com/playlist?list=PLyWGL_AAdR8qj6P-lmKCphbB-cWh5Rs9N",
+      bandcamp: "https://radiobato.bandcamp.com/album/chappal-pehenke-chalo-ep",
     },
     tracks: [
       {

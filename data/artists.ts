@@ -39,6 +39,15 @@ export const artists: Array<Artist> = [
       instagram: "https://instagram.com/youyou",
     },
   },
+  {
+    id: "kmn",
+    name: "KMN",
+    bio: "Old-school survivor",
+    image: "/assets/artists/kmn/profile.jpg",
+    socials: {
+      instagram: "https://instagram.com/kmnmgp",
+    },
+  },
 ];
 
 const featuredArtistsIds = ["radiobato", "walass"];
