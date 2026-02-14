@@ -5,7 +5,8 @@ export const releases: Array<Release> = [
     id: "kmn-tard-sur-la-rive",
     title: "Tard sur la rive",
     artistIds: ["kmn"],
-    cover: "/assets/releases/kmn/tslr.jpg",
+    cover:
+      "https://sb-cdn.opac.me/file/studiobato-assets/releases/kmn/tslr.jpg",
     date: "2025-12-25",
     genres: ["Hip Hop"],
     type: "Single",
@@ -33,7 +34,8 @@ export const releases: Array<Release> = [
     id: "radiobato-chappal-pehenke-chalo",
     title: "Chappal Pehenke Challo",
     artistIds: ["radiobato"],
-    cover: "/assets/releases/radiobato/chappal-pehenke-chalo/cover.jpg",
+    cover:
+      "https://sb-cdn.opac.me/file/studiobato-assets/releases/radiobato/chappal-pehenke-chalo/cover.jpg",
     date: "2024-01-15",
     genres: ["Electronic"],
     description: "A trip through india",
@@ -50,23 +52,23 @@ export const releases: Array<Release> = [
     tracks: [
       {
         title: "Moola Mantra",
-        url: "/assets/releases/radiobato/chappal-pehenke-chalo/1.MOOLA MANTRA-MP3.mp3",
+        url: "https://sb-cdn.opac.me/file/studiobato-assets/releases/radiobato/chappal-pehenke-chalo/1.MOOLA MANTRA.mp3",
       },
       {
         title: "Groove Has No Border",
-        url: "/assets/releases/radiobato/chappal-pehenke-chalo/2. GROOVE HAS NO BORDER-MP3.mp3",
+        url: "https://sb-cdn.opac.me/file/studiobato-assets/releases/radiobato/chappal-pehenke-chalo/2. GROOVE HAS NO BORDER.mp3",
       },
       {
         title: "32 Janvier",
-        url: "/assets/releases/radiobato/chappal-pehenke-chalo/3. 32 JANVIER-MP3.mp3",
+        url: "https://sb-cdn.opac.me/file/studiobato-assets/releases/radiobato/chappal-pehenke-chalo/3. 32 JANVIER.mp3",
       },
       {
         title: "Collect your cash",
-        url: "/assets/releases/radiobato/chappal-pehenke-chalo/4. COLLECT YOUR CASH-MP3.mp3",
+        url: "https://sb-cdn.opac.me/file/studiobato-assets/releases/radiobato/chappal-pehenke-chalo/4. COLLECT YOUR CASH.mp3",
       },
       {
         title: "Morning with Hanuman",
-        url: "/assets/releases/radiobato/chappal-pehenke-chalo/5.MORNING WITH HANUMAN MASTER-MP3.mp3",
+        url: "https://sb-cdn.opac.me/file/studiobato-assets/releases/radiobato/chappal-pehenke-chalo/5.MORNING WITH HANUMAN MASTER.mp3",
       },
     ],
     videoClips: [
@@ -80,7 +82,8 @@ export const releases: Array<Release> = [
     id: "dzuko-walass-clavier-a-la-mer",
     title: "Clavier à la mer",
     artistIds: ["dzuko", "walass"],
-    cover: "/assets/releases/dzuko-walass/clavier-a-la-mer/cover.jpg",
+    cover:
+      "https://sb-cdn.opac.me/file/studiobato-assets/releases/dzuko-walass/clavier-a-la-mer/cover.jpg",
     description: "A vocal experience",
     date: "2024-03-15",
     genres: ["Ambient", "Electronic"],
@@ -93,23 +96,23 @@ export const releases: Array<Release> = [
     tracks: [
       {
         title: "Autour de moi",
-        url: "/assets/releases/dzuko-walass/clavier-a-la-mer/WALASS ET DZUKO - Clavier à la mer - 01 - Autour de moi__16b-44k-.mp3",
+        url: "https://sb-cdn.opac.me/file/studiobato-assets/releases/dzuko-walass/clavier-a-la-mer/WALASS ET DZUKO - 01 - Autour de moi.mp3",
       },
       {
         title: "Clavier à la mer",
-        url: "/assets/releases/dzuko-walass/clavier-a-la-mer/WALASS ET DZUKO - Clavier à la mer - 02 - Clavier à la mer__16b-44k-.mp3",
+        url: "https://sb-cdn.opac.me/file/studiobato-assets/releases/dzuko-walass/clavier-a-la-mer/WALASS ET DZUKO - 02 - Clavier a la mer.mp3",
       },
       {
         title: "Remède",
-        url: "/assets/releases/dzuko-walass/clavier-a-la-mer/WALASS ET DZUKO - Clavier à la mer - 03 - Remède__16b-44k-.mp3",
+        url: "https://sb-cdn.opac.me/file/studiobato-assets/releases/dzuko-walass/clavier-a-la-mer/WALASS ET DZUKO - 03 - Remede.mp3",
       },
       {
         title: "Habeas Corpus",
-        url: "/assets/releases/dzuko-walass/clavier-a-la-mer/WALASS ET DZUKO - Clavier à la mer - 04 - Habeas Corpus__16b-44k-.mp3",
+        url: "https://sb-cdn.opac.me/file/studiobato-assets/releases/dzuko-walass/clavier-a-la-mer/WALASS ET DZUKO - 04 - Habeas Corpus.mp3",
       },
       {
         title: "La prose et l'épine",
-        url: "/assets/releases/dzuko-walass/clavier-a-la-mer/WALASS ET DZUKO - Clavier à la mer - 05 - La prose et l'épine__16b-44k-.mp3",
+        url: "https://sb-cdn.opac.me/file/studiobato-assets/releases/dzuko-walass/clavier-a-la-mer/WALASS ET DZUKO - 05 - La prose et l'epine.mp3",
       },
     ],
     videoClips: [
@@ -125,7 +128,8 @@ export const releases: Array<Release> = [
     date: "2024-05-20",
     genres: ["Hip-hop"],
     type: "Freestyles",
-    cover: "/assets/releases/LCDM/profile.jpg",
+    cover:
+      "https://sb-cdn.opac.me/file/studiobato-assets/releases/LCDM/profile.jpg",
     description: "Freestyle rap experimentaux, unique à chaque étape",
     tracks: [
       {
@@ -154,7 +158,8 @@ export const releases: Array<Release> = [
     date: "2024-05-20",
     genres: ["Hip-hop"],
     type: "Freestyles",
-    cover: "/assets/releases/batosessions/profile.jpg",
+    cover:
+      "https://sb-cdn.opac.me/file/studiobato-assets/releases/batosessions/profile.jpg",
     description: "Freestyle rap experimentaux, unique à chaque étape",
     videoClips: [
       {
@@ -192,7 +197,8 @@ export const releases: Array<Release> = [
     date: "2024-05-20",
     genres: ["Club Banger"],
     type: "Single",
-    cover: "/assets/releases/sern/pheromoney/cover.jpg",
+    cover:
+      "https://sb-cdn.opac.me/file/studiobato-assets/releases/sern/pheromoney/cover.jpg",
     links: {
       youtube: "https://www.youtube.com/watch?v=3IikfMTMX_Q",
       soundcloud:

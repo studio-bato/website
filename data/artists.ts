@@ -5,7 +5,8 @@ export const artists: Array<Artist> = [
     id: "radiobato",
     name: "RadioBato",
     bio: "Robotic Poetry eats mushrooms at party",
-    image: "/assets/artists/radiobato/profile.jpg",
+    image:
+      "https://sb-cdn.opac.me/file/studiobato-assets/artists/radiobato/profile.jpg",
     socials: {
       instagram: "https://instagram.com/radiobato",
       soundcloud: "https://soundcloud.com/radiobato",
@@ -16,7 +17,8 @@ export const artists: Array<Artist> = [
     id: "walass",
     name: "Walass",
     bio: "Quand c'est pas l'angoissse",
-    image: "/assets/artists/walass/profile.jpg",
+    image:
+      "https://sb-cdn.opac.me/file/studiobato-assets/artists/walass/profile.jpg",
     socials: {
       instagram: "https://instagram.com/walass",
     },
@@ -25,7 +27,8 @@ export const artists: Array<Artist> = [
     id: "youyou",
     name: "Youyou",
     bio: "des Bisous",
-    image: "/assets/artists/youyou/profile.jpg",
+    image:
+      "https://sb-cdn.opac.me/file/studiobato-assets/artists/youyou/profile.jpg",
     socials: {
       instagram: "https://instagram.com/youyou",
     },
@@ -34,7 +37,8 @@ export const artists: Array<Artist> = [
     id: "dzuko",
     name: "Dzuko",
     bio: "Lyriciste",
-    image: "/assets/artists/dzuko/profile.jpg",
+    image:
+      "https://sb-cdn.opac.me/file/studiobato-assets/artists/dzuko/profile.jpg",
     socials: {
       instagram: "https://instagram.com/youyou",
     },
@@ -43,7 +47,8 @@ export const artists: Array<Artist> = [
     id: "kmn",
     name: "KMN",
     bio: "Old-school survivor",
-    image: "/assets/artists/kmn/profile.jpg",
+    image:
+      "https://sb-cdn.opac.me/file/studiobato-assets/artists/kmn/profile.jpg",
     socials: {
       instagram: "https://instagram.com/kmnmgp",
     },
