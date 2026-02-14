@@ -18,7 +18,7 @@ export default async function ArtistPage({
     artist = {
       id,
       name: id,
-      bio: "We don't have much info about this artist yet. Check back later!",
+      bio: "An artist like we've never seen before.",
     };
   }
 
@@ -40,7 +40,7 @@ export default async function ArtistPage({
             {/* Artist image */}
             <div className="relative aspect-square overflow-hidden md:col-span-5">
               <Image
-                src={artist.image || "/placeholder.svg"}
+                src={artist.image || "/placeholder-artist.svg"}
                 alt={artist.name}
                 fill
                 className="object-cover"

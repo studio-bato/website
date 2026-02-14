@@ -5,12 +5,15 @@ export function mapReleaseToPlayer(release: Release): Array<PlayerTrack> {
   if (!release.tracks) return [];
   const artists = getReleaseArtists(release);
 
-  return release.tracks.map((t) => ({
-    ...t,
-    cover: release.cover,
-    artist: artists.map((a) => a.name).join(", "),
-    album: release.title,
-  }));
+  return release.tracks
+    .filter((t) => !!t.url)
+    .map((t) => ({
+      url: "",
+      ...t,
+      cover: release.cover,
+      artist: artists.map((a) => a.name).join(", "),
+      album: release.title,
+    }));
 }
 
 export function shuffle<T>(array: Array<T>) {

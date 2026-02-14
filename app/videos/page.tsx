@@ -1,5 +1,6 @@
 import { releases } from "@/data";
 import { getReleaseArtists } from "@/data/utils";
+import { VideoClipEmbed } from "@/components/video-clip-embed";
 import Link from "next/link";
 
 export default function VideosPage() {
@@ -33,40 +34,9 @@ export default function VideosPage() {
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    {release.videoClips!.map((clip, index) => {
-                      const ytMatch = clip.url.match(/[?&]v=([a-zA-Z0-9_-]+)/);
-                      if (ytMatch) {
-                        return (
-                          <div key={index}>
-                            <div className="relative w-full aspect-video overflow-hidden">
-                              <iframe
-                                className="absolute inset-0 w-full h-full"
-                                src={`https://www.youtube.com/embed/${ytMatch[1]}`}
-                                title={clip.title}
-                                frameBorder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerPolicy="strict-origin-when-cross-origin"
-                                allowFullScreen
-                              ></iframe>
-                            </div>
-                            <p className="text-sm font-medium text-foreground mt-3">
-                              {clip.title}
-                            </p>
-                          </div>
-                        );
-                      }
-                      return (
-                        <a
-                          key={index}
-                          href={clip.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-sm text-foreground hover:text-foreground/80 transition-colors"
-                        >
-                          {clip.title}
-                        </a>
-                      );
-                    })}
+                    {release.videoClips!.map((clip, index) => (
+                      <VideoClipEmbed key={index} clip={clip} />
+                    ))}
                   </div>
                 </div>
               );

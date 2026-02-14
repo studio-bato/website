@@ -90,19 +90,28 @@ export const releases: Array<Release> = [
   {
     id: "la-cour-des-miracles",
     title: "La Cour des Miracles",
-    artistIds: ["youyou", "i20"],
     date: "2024-05-20",
     genres: ["Hip-hop"],
     type: "Freestyles",
     cover: "/assets/releases/LCDM/profile.jpg",
     description: "Freestyle rap experimentaux, unique à chaque étape",
+    tracks: [
+      {
+        title: "La Cour des Miracles - #1",
+        artistIds: ["idial", "alphao", "walass", "kmn"],
+      },
+      {
+        title: "La Cour des Miracles - #2",
+        artistIds: ["youyou", "i20", "idial", "alphao", "walass", "kmn"],
+      },
+    ],
     videoClips: [
       {
         title: "La Cour des Miracles - #2",
         url: "https://www.youtube.com/watch?v=2UbtaPJYooY",
       },
       {
-        title: "La Cour des Miracles - #2",
+        title: "La Cour des Miracles - #1",
         url: "https://www.youtube.com/watch?v=P684tZIi5s0",
       },
     ],
@@ -110,7 +119,6 @@ export const releases: Array<Release> = [
   {
     id: "bato-sessions",
     title: "Bato Sessions",
-    artistIds: ["gezel", "alphao", "skrab", "walass"],
     date: "2024-05-20",
     genres: ["Hip-hop"],
     type: "Freestyles",
@@ -130,13 +138,27 @@ export const releases: Array<Release> = [
         url: "https://www.youtube.com/watch?v=YzA5wr0vuCA",
       },
     ],
+    tracks: [
+      {
+        title: "TJSILAROUT - Gezel / Bato Sessions #1",
+        artistIds: ["gezel"],
+      },
+      {
+        title: "AILE META - Gezel X Al'Phao / Bato Sessions #2",
+        artistIds: ["gezel", "alphao"],
+      },
+      {
+        title: "Banalité - Skrab X Walass / Bato Sessions #3",
+        artistIds: ["skrab", "walass"],
+      },
+    ],
   },
   {
     id: "sern-pheromoney",
     title: "Pheromoney ",
     artistIds: ["SERN.", "La Virago", "West Galsen", "Lucioylle"],
     date: "2024-05-20",
-    genres: ["Hip-hop"],
+    genres: ["Club Banger"],
     type: "Single",
     cover: "/assets/releases/sern/pheromoney/cover.jpg",
     links: {
@@ -149,6 +171,12 @@ export const releases: Array<Release> = [
         "https://music.apple.com/us/album/pheromoney-feat-la-virago-west-galsen-lucioylle-single/1858995689?at=1001l384B&ct=music_redirect&itsct=music_box_link&itscg=30200&ls=1&uo=4",
       spotify: "https://open.spotify.com/album/1uCxNb7B0EtC8i20OCjrcp",
     },
+    tracks: [
+      {
+        title: "Pheromoney",
+        artistIds: ["SERN.", "La Virago", "West Galsen", "Lucioylle"],
+      },
+    ],
   },
 ];
 

@@ -30,7 +30,8 @@ export interface Artist {
 
 export interface Track {
   title: string;
-  url: string;
+  url?: string;
+  artistIds?: Array<string>;
 }
 
 export interface ReleaseVideoClip {
@@ -41,7 +42,7 @@ export interface ReleaseVideoClip {
 export interface Release {
   id: string;
   title: string;
-  artistIds: Array<string>;
+  artistIds?: Array<string>;
   cover?: string;
   description?: string;
   date: string;

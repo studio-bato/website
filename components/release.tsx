@@ -27,7 +27,9 @@ export function Release({ release }: ReleaseProps) {
           {release.title}
         </h3>
         <p className="text-md text-muted-foreground mt-0.5">
-          {artists.map((a) => a.name).join(", ")}
+          {artists.length
+            ? artists.map((a) => a.name).join(", ")
+            : "Various artists"}
         </p>
         <p className="text-sm text-muted-foreground mt-0.5">
           {release.genres.join(", ")}

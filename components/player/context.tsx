@@ -14,7 +14,7 @@ export interface PlayerTrack {
   title: string;
   artist: string;
   album: string;
-  cover: string;
+  cover?: string;
   url: string;
 }
 
