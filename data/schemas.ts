@@ -42,13 +42,12 @@ export const ArtistSchema = z.object({
   bio: z.string().optional().describe("textarea"),
   image: z.string().optional(),
   socials: SocialsSchema.optional(),
-  featuredReleases: z.array(z.string()).optional(),
 });
 
 export const ReleaseSchema = z.object({
   id: z.string().min(1, "ID is required"),
   title: z.string().min(1, "Title is required"),
-  artistIds: z.array(z.string()).optional(),
+  artistIds: z.array(z.string().describe("artist-id")).optional(),
   cover: z.string().optional(),
   description: z.string().optional().describe("textarea"),
   date: z.string().min(1, "Date is required"),

@@ -120,10 +120,12 @@ export default async function ReleasePage({
               {/* Platform links */}
               <div className="mt-6 flex gap-4">
                 <PlayReleaseButton tracks={mapReleaseToPlayer(release)} />
-                {release.plaftormLinks && (
+                {release.plaftormLinks && Object.values(release.plaftormLinks).some(Boolean) && (
                   <ListenDropdown links={release.plaftormLinks} />
                 )}
-                {release.buyLinks && <BuyDropdown links={release.buyLinks} />}
+                {release.buyLinks && Object.values(release.buyLinks).some(Boolean) && (
+                  <BuyDropdown links={release.buyLinks} />
+                )}
               </div>
 
               {/* Track list */}

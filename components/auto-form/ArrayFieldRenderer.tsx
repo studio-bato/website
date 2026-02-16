@@ -4,23 +4,100 @@ import { useFieldArray, UseFormReturn } from "react-hook-form";
 import { z } from "zod";
 import { FieldMeta, extractFields } from "@/lib/schema-introspect";
 import { FieldRenderer } from "./FieldRenderer";
+import type { FieldOverrides } from "./AutoForm";
 import {
   FormField,
   FormItem,
   FormControl,
+  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+
+function matchOverride(fullName: string, fieldOverrides?: FieldOverrides) {
+  if (!fieldOverrides) return undefined;
+  if (fieldOverrides[fullName]) return fieldOverrides[fullName];
+  const pattern = fullName.replace(/\.\d+\./g, ".*.");
+  if (fieldOverrides[pattern]) return fieldOverrides[pattern];
+  return undefined;
+}
 
 export function ArrayFieldRenderer({
   meta,
   form,
   fullName,
+  fieldOverrides,
 }: {
   meta: FieldMeta;
   form: UseFormReturn<any>;
   fullName: string;
+  fieldOverrides?: FieldOverrides;
+}) {
+  const override = matchOverride(fullName, fieldOverrides);
+
+  // Multi-select via checkboxes for array-of-string fields with a select override
+  if (override?.type === "select" && !(meta.innerSchema instanceof z.ZodObject)) {
+    return (
+      <FormField
+        control={form.control}
+        name={fullName}
+        render={({ field }) => {
+          const selected: string[] = field.value ?? [];
+
+          function toggle(value: string) {
+            if (selected.includes(value)) {
+              field.onChange(selected.filter((v: string) => v !== value));
+            } else {
+              field.onChange([...selected, value]);
+            }
+          }
+
+          return (
+            <FormItem>
+              <FormLabel>
+                {meta.label}
+                {meta.required && (
+                  <span className="text-destructive"> *</span>
+                )}
+              </FormLabel>
+              <div className="grid grid-cols-2 gap-2">
+                {override.options.map((opt) => (
+                  <label
+                    key={opt.value}
+                    className="flex items-center gap-2 cursor-pointer text-sm"
+                  >
+                    <Checkbox
+                      checked={selected.includes(opt.value)}
+                      onCheckedChange={() => toggle(opt.value)}
+                    />
+                    {opt.label}
+                  </label>
+                ))}
+              </div>
+              <FormMessage />
+            </FormItem>
+          );
+        }}
+      />
+    );
+  }
+
+  // Default: dynamic add/remove list
+  return <DefaultArrayField meta={meta} form={form} fullName={fullName} fieldOverrides={fieldOverrides} />;
+}
+
+function DefaultArrayField({
+  meta,
+  form,
+  fullName,
+  fieldOverrides,
+}: {
+  meta: FieldMeta;
+  form: UseFormReturn<any>;
+  fullName: string;
+  fieldOverrides?: FieldOverrides;
 }) {
   const { fields, append, remove } = useFieldArray({
     control: form.control,
@@ -57,6 +134,7 @@ export function ArrayFieldRenderer({
                   meta={sub}
                   form={form}
                   prefix={`${fullName}.${index}`}
+                  fieldOverrides={fieldOverrides}
                 />
               ))}
             </fieldset>

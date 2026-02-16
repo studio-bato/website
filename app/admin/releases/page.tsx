@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import { releases as initialReleases } from "@/data/releases";
+import { artists } from "@/data/artists";
 import { ReleaseSchema } from "@/data/schemas";
 import type { Release } from "@/data/types";
-import { AutoForm } from "@/components/auto-form";
+import { AutoForm, type FieldOverrides } from "@/components/auto-form";
 import { Button } from "@/components/ui/button";
 import { saveReleases } from "@/app/admin/actions";
 
@@ -14,6 +15,12 @@ export default function AdminReleasesPage() {
   const [isNew, setIsNew] = useState(false);
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
+
+  // const artistOptions = artists.map((a) => ({ value: a.id, label: a.name }));
+  // const releaseOverrides: FieldOverrides = {
+  //   artistIds: { type: "select", options: artistOptions },
+  //   "tracks.*.artistIds": { type: "select", options: artistOptions },
+  // };
 
   const selectedRelease = isNew
     ? undefined
@@ -109,9 +116,7 @@ export default function AdminReleasesPage() {
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <h2 className="text-xl font-semibold">
-                  {isNew
-                    ? "New Release"
-                    : `Edit: ${selectedRelease?.title}`}
+                  {isNew ? "New Release" : `Edit: ${selectedRelease?.title}`}
                 </h2>
                 {!isNew && selectedId && (
                   <Button
@@ -131,6 +136,7 @@ export default function AdminReleasesPage() {
                 defaultValues={selectedRelease}
                 onSubmit={handleSave}
                 submitLabel={saving ? "Saving..." : "Save"}
+                // fieldOverrides={releaseOverrides}
               />
             </div>
           )}
