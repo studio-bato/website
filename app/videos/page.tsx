@@ -1,16 +1,10 @@
 import { releases } from "@/data";
 import { getReleaseArtists } from "@/data/utils";
 import { VideoClipEmbed } from "@/components/video-clip-embed";
-import { Link } from "@/i18n/navigation";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 
-export default async function VideosPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  setRequestLocale(locale);
+export default async function VideosPage() {
   const t = await getTranslations("videosPage");
 
   const releasesWithVideos = releases.filter(

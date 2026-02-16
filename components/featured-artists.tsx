@@ -1,6 +1,6 @@
 "use client";
 
-import { Link } from "@/i18n/navigation";
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { featuredArtists } from "@/data";
 import { Artist } from "./artist";

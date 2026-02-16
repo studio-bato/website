@@ -1,14 +1,8 @@
 import { artists } from "@/data";
 import { Artist } from "@/components/artist";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
-export default async function Artists({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  setRequestLocale(locale);
+export default async function Artists() {
   const t = await getTranslations("artistsPage");
 
   return (

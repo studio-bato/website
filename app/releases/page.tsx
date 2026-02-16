@@ -1,14 +1,8 @@
 import { releases } from "@/data";
 import { Release } from "@/components/release";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
-export default async function Releases({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  setRequestLocale(locale);
+export default async function Releases() {
   const t = await getTranslations("releasesPage");
 
   const sortedReleases = [...releases].sort((a, b) => {

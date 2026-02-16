@@ -1,18 +1,17 @@
 import { artists, getArtistReleases } from "@/data";
 import Image from "next/image";
-import { Link } from "@/i18n/navigation";
+import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { icons } from "@/lib/icons";
 import type { Socials } from "@/data";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 export default async function ArtistPage({
   params,
 }: {
-  params: Promise<{ locale: string; id: string }>;
+  params: Promise<{ id: string }>;
 }) {
-  const { locale, id } = await params;
-  setRequestLocale(locale);
+  const { id } = await params;
   const t = await getTranslations("artistDetail");
 
   let artist = artists.find((a) => a.id === id);

@@ -1,4 +1,4 @@
-import { Link } from "@/i18n/navigation";
+import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 
 export async function Footer() {
@@ -6,9 +6,9 @@ export async function Footer() {
 
   const footerLinks = {
     [t("labelSection")]: [
-      { label: t("about"), href: "/about" as const },
-      { label: t("artists"), href: "/artists" as const },
-      { label: t("releases"), href: "/releases" as const },
+      { label: t("about"), href: "/about" },
+      { label: t("artists"), href: "/artists" },
+      { label: t("releases"), href: "/releases" },
     ],
     [t("connectSection")]: [
       { label: "Instagram", href: "https://instagram.com/studio.bato" },
@@ -17,7 +17,7 @@ export async function Footer() {
       { label: "SoundCloud", href: "https://soundcloud.com/studiobato" },
     ],
     [t("infoSection")]: [
-      { label: t("contact"), href: "/contact" as const },
+      { label: t("contact"), href: "/contact" },
     ],
   };
 
@@ -48,7 +48,7 @@ export async function Footer() {
                 {links.map((link) => (
                   <li key={link.label}>
                     <Link
-                      href={link.href as any}
+                      href={link.href}
                       className="text-sm text-foreground/60 hover:text-foreground transition-colors"
                     >
                       {link.label}

@@ -1,7 +1,7 @@
 import { getReleaseArtists, releases } from "@/data";
 import { mapReleaseToPlayer } from "@/components/player/utils";
 import Image from "next/image";
-import { Link } from "@/i18n/navigation";
+import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { PlayTrackButton } from "@/components/player/play-track-button";
 import { PlayReleaseButton } from "@/components/player/play-release-button";
@@ -9,15 +9,14 @@ import { ListenDropdown } from "@/components/listen-dropdown";
 import { VideoClipEmbed } from "@/components/video-clip-embed";
 import { artists } from "@/data";
 import { notFound } from "next/navigation";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 export default async function ReleasePage({
   params,
 }: {
-  params: Promise<{ locale: string; id: string }>;
+  params: Promise<{ id: string }>;
 }) {
-  const { locale, id } = await params;
-  setRequestLocale(locale);
+  const { id } = await params;
   const t = await getTranslations("releaseDetail");
 
   const release = releases.find((a) => a.id === id);

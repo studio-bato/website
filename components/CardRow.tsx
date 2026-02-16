@@ -1,4 +1,4 @@
-import { Link } from "@/i18n/navigation";
+import Link from "next/link";
 import Image from "next/image";
 
 interface CardRowProps {
@@ -9,7 +9,7 @@ interface CardRowProps {
 }
 export function CardRow({ src, alt, href, children }: CardRowProps) {
   return (
-    <Link href={href as any} className="group cursor-pointer hover:bg-card/50">
+    <Link href={href} className="group cursor-pointer hover:bg-card/50">
       <div className="flex flex-col">
         <div className="relative aspect-[1/1] overflow-hidden w-full">
           <Image

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Link } from "@/i18n/navigation";
+import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { LanguageSwitcher } from "@/components/language-switcher";
@@ -12,11 +12,11 @@ export function Navbar() {
   const t = useTranslations("nav");
 
   const navLinks = [
-    { label: t("artists"), href: "/artists" as const },
-    { label: t("releases"), href: "/releases" as const },
-    { label: t("videos"), href: "/videos" as const },
-    { label: t("about"), href: "/about" as const },
-    { label: t("contact"), href: "/contact" as const },
+    { label: t("artists"), href: "/artists" },
+    { label: t("releases"), href: "/releases" },
+    { label: t("videos"), href: "/videos" },
+    { label: t("about"), href: "/about" },
+    { label: t("contact"), href: "/contact" },
   ];
 
   return (

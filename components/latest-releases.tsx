@@ -1,4 +1,4 @@
-import { Link } from "@/i18n/navigation";
+import Link from "next/link";
 import { featuredReleases } from "@/data";
 import { Release } from "./release";
 import { ArrowUpRight } from "lucide-react";

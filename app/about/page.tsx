@@ -8,15 +8,9 @@ import {
   Video,
   Ship,
 } from "lucide-react";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
-export default async function About({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  setRequestLocale(locale);
+export default async function About() {
   const t = await getTranslations("aboutPage");
 
   const services = [

@@ -1,39 +1,59 @@
 "use client";
 
 import { useLocale } from "next-intl";
-import { usePathname, useRouter } from "@/i18n/navigation";
-import { routing } from "@/i18n/routing";
+import { useRouter } from "next/navigation";
+import { useTransition } from "react";
+import { setLocale } from "@/app/actions";
+import { Globe } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+} from "@/components/ui/dropdown-menu";
+
+const locales = ["fr", "en", "de"] as const;
 
 const localeLabels: Record<string, string> = {
-  fr: "FR",
-  en: "EN",
-  de: "DE",
+  fr: "Français",
+  en: "English",
+  de: "Deutsch",
 };
 
 export function LanguageSwitcher() {
   const locale = useLocale();
   const router = useRouter();
-  const pathname = usePathname();
+  const [isPending, startTransition] = useTransition();
 
   function onChange(nextLocale: string) {
-    router.replace(pathname, { locale: nextLocale });
+    startTransition(async () => {
+      await setLocale(nextLocale);
+      router.refresh();
+    });
   }
 
   return (
-    <div className="flex items-center gap-1 text-sm">
-      {routing.locales.map((loc) => (
-        <button
-          key={loc}
-          onClick={() => onChange(loc)}
-          className={`px-1.5 py-1 transition-colors ${
-            loc === locale
-              ? "text-foreground font-medium"
-              : "text-muted-foreground hover:text-foreground"
-          }`}
-        >
-          {localeLabels[loc]}
-        </button>
-      ))}
-    </div>
+    <DropdownMenu>
+      <DropdownMenuTrigger
+        className="text-muted-foreground hover:text-foreground transition-colors p-2"
+        disabled={isPending}
+      >
+        <div className="flex items-center gap-2">
+          <Globe className="h-4 w-4" />
+          <span className="uppercase">{locale}</span>
+        </div>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end">
+        {locales.map((loc) => (
+          <DropdownMenuItem
+            key={loc}
+            onClick={() => onChange(loc)}
+            className={loc === locale ? "font-medium" : ""}
+          >
+            {localeLabels[loc]}
+          </DropdownMenuItem>
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }
