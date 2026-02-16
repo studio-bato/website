@@ -34,9 +34,3 @@ export function getAllVideoClips(): Array<{
     (release.videoClips ?? []).map((clip) => ({ clip, release })),
   );
 }
-
-export function getRandomVideoClip(): ReleaseVideoClip | null {
-  const all = getAllVideoClips();
-  if (all.length === 0) return null;
-  return all[Math.floor(Math.random() * all.length)].clip;
-}

@@ -1,5 +1,4 @@
 import { artists, getArtistReleases } from "@/data";
-import { redirect } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
@@ -17,8 +16,7 @@ export async function generateMetadata({
   if (!artist) return {};
 
   const title = `${artist.name} | Studio Bato`;
-  const description =
-    artist.bio || `Discover ${artist.name} on Studio Bato.`;
+  const description = artist.bio || `Discover ${artist.name} on Studio Bato.`;
 
   return {
     title,
@@ -36,6 +34,12 @@ export async function generateMetadata({
   };
 }
 
+export async function generateStaticParams() {
+  return artists.map((artist) => ({
+    id: artist.id,
+  }));
+}
+
 export default async function ArtistPage({
   params,
 }: {
@@ -43,7 +47,7 @@ export default async function ArtistPage({
 }) {
   const { id } = await params;
   let artist = artists.find((a) => a.id === id);
-  
+
   if (!artist) {
     artist = {
       id,

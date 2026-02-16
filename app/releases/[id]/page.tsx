@@ -43,6 +43,13 @@ export async function generateMetadata({
   };
 }
 
+export async function generateStaticParams() {
+  return releases.map((release) => ({
+    id: release.id,
+  }));
+}
+ 
+
 export default async function ReleasePage({
   params,
 }: {
