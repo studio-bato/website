@@ -10,7 +10,7 @@ export const releases: Array<Release> = [
     date: "2025-12-25",
     genres: ["Hip Hop"],
     type: "Single",
-    links: {
+    plaftormLinks: {
       spotify: "https://open.spotify.com/track/79yapO0Gvr767LzNVDXrUh",
       appleMusic:
         "https://music.apple.com/fr/album/tard-sur-la-rive-feat-la-pierrre-b%C3%A9r%C3%A9sina-i20cestcarre/1863456762?at=1001l384B&ct=music_redirect&itsct=music_box_link&itscg=30200&ls=1",
@@ -40,14 +40,13 @@ export const releases: Array<Release> = [
     genres: ["Electronic"],
     description: "A trip through india",
     type: "EP",
-    links: {
+    plaftormLinks: {
       spotify: "https://open.spotify.com/artist/5R712bVV3bkwrzKocBIOao",
       deezer: "https://www.deezer.com/fr/artist/164362757",
       appleMusic: "https://www.deezer.com/fr/artist/164362757",
       soundcloud: "https://soundcloud.com/radiobato",
       youtube:
         "https://www.youtube.com/playlist?list=PLyWGL_AAdR8qj6P-lmKCphbB-cWh5Rs9N",
-      bandcamp: "https://radiobato.bandcamp.com/album/chappal-pehenke-chalo-ep",
     },
     tracks: [
       {
@@ -88,11 +87,6 @@ export const releases: Array<Release> = [
     date: "2024-03-15",
     genres: ["Ambient", "Electronic"],
     type: "EP",
-    links: {
-      spotify: "https://open.spotify.com/album/nocturnal-reflections",
-      appleMusic: "https://music.apple.com/album/nocturnal-reflections",
-      bandcamp: "https://label.bandcamp.com/album/nocturnal-reflections",
-    },
     tracks: [
       {
         title: "Autour de moi",
@@ -199,7 +193,7 @@ export const releases: Array<Release> = [
     type: "Single",
     cover:
       "https://sb-cdn.opac.me/file/studiobato-assets/releases/sern/pheromoney/cover.jpg",
-    links: {
+    plaftormLinks: {
       youtube: "https://www.youtube.com/watch?v=3IikfMTMX_Q",
       soundcloud:
         "https://soundcloud.com/studiobato/sern-la-virage-west-galsen-lucioylle-pheromoney/s-fKREFg3JjE3?si=f38bc90587eb4397bc65d766e0abd98b&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
@@ -216,7 +210,30 @@ export const releases: Array<Release> = [
       },
     ],
   },
-];
+  {
+    id: "walass-time-of-love",
+    title: "Time of Love",
+    artistIds: ["walass"],
+    date: "2025-11-20",
+    genres: ["Ambient"],
+    type: "EP",
+    cover:
+      "https://f003.backblazeb2.com/file/studiobato-assets/releases/walass/time-of-love/cover.jpg",
+    description: "Un voyage sonore à travers les saisons de l'amour",
+    tracks: [
+      {
+        title: "What I'm feeling now. You ?",
+      },
+    ],
+    plaftormLinks: {
+      soundcloud: "https://soundcloud.com/theo-lasnier/sets/time-of-love",
+    },
+    buyLinks: {
+      elasticStage:
+        "https://elasticstage.com/soundcloud/releases/walass-time-of-love-album",
+    },
+  },
+].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
 const featuredReleasesIds = [
   "radiobato-chappal-pehenke-chalo",

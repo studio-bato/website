@@ -1,3 +1,5 @@
+import { artists, releases } from "@/data";
+
 export function AboutSection() {
   return (
     <section id="about" className="py-24 lg:py-32 border-t border-border">
@@ -24,27 +26,31 @@ export function AboutSection() {
 
             <div className="grid grid-cols-2 gap-px bg-border mt-4">
               <div className="bg-background p-6">
-                <p className="font-display text-3xl text-foreground">50+</p>
+                <p className="font-display text-3xl text-foreground">
+                  {artists.length}+
+                </p>
                 <p className="text-sm text-muted-foreground mt-1">
                   Artists on roster
                 </p>
               </div>
               <div className="bg-background p-6">
-                <p className="font-display text-3xl text-foreground">200+</p>
+                <p className="font-display text-3xl text-foreground">
+                  {releases.length}+
+                </p>
                 <p className="text-sm text-muted-foreground mt-1">
                   Total releases
                 </p>
               </div>
               <div className="bg-background p-6">
-                <p className="font-display text-3xl text-foreground">12M+</p>
+                <p className="font-display text-3xl text-foreground">5</p>
                 <p className="text-sm text-muted-foreground mt-1">
-                  Global streams
+                  Artists residencies
                 </p>
               </div>
               <div className="bg-background p-6">
-                <p className="font-display text-3xl text-foreground">40+</p>
+                <p className="font-display text-3xl text-foreground">4</p>
                 <p className="text-sm text-muted-foreground mt-1">
-                  Countries reached
+                  Countries represented
                 </p>
               </div>
             </div>

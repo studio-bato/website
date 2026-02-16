@@ -9,7 +9,7 @@ import {
   SiDeezer,
   SiApplemusic,
 } from "@icons-pack/react-simple-icons";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Turntable } from "lucide-react";
 import type { ComponentType } from "react";
 
 function SiQobuz({ className }: { className?: string }) {
@@ -81,4 +81,5 @@ export const icons: Record<string, IconEntry> = {
   deezer: { icon: SiDeezer, label: "Deezer" },
   qobuz: { icon: SiQobuz, label: "Qobuz" },
   appleMusic: { icon: SiApplemusic, label: "Apple Music" },
+  elasticStage: { icon: Turntable, label: "Vinyl" },
 };

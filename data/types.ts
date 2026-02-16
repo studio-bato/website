@@ -15,8 +15,12 @@ export interface AudioPlatformLinks {
   deezer?: string;
   qobuz?: string;
   appleMusic?: string;
-  bandcamp?: string;
   youtube?: string;
+}
+
+export interface BuyLinks {
+  bandcamp?: string;
+  elasticStage?: string;
 }
 
 export interface Artist {
@@ -48,7 +52,8 @@ export interface Release {
   date: string;
   genres: Array<string>;
   type: string;
-  links?: AudioPlatformLinks;
+  plaftormLinks?: AudioPlatformLinks;
+  buyLinks?: BuyLinks;
   tracks?: Array<Track>;
   videoClips?: Array<ReleaseVideoClip>;
 }

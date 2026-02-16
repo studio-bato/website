@@ -11,6 +11,7 @@ import { ListenDropdown } from "@/components/listen-dropdown";
 import { VideoClipEmbed } from "@/components/video-clip-embed";
 import { artists } from "@/data";
 import type { Metadata } from "next";
+import { BuyDropdown } from "@/components/buy-dropdown";
 
 export async function generateMetadata({
   params,
@@ -117,7 +118,10 @@ export default async function ReleasePage({
               {/* Platform links */}
               <div className="mt-6 flex gap-4">
                 <PlayReleaseButton tracks={mapReleaseToPlayer(release)} />
-                {release.links && <ListenDropdown links={release.links} />}
+                {release.plaftormLinks && (
+                  <ListenDropdown links={release.plaftormLinks} />
+                )}
+                {release.buyLinks && <BuyDropdown links={release.buyLinks} />}
               </div>
 
               {/* Track list */}
