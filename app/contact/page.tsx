@@ -1,4 +1,5 @@
-import { Instagram, Mail, Anchor } from "lucide-react";
+import { Mail, Anchor } from "lucide-react";
+import { SiInstagram } from "@icons-pack/react-simple-icons";
 import Link from "next/link";
 import type { Metadata } from "next";
 
@@ -42,7 +43,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="bg-background p-10 sm:p-16 flex flex-col gap-6 group hover:bg-muted/30 transition-colors"
             >
-              <Instagram className="h-6 w-6 text-muted-foreground group-hover:text-foreground transition-colors" />
+              <SiInstagram className="h-6 w-6 text-muted-foreground group-hover:text-foreground transition-colors" />
               <h2 className="font-display text-3xl sm:text-4xl tracking-tight text-foreground">
                 Instagram
               </h2>
@@ -75,9 +76,7 @@ export default function Contact() {
 
           <div className="mt-16 flex items-center gap-4 text-muted-foreground">
             <Anchor className="h-4 w-4" />
-            <p className="text-sm">
-              Bordeaux, France — moored on the Garonne
-            </p>
+            <p className="text-sm">Bordeaux, France — moored on the Garonne</p>
           </div>
         </div>
       </section>
