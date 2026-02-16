@@ -4,6 +4,7 @@ import { writeFileSync } from "fs";
 import { join } from "path";
 import { ArtistsSchema, ReleasesSchema } from "@/data/schemas";
 import type { Artist, Release } from "@/data/types";
+import { createSession } from "./session";
 
 export async function saveArtists(artists: Artist[]) {
   const parsed = ArtistsSchema.safeParse(artists);
@@ -28,3 +29,10 @@ export async function saveReleases(releases: Release[]) {
 
   return { success: true };
 }
+
+export async function login(formData: FormData) {
+  const password = formData.get("password");
+  if (password === process.env.ADMIN_PASSWORD) {
+    await createSession("admin");
+  }
+} 
