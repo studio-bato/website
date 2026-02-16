@@ -16,6 +16,7 @@ export interface PlayerTrack {
   album: string;
   cover?: string;
   url: string;
+  releaseId: string;
 }
 
 interface PlayerContextValue {

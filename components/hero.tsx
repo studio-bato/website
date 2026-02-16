@@ -1,11 +1,8 @@
-import { getRandomVideoClip } from "@/data/utils";
-import { getYouTubeId } from "@/components/video-clip-embed";
+import RandomVideoClip from "./random-videoclip";
 import { getTranslations } from "next-intl/server";
 
 export async function Hero() {
   const t = await getTranslations("hero");
-  const clip = getRandomVideoClip();
-  const ytId = clip ? getYouTubeId(clip.url) : null;
 
   return (
     <section className="relative min-h-[calc(100dvh-16rem)] overflow-hidden flex flex-col justify-between">
@@ -23,21 +20,7 @@ export async function Hero() {
         </p>
       </div>
 
-      {ytId && (
-        <div className="mx-auto w-full max-w-6xl px-6 pb-10">
-          <div className="relative w-full aspect-video">
-            <iframe
-              className="absolute inset-0 w-full h-full"
-              src={`https://www.youtube.com/embed/${ytId}`}
-              title={clip!.title}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            ></iframe>
-          </div>
-        </div>
-      )}
+      <RandomVideoClip />
     </section>
   );
 }

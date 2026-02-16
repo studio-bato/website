@@ -1,5 +1,19 @@
-import { Instagram, Mail, Anchor } from "lucide-react";
+import { Mail, Anchor } from "lucide-react";
+import { SiInstagram } from "@icons-pack/react-simple-icons";
 import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("contactPage");
+  const title = t("metaTitle");
+  const description = t("metaDescription");
+
+  return {
+    title,
+    description,
+    openGraph: { title, description },
+  };
+}
 
 export default async function Contact() {
   const t = await getTranslations("contactPage");
@@ -31,7 +45,7 @@ export default async function Contact() {
               rel="noopener noreferrer"
               className="bg-background p-10 sm:p-16 flex flex-col gap-6 group hover:bg-muted/30 transition-colors"
             >
-              <Instagram className="h-6 w-6 text-muted-foreground group-hover:text-foreground transition-colors" />
+              <SiInstagram className="h-6 w-6 text-muted-foreground group-hover:text-foreground transition-colors" />
               <h2 className="font-display text-3xl sm:text-4xl tracking-tight text-foreground">
                 {t("instagramTitle")}
               </h2>

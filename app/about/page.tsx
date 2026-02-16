@@ -9,6 +9,19 @@ import {
   Ship,
 } from "lucide-react";
 import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("aboutPage");
+  const title = t("metaTitle");
+  const description = t("metaDescription");
+
+  return {
+    title,
+    description,
+    openGraph: { title, description },
+  };
+}
 
 export default async function About() {
   const t = await getTranslations("aboutPage");
@@ -32,7 +45,7 @@ export default async function About() {
   return (
     <main>
       {/* Hero */}
-      <section className="relative min-h-[60dvh] flex flex-col items-center justify-center px-6 py-24 lg:py-32">
+      <section className="relative min-h-[60dvh] flex flex-col items-center justify-center px-6 py-16 lg:py-16">
         <p className="text-sm text-muted-foreground tracking-widest uppercase mb-8">
           {t("subtitle")}
         </p>
@@ -44,6 +57,18 @@ export default async function About() {
         <p className="mt-8 text-muted-foreground text-center max-w-lg leading-relaxed">
           {t("heroDescription")}
         </p>
+
+        <section className="w-full h-[500px] lg:h-[800px] max-w-screen-lg overflow-hidden mx-auto mt-16">
+          <video
+            autoPlay
+            muted
+            loop
+            className="w-full h-full object-cover overflow-hidden"
+          >
+            <source src="/studiobato_vid.webm" type="video/webm" />
+            Your browser does not support the video tag.
+          </video>
+        </section>
       </section>
 
       {/* Story */}

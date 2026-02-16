@@ -41,6 +41,8 @@
     "countriesReached": "Pays touchés"
   },
   "aboutPage": {
+    "metaTitle": "À propos | Studio Bato",
+    "metaDescription": "Studio Bato est un studio de musique indépendant basé sur un bateau à Bordeaux, France. Nous produisons, enregistrons, mixons, masterisons et distribuons de la musique.",
     "subtitle": "À propos",
     "title1": "Un studio",
     "title2": "sur l'eau",
@@ -74,6 +76,8 @@
     "yourProject": "Votre projet, votre vision"
   },
   "contactPage": {
+    "metaTitle": "Contact | Studio Bato",
+    "metaDescription": "Contactez Studio Bato. Écrivez-nous pour la production musicale, la distribution ou une résidence d'artiste sur notre bateau à Bordeaux.",
     "subtitle": "Contact",
     "title1": "Prenez",
     "title2": "contact",
@@ -85,12 +89,18 @@
     "location": "Bordeaux, France — amarré sur la Garonne"
   },
   "artistsPage": {
+    "metaTitle": "Artistes | Studio Bato",
+    "metaDescription": "Explorez le roster de Studio Bato. Découvrez les artistes avec qui nous produisons, enregistrons et sortons de la musique.",
     "title": "Artistes"
   },
   "releasesPage": {
+    "metaTitle": "Sorties | Studio Bato",
+    "metaDescription": "Parcourez toutes les sorties Studio Bato — singles, EPs et albums de nos artistes.",
     "title": "Sorties"
   },
   "videosPage": {
+    "metaTitle": "Vidéos | Studio Bato",
+    "metaDescription": "Regardez les clips et contenus visuels des artistes Studio Bato.",
     "title": "Vidéos"
   },
   "artistDetail": {

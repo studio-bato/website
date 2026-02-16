@@ -1,6 +1,19 @@
 import { releases } from "@/data";
 import { Release } from "@/components/release";
 import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("releasesPage");
+  const title = t("metaTitle");
+  const description = t("metaDescription");
+
+  return {
+    title,
+    description,
+    openGraph: { title, description },
+  };
+}
 
 export default async function Releases() {
   const t = await getTranslations("releasesPage");

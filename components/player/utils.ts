@@ -13,6 +13,7 @@ export function mapReleaseToPlayer(release: Release): Array<PlayerTrack> {
       cover: release.cover,
       artist: artists.map((a) => a.name).join(", "),
       album: release.title,
+      releaseId: release.id,
     }));
 }
 

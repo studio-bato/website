@@ -3,6 +3,7 @@ import { mapReleaseToPlayer } from "@/components/player/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { DownloadTrackButton } from "@/components/player/download-track-button";
 import { PlayTrackButton } from "@/components/player/play-track-button";
 import { PlayReleaseButton } from "@/components/player/play-release-button";
 import { ListenDropdown } from "@/components/listen-dropdown";
@@ -10,6 +11,45 @@ import { VideoClipEmbed } from "@/components/video-clip-embed";
 import { artists } from "@/data";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  const { id } = await params;
+  const release = releases.find((a) => a.id === id);
+  if (!release) return {};
+
+  const releaseArtists = getReleaseArtists(release);
+  const artistNames = releaseArtists.map((a) => a.name).join(", ");
+  const title = `${release.title} by ${artistNames} | Studio Bato`;
+  const description =
+    release.description ||
+    `Listen to ${release.title} by ${artistNames}. ${release.type} · ${release.genres.join(", ")}.`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: "music.album",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+  };
+}
+
+export async function generateStaticParams() {
+  return releases.map((release) => ({
+    id: release.id,
+  }));
+}
 
 export default async function ReleasePage({
   params,
@@ -101,10 +141,13 @@ export default async function ReleasePage({
                             {track.title}
                           </span>
                           {track.url && (
-                            <PlayTrackButton
-                              tracks={playerTracks}
-                              index={index}
-                            />
+                            <div className="flex gap-2">
+                              <DownloadTrackButton url={track.url} />
+                              <PlayTrackButton
+                                tracks={playerTracks}
+                                index={index}
+                              />
+                            </div>
                           )}
                         </div>
                         {track.artistIds && track.artistIds.length > 0 && (
