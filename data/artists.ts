@@ -20,7 +20,9 @@ export const artists: Array<Artist> = [
     image:
       "https://sb-cdn.opac.me/file/studiobato-assets/artists/walass/profile.jpg",
     socials: {
-      instagram: "https://instagram.com/walass",
+      instagram: "https://instagram.com/___walass___",
+      youtube: "https://www.youtube.com/channel/UCJ6Js5k57v-7KZZ3ROSMm6g",
+      bandcamp: "https://voilawalass.bandcamp.com",
     },
   },
   {
@@ -30,7 +32,7 @@ export const artists: Array<Artist> = [
     image:
       "https://sb-cdn.opac.me/file/studiobato-assets/artists/youyou/profile.jpg",
     socials: {
-      instagram: "https://instagram.com/youyou",
+      instagram: "https://instagram.com/youyou.wav",
     },
   },
   {
@@ -39,9 +41,6 @@ export const artists: Array<Artist> = [
     bio: "Lyriciste",
     image:
       "https://sb-cdn.opac.me/file/studiobato-assets/artists/dzuko/profile.jpg",
-    socials: {
-      instagram: "https://instagram.com/youyou",
-    },
   },
   {
     id: "kmn",
@@ -49,9 +48,6 @@ export const artists: Array<Artist> = [
     bio: "Old-school survivor",
     image:
       "https://sb-cdn.opac.me/file/studiobato-assets/artists/kmn/profile.jpg",
-    socials: {
-      instagram: "https://instagram.com/kmnmgp",
-    },
   },
 ];
 

@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import { artists, releases } from "@/data";
 
 export async function AboutSection() {
   const t = await getTranslations("aboutSection");
@@ -23,27 +24,31 @@ export async function AboutSection() {
 
             <div className="grid grid-cols-2 gap-px bg-border mt-4">
               <div className="bg-background p-6">
-                <p className="font-display text-3xl text-foreground">50+</p>
+                <p className="font-display text-3xl text-foreground">
+                  {artists.length}+
+                </p>
                 <p className="text-sm text-muted-foreground mt-1">
                   {t("artistsOnRoster")}
                 </p>
               </div>
               <div className="bg-background p-6">
-                <p className="font-display text-3xl text-foreground">200+</p>
+                <p className="font-display text-3xl text-foreground">
+                  {releases.length}+
+                </p>
                 <p className="text-sm text-muted-foreground mt-1">
                   {t("totalReleases")}
                 </p>
               </div>
               <div className="bg-background p-6">
-                <p className="font-display text-3xl text-foreground">12M+</p>
+                <p className="font-display text-3xl text-foreground">5</p>
                 <p className="text-sm text-muted-foreground mt-1">
-                  {t("globalStreams")}
+                  {t("artistResidencies")}
                 </p>
               </div>
               <div className="bg-background p-6">
-                <p className="font-display text-3xl text-foreground">40+</p>
+                <p className="font-display text-3xl text-foreground">4</p>
                 <p className="text-sm text-muted-foreground mt-1">
-                  {t("countriesReached")}
+                  {t("countriesRepresented")}
                 </p>
               </div>
             </div>

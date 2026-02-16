@@ -34,7 +34,6 @@ export function Release({ release }: ReleaseProps) {
         <p className="text-sm text-muted-foreground mt-0.5">
           {release.genres.join(", ")}
         </p>
-        <p className="text-sm text-foreground mt-2">{release.description}</p>
       </div>
     </CardRow>
   );
