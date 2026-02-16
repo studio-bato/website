@@ -4,8 +4,10 @@ import React from "react"
 
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export function Newsletter() {
+  const t = useTranslations("newsletter");
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
@@ -22,16 +24,16 @@ export function Newsletter() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="max-w-xl">
           <h2 className="font-display text-4xl sm:text-5xl tracking-tight text-foreground text-balance">
-            Stay in the loop
+            {t("title")}
           </h2>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            New releases, artist updates, and label news. No noise.
+            {t("description")}
           </p>
 
           {submitted ? (
             <div className="mt-8 py-4 border-t border-foreground">
               <p className="text-foreground">
-                {"You're"} in. We{"'"}ll be in touch.
+                {t("success")}
               </p>
             </div>
           ) : (
@@ -40,7 +42,7 @@ export function Newsletter() {
               className="mt-8 flex items-center border-b border-foreground"
             >
               <label htmlFor="newsletter-email" className="sr-only">
-                Email address
+                {t("emailLabel")}
               </label>
               <input
                 id="newsletter-email"
@@ -54,7 +56,7 @@ export function Newsletter() {
               <button
                 type="submit"
                 className="text-foreground hover:text-muted-foreground transition-colors p-4"
-                aria-label="Subscribe"
+                aria-label={t("subscribe")}
               >
                 <ArrowRight className="h-5 w-5" />
               </button>

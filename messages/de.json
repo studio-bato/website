@@ -111,11 +111,25 @@
     "allReleases": "Alle Releases",
     "tracklist": "Tracklist",
     "videoClips": "Musikvideos",
-    "listenOnPlatforms": "Auf Plattformen hören"
+    "listenOnPlatforms": "Auf Plattformen hören",
+    "buy": "Kaufen",
+    "playAll": "Alle abspielen",
+    "variousArtists": "Verschiedene Künstler"
   },
   "notFound": {
     "title": "Seite nicht gefunden :/",
     "goHome": "Zur Startseite"
+  },
+  "player": {
+    "playlist": "Playlist",
+    "tuneRadio": "Tune Radio"
+  },
+  "newsletter": {
+    "title": "Bleiben Sie auf dem Laufenden",
+    "description": "Neue Releases, Künstler-Updates und Label-News. Kein Lärm.",
+    "emailLabel": "E-Mail-Adresse",
+    "subscribe": "Abonnieren",
+    "success": "Sie sind dabei. Wir melden uns."
   },
   "footer": {
     "description": "Unabhängiges Musiklabel vom Boot",

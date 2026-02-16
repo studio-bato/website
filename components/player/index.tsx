@@ -17,6 +17,7 @@ import { Slider } from "@/components/ui/slider";
 import { cn } from "@/lib/utils";
 import { usePlayer } from "./context";
 import { getInitialPlaylist } from "./initialPlaylist";
+import { useTranslations } from "next-intl";
 
 export type { PlayerTrack } from "./context";
 export { PlayerProvider, usePlayer } from "./context";
@@ -40,6 +41,7 @@ export function Player() {
     seek,
     replaceAndPlay,
   } = usePlayer();
+  const t = useTranslations("player");
   const [isExpanded, setIsExpanded] = useState(false);
 
   const currentTrack = playlist[currentTrackIndex];
@@ -198,7 +200,7 @@ export function Player() {
             <div className="border-t flex-1 overflow-y-auto">
               <div className="px-4 py-3">
                 <p className="text-xs font-semibold uppercase text-muted-foreground mb-2">
-                  Playlist
+                  {t("playlist")}
                 </p>
                 {playlist.map((track, index) => (
                   <button
@@ -278,7 +280,7 @@ export function Player() {
             </div>
           </div>
           <Button variant="outline" size="sm" onClick={startRadio}>
-            <span className="hidden md:block">Tune radio</span>
+            <span className="hidden md:block">{t("tuneRadio")}</span>
             <Radio className="w-4 h-4" color="#ff4800" />
           </Button>
 

@@ -1,11 +1,15 @@
+"use client";
+
 import { ArrowUpRight } from "lucide-react";
 import { getReleaseArtists, type Release } from "@/data";
 import { CardRow } from "./CardRow";
+import { useTranslations } from "next-intl";
 
 interface ReleaseProps {
   release: Release;
 }
 export function Release({ release }: ReleaseProps) {
+  const t = useTranslations("releaseDetail");
   const artists = getReleaseArtists(release);
 
   return (
@@ -29,7 +33,7 @@ export function Release({ release }: ReleaseProps) {
         <p className="text-md text-muted-foreground mt-0.5">
           {artists.length
             ? artists.map((a) => a.name).join(", ")
-            : "Various artists"}
+            : t("variousArtists")}
         </p>
         <p className="text-sm text-muted-foreground mt-0.5">
           {release.genres.join(", ")}

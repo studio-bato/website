@@ -111,11 +111,25 @@
     "allReleases": "All releases",
     "tracklist": "Tracklist",
     "videoClips": "Video Clips",
-    "listenOnPlatforms": "Listen on platforms"
+    "listenOnPlatforms": "Listen on platforms",
+    "buy": "Buy",
+    "playAll": "Play all",
+    "variousArtists": "Various artists"
   },
   "notFound": {
     "title": "Page not found :/",
     "goHome": "Go Home"
+  },
+  "player": {
+    "playlist": "Playlist",
+    "tuneRadio": "Tune radio"
+  },
+  "newsletter": {
+    "title": "Stay in the loop",
+    "description": "New releases, artist updates, and label news. No noise.",
+    "emailLabel": "Email address",
+    "subscribe": "Subscribe",
+    "success": "You're in. We'll be in touch."
   },
   "footer": {
     "description": "Independent boat-made music label",

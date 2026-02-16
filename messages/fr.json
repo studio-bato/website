@@ -111,11 +111,25 @@
     "allReleases": "Toutes les sorties",
     "tracklist": "Tracklist",
     "videoClips": "Clips vidéo",
-    "listenOnPlatforms": "Écouter sur les plateformes"
+    "listenOnPlatforms": "Écouter sur les plateformes",
+    "buy": "Acheter",
+    "playAll": "Tout écouter",
+    "variousArtists": "Artistes variés"
   },
   "notFound": {
     "title": "Page introuvable :/",
     "goHome": "Retour à l'accueil"
+  },
+  "player": {
+    "playlist": "Playlist",
+    "tuneRadio": "Tune radio"
+  },
+  "newsletter": {
+    "title": "Restez dans la boucle",
+    "description": "Nouvelles sorties, actus des artistes et news du label. Sans bruit.",
+    "emailLabel": "Adresse email",
+    "subscribe": "S'abonner",
+    "success": "C'est noté. On vous tient au courant."
   },
   "footer": {
     "description": "Label de musique indépendant fait sur un bateau",

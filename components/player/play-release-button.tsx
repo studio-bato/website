@@ -3,6 +3,7 @@
 import { Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { usePlayer, type PlayerTrack } from "@/components/player";
+import { useTranslations } from "next-intl";
 
 interface PlayReleaseButtonProps {
   tracks: PlayerTrack[];
@@ -10,6 +11,7 @@ interface PlayReleaseButtonProps {
 
 export function PlayReleaseButton({ tracks }: PlayReleaseButtonProps) {
   const { replaceAndPlay } = usePlayer();
+  const t = useTranslations("releaseDetail");
 
   if (tracks.length === 0) return null;
 
@@ -21,7 +23,7 @@ export function PlayReleaseButton({ tracks }: PlayReleaseButtonProps) {
       className="gap-1.5"
     >
       <Play className="h-4 w-4" />
-      Play all
+      {t("playAll")}
     </Button>
   );
 }
