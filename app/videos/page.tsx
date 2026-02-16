@@ -24,9 +24,9 @@ export default function VideosPage() {
     <main>
       <section className="py-12 lg:py-32">
         <div className="mx-auto max-w-6xl px-6">
-          <h1 className="font-display text-3xl sm:text-4xl tracking-tight text-foreground mb-12">
+          <h2 className="font-display text-4xl sm:text-5xl tracking-tight text-foreground mb-16">
             Videos
-          </h1>
+          </h2>
 
           <div className="space-y-8">
             {releasesWithVideos.map((release) => {
