@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   Play,
   Pause,
@@ -123,29 +124,36 @@ export function Player() {
 
             {/* Main content */}
             <div className="flex flex-col items-center gap-4 overflow-hidden px-6 pt-4 pb-8">
-              <div className="flex items-center gap-5">
-                {/* Cover */}
-                <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-lg shadow-lg">
-                  <Image
-                    src={currentTrack.cover || "/placeholder-release.svg"}
-                    alt={currentTrack.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+              <Link
+                href={`/releases/${currentTrack.releaseId}`}
+                onClick={() => setIsExpanded(false)}
+              >
+                <div className="flex items-center gap-5">
+                  {/* Cover */}
+                  <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-lg shadow-lg">
+                    <Image
+                      src={currentTrack.cover || "/placeholder-release.svg"}
+                      alt={currentTrack.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
 
-                {/* Track info */}
-                <div className="min-w-0">
-                  <p className="text-sm text-foreground">
-                    {currentTrack.artist}
-                  </p>
-                  <p className="text-lg font-semibold">{currentTrack.title}</p>
-                  <p className="text-sm text-muted-foreground">
-                    {currentTrack.album}
-                  </p>
-                </div>
-              </div>
+                  {/* Track info */}
+                  <div className="min-w-0">
+                    <p className="text-sm text-foreground">
+                      {currentTrack.artist}
+                    </p>
+                    <p className="text-lg font-semibold">
+                      {currentTrack.title}
+                    </p>
 
+                    <p className="text-sm text-muted-foreground">
+                      {currentTrack.album}
+                    </p>
+                  </div>
+                </div>
+              </Link>
               {/* Progress bar */}
               <div className="flex w-full max-w-sm items-center gap-3">
                 <span className="text-xs text-muted-foreground w-10 text-right">
@@ -246,23 +254,29 @@ export function Player() {
           </Button>
 
           {/* Cover thumbnail */}
-          <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded">
-            <Image
-              src={currentTrack.cover || "/placeholder-release.svg"}
-              alt={currentTrack.title}
-              fill
-              className="object-cover"
-            />
-          </div>
+          <div
+            onClick={() => setIsExpanded(true)}
+            className="flex flex-1 gap-2 cursor-pointer"
+          >
+            <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded">
+              <Image
+                src={currentTrack.cover || "/placeholder-release.svg"}
+                alt={currentTrack.title}
+                fill
+                className="object-cover"
+              />
+            </div>
 
-          {/* Track info */}
-          <div className="min-w-0 flex-1">
-            <p className="truncate text-sm font-medium">{currentTrack.title}</p>
-            <p className="truncate text-xs text-muted-foreground">
-              {currentTrack.artist}
-            </p>
+            {/* Track info */}
+            <div className="min-w-0 flex-1">
+              <p className="truncate text-sm font-medium">
+                {currentTrack.title}
+              </p>
+              <p className="truncate text-xs text-muted-foreground">
+                {currentTrack.artist}
+              </p>
+            </div>
           </div>
-
           <Button variant="outline" size="sm" onClick={startRadio}>
             <span className="hidden md:block">Tune radio</span>
             <Radio className="w-4 h-4" color="#ff4800" />

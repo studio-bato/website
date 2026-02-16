@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { DownloadTrackButton } from "@/components/player/download-track-button";
 import { PlayTrackButton } from "@/components/player/play-track-button";
 import { PlayReleaseButton } from "@/components/player/play-release-button";
 import { ListenDropdown } from "@/components/listen-dropdown";
@@ -138,10 +139,13 @@ export default async function ReleasePage({
                             {track.title}
                           </span>
                           {track.url && (
-                            <PlayTrackButton
-                              tracks={playerTracks}
-                              index={index}
-                            />
+                            <div className="flex gap-2">
+                              <DownloadTrackButton url={track.url} />
+                              <PlayTrackButton
+                                tracks={playerTracks}
+                                index={index}
+                              />
+                            </div>
                           )}
                         </div>
                         {track.artistIds && track.artistIds.length > 0 && (
