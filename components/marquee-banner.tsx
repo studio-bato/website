@@ -1,15 +1,18 @@
 import { artists, releases } from "@/data";
+import { getTranslations } from "next-intl/server";
 
-export function MarqueeBanner() {
+export async function MarqueeBanner() {
+  const t = await getTranslations("marquee");
+
   return (
     <div className="border-y border-border py-5">
       <div className="mx-auto max-w-6xl px-6">
         <div className="flex flex-wrap items-center justify-between gap-6 text-sm text-muted-foreground">
-          <span>{artists.length}+ Artists</span>
+          <span>{artists.length}+ {t("artists")}</span>
           <span className="hidden sm:inline text-border">{"/"}</span>
-          <span>{releases.length}+ Releases</span>
+          <span>{releases.length}+ {t("releases")}</span>
           <span className="hidden sm:inline text-border">{"/"}</span>
-          <span>Est. 2018</span>
+          <span>{t("established")}</span>
         </div>
       </div>
     </div>

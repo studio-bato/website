@@ -1,17 +1,12 @@
-import { ArrowUpRight } from "lucide-react";
-import Link from "next/link";
-
-export default function NotFound() {
+export default function RootNotFound() {
   return (
-    <div className="flex flex-col items-center align-center text-muted-foreground">
-      <h2>Page not found :/</h2>
-      <Link
-        href="/"
-        className="my-8 inline-flex items-center gap-1.5 text-md text-muted-foreground hover:text-foreground transition-colors border px-4 py-2 rounded-xl "
-      >
-        Go Home
-        <ArrowUpRight className="h-3.5 w-3.5" />
-      </Link>
-    </div>
+    <html lang="fr">
+      <body>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", minHeight: "100vh" }}>
+          <h1>Page introuvable</h1>
+          <a href="/">Retour</a>
+        </div>
+      </body>
+    </html>
   );
 }

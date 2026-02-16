@@ -1,0 +1,124 @@
+{
+  "metadata": {
+    "title": "Studio Bato | We ship songs",
+    "description": "An independent music label championing artists who define the future of sound. Discover our roster and latest releases."
+  },
+  "nav": {
+    "artists": "Artists",
+    "releases": "Releases",
+    "videos": "Videos",
+    "about": "About",
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "hero": {
+    "subtitle": "Independent Music Label",
+    "title1": "We ship",
+    "title2": "songs",
+    "description": "House made and lovely brought to you from our boat studio."
+  },
+  "marquee": {
+    "artists": "Artists",
+    "releases": "Releases",
+    "established": "Est. 2018"
+  },
+  "latestReleases": {
+    "title": "Latest Releases",
+    "viewAll": "View all"
+  },
+  "featuredArtists": {
+    "title": "Featured Artists",
+    "viewAll": "View all"
+  },
+  "aboutSection": {
+    "title": "Built for the artists who refuse to be ordinary",
+    "description1": "Founded in 2018, Sonance emerged from the conviction that great music deserves more than an algorithm. We are a community of creators, curators, and believers in the transformative power of sound.",
+    "description2": "Every release on our label meets an uncompromising standard for sonic excellence. We champion the sounds shaping tomorrow, providing independent spirit with worldwide distribution.",
+    "artistsOnRoster": "Artists on roster",
+    "totalReleases": "Total releases",
+    "globalStreams": "Global streams",
+    "countriesReached": "Countries reached"
+  },
+  "aboutPage": {
+    "subtitle": "About Us",
+    "title1": "A studio",
+    "title2": "on the water",
+    "heroDescription": "Studio Bato is an independent music studio based on a boat in Bordeaux, France. We produce, record, and share music that moves.",
+    "storyTitle": "Born on the river, built for the music",
+    "storyP1": "Studio Bato was founded with a simple idea: create a space where music and life converge, away from the noise of the city. Our boat, moored on the Garonne in Bordeaux, is both our home and our creative engine.",
+    "storyP2": "We are a small, dedicated team of producers, engineers, and music lovers. We work closely with every artist who comes aboard — from the first demo to the final master, from the album artwork to the release strategy. We believe great music deserves a complete vision, and we are here to make it happen.",
+    "storyP3": "Being independent means we answer to the music, not to a boardroom. Every project we take on is a choice, not an obligation. That freedom is what allows us to stay honest, experimental, and deeply invested in the artists we work with.",
+    "servicesTitle": "What we do",
+    "servicesDescription": "From the first note to the final stream, we handle every step of the journey. All from the boat.",
+    "productionTitle": "Production",
+    "productionDesc": "We produce music from scratch or help shape your existing ideas into fully realized tracks. Our producers bring taste, technique, and a deep love for sound.",
+    "recordingTitle": "Recording",
+    "recordingDesc": "Our boat studio is equipped for professional recording — vocals, instruments, live sessions. Compact, treated, and surprisingly quiet for a floating space.",
+    "mixingTitle": "Mixing & Mastering",
+    "mixingDesc": "We mix and master every release in-house, ensuring a polished, cohesive sound that translates across every speaker and platform.",
+    "distributionTitle": "Distribution",
+    "distributionDesc": "We handle distribution to all major streaming platforms — Spotify, Apple Music, Deezer, and beyond. Your music, everywhere it needs to be.",
+    "communicationTitle": "Communication",
+    "communicationDesc": "From social media strategy to press outreach, we help artists build their audience and tell their story. We craft the narrative around the music.",
+    "videoClipsTitle": "Video Clips",
+    "videoClipsDesc": "We produce music videos and visual content — from concept to final cut. The river, the boat, and the city provide a unique backdrop.",
+    "residencyTitle": "Artist Residency",
+    "residencyDescription": "Come live and create on the boat. Leave with a finished project and a show under your belt.",
+    "residencyP1": "Our residency program invites artists to step aboard and dedicate themselves entirely to their creative work. For a set period, you live on the boat, with full access to the studio, the equipment, and our team. No distractions, no commute — just you and the music, rocked by the river.",
+    "residencyP2": "Whether you are writing an album, developing a live performance, experimenting with new sounds, or working on a cross-disciplinary project, the residency gives you the time and space to go deep. Our producers and engineers are available to collaborate, or to simply let you work in peace.",
+    "residencyP3": "Every residency ends with a live show on the boat, open to the public. It is the culmination of your time here — a chance to share what you have built with an audience, in an intimate and unforgettable setting on the water.",
+    "weeksOnBoard": "Weeks on board",
+    "studioAccess": "Studio access",
+    "liveShowIncluded": "Live show included",
+    "yourProject": "Your project, your vision"
+  },
+  "contactPage": {
+    "subtitle": "Contact",
+    "title1": "Get in",
+    "title2": "touch",
+    "heroDescription": "Want to produce or distribute your music with us? Interested in an artist residency on the boat? We would love to hear from you.",
+    "instagramTitle": "Instagram",
+    "instagramDesc": "DM us on Instagram. It is the fastest way to start a conversation — we check our messages daily.",
+    "emailTitle": "Email",
+    "emailDesc": "For project proposals, residency applications, or any detailed inquiry, drop us a line by email.",
+    "location": "Bordeaux, France — moored on the Garonne"
+  },
+  "artistsPage": {
+    "title": "Artists"
+  },
+  "releasesPage": {
+    "title": "Releases"
+  },
+  "videosPage": {
+    "title": "Videos"
+  },
+  "artistDetail": {
+    "allArtists": "All artists",
+    "releases": "Releases"
+  },
+  "releaseDetail": {
+    "allReleases": "All releases",
+    "tracklist": "Tracklist",
+    "videoClips": "Video Clips",
+    "listenOnPlatforms": "Listen on platforms"
+  },
+  "notFound": {
+    "title": "Page not found :/",
+    "goHome": "Go Home"
+  },
+  "footer": {
+    "description": "Independent boat-made music label",
+    "location": "Bordeaux, France",
+    "labelSection": "Label",
+    "connectSection": "Connect",
+    "infoSection": "Info",
+    "about": "About",
+    "artists": "Artists",
+    "releases": "Releases",
+    "contact": "Contact",
+    "copyright": "© 2026 StudioBato. All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms"
+  }
+}

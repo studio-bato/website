@@ -1,9 +1,18 @@
 import { releases } from "@/data";
 import { getReleaseArtists } from "@/data/utils";
 import { VideoClipEmbed } from "@/components/video-clip-embed";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
-export default function VideosPage() {
+export default async function VideosPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("videosPage");
+
   const releasesWithVideos = releases.filter(
     (r) => r.videoClips && r.videoClips.length > 0,
   );
@@ -13,7 +22,7 @@ export default function VideosPage() {
       <section className="py-12 lg:py-32">
         <div className="mx-auto max-w-6xl px-6">
           <h1 className="font-display text-3xl sm:text-4xl tracking-tight text-foreground mb-12">
-            Videos
+            {t("title")}
           </h1>
 
           <div className="space-y-8">

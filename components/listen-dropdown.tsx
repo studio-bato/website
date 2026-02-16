@@ -9,6 +9,7 @@ import {
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
 import { icons } from "@/lib/icons";
+import { useTranslations } from "next-intl";
 
 import type { AudioPlatformLinks } from "@/data";
 
@@ -17,6 +18,7 @@ interface ListenDropdownProps {
 }
 
 export function ListenDropdown({ links }: ListenDropdownProps) {
+  const t = useTranslations("releaseDetail");
   const entries = Object.entries(links).filter(
     (entry): entry is [string, string] => typeof entry[1] === "string",
   );
@@ -27,7 +29,7 @@ export function ListenDropdown({ links }: ListenDropdownProps) {
       <DropdownMenuTrigger asChild>
         <Button variant="outline" size="sm" className="gap-1.5">
           <Headphones className="h-4 w-4" />
-          Listen on platforms
+          {t("listenOnPlatforms")}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="start">

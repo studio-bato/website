@@ -3,9 +3,16 @@ import { MarqueeBanner } from "@/components/marquee-banner";
 import { FeaturedArtists } from "@/components/featured-artists";
 import { LatestReleases } from "@/components/latest-releases";
 import { AboutSection } from "@/components/about-section";
-// import { Newsletter } from "@/components/newsletter";
+import { setRequestLocale } from "next-intl/server";
 
-export default function Page() {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   return (
     <main>
       <Hero />
@@ -13,7 +20,6 @@ export default function Page() {
       <LatestReleases />
       <FeaturedArtists />
       <AboutSection />
-      {/* <Newsletter /> */}
     </main>
   );
 }

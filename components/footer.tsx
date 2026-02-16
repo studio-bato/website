@@ -1,23 +1,26 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { getTranslations } from "next-intl/server";
 
-const footerLinks = {
-  Label: [
-    { label: "About", href: "/about" },
-    { label: "Artists", href: "/artists" },
-    { label: "Releases", href: "/releases" },
-  ],
-  Connect: [
-    { label: "Instagram", href: "https://instagram.com/studio.bato" },
-    { label: "Youtube", href: "https://www.youtube.com/@studiobato" },
-    { label: "Spotify", href: "https://open.spotify.com/playlist/7yFysgG2WnkdMiigB6pJLo?si=f68df9108ec54827&nd=1" },
-    { label: "SoundCloud", href: "https://soundcloud.com/studiobato" },
-  ],
-  Info: [
-    { label: "Contact", href: "#" },
-  ],
-};
+export async function Footer() {
+  const t = await getTranslations("footer");
 
-export function Footer() {
+  const footerLinks = {
+    [t("labelSection")]: [
+      { label: t("about"), href: "/about" as const },
+      { label: t("artists"), href: "/artists" as const },
+      { label: t("releases"), href: "/releases" as const },
+    ],
+    [t("connectSection")]: [
+      { label: "Instagram", href: "https://instagram.com/studio.bato" },
+      { label: "Youtube", href: "https://www.youtube.com/@studiobato" },
+      { label: "Spotify", href: "https://open.spotify.com/playlist/7yFysgG2WnkdMiigB6pJLo?si=f68df9108ec54827&nd=1" },
+      { label: "SoundCloud", href: "https://soundcloud.com/studiobato" },
+    ],
+    [t("infoSection")]: [
+      { label: t("contact"), href: "/contact" as const },
+    ],
+  };
+
   return (
     <footer className="border-t border-border">
       <div className="mx-auto max-w-6xl px-6 py-16">
@@ -30,9 +33,9 @@ export function Footer() {
               Studio Bato
             </Link>
             <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-              Independent boat-made music label
+              {t("description")}
               <br />
-              <span className="italic">Bordeaux, France</span>
+              <span className="italic">{t("location")}</span>
             </p>
           </div>
 
@@ -45,7 +48,7 @@ export function Footer() {
                 {links.map((link) => (
                   <li key={link.label}>
                     <Link
-                      href={link.href}
+                      href={link.href as any}
                       className="text-sm text-foreground/60 hover:text-foreground transition-colors"
                     >
                       {link.label}
@@ -59,20 +62,20 @@ export function Footer() {
 
         <div className="mt-16 pt-6 border-t border-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <p className="text-xs text-muted-foreground">
-            {"© 2026 StudioBato. All rights reserved."}
+            {t("copyright")}
           </p>
           <div className="flex items-center gap-6">
             <Link
               href="#"
               className="text-xs text-muted-foreground hover:text-foreground transition-colors"
             >
-              Privacy
+              {t("privacy")}
             </Link>
             <Link
               href="#"
               className="text-xs text-muted-foreground hover:text-foreground transition-colors"
             >
-              Terms
+              {t("terms")}
             </Link>
           </div>
         </div>

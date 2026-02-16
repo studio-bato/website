@@ -1,20 +1,23 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
-
-const navLinks = [
-  { label: "Artists", href: "/artists" },
-  { label: "Releases", href: "/releases" },
-  { label: "Videos", href: "/videos" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
-];
+import { LanguageSwitcher } from "@/components/language-switcher";
+import { useTranslations } from "next-intl";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const t = useTranslations("nav");
+
+  const navLinks = [
+    { label: t("artists"), href: "/artists" as const },
+    { label: t("releases"), href: "/releases" as const },
+    { label: t("videos"), href: "/videos" as const },
+    { label: t("about"), href: "/about" as const },
+    { label: t("contact"), href: "/contact" as const },
+  ];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-sm h-20">
@@ -30,7 +33,7 @@ export function Navbar() {
           <div className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => (
               <Link
-                key={link.label}
+                key={link.href}
                 href={link.href}
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
@@ -40,12 +43,13 @@ export function Navbar() {
           </div>
 
           <div className="flex items-center gap-2">
+            <LanguageSwitcher />
             <ThemeToggle />
             <button
               type="button"
               onClick={() => setIsOpen(!isOpen)}
               className="md:hidden text-foreground"
-              aria-label={isOpen ? "Close menu" : "Open menu"}
+              aria-label={isOpen ? t("closeMenu") : t("openMenu")}
             >
               {isOpen ? (
                 <X className="h-5 w-5" />
@@ -62,7 +66,7 @@ export function Navbar() {
           <div className="px-6 py-8 flex flex-col gap-6">
             {navLinks.map((link) => (
               <Link
-                key={link.label}
+                key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
                 className="text-lg text-muted-foreground hover:text-foreground transition-colors"

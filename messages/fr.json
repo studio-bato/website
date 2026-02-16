@@ -1,0 +1,124 @@
+{
+  "metadata": {
+    "title": "Studio Bato | On envoie des sons",
+    "description": "Un label de musique indépendant qui soutient les artistes qui définissent le futur du son. Découvrez notre roster et nos dernières sorties."
+  },
+  "nav": {
+    "artists": "Artistes",
+    "releases": "Sorties",
+    "videos": "Vidéos",
+    "about": "À propos",
+    "contact": "Contact",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu"
+  },
+  "hero": {
+    "subtitle": "Label de musique indépendant",
+    "title1": "On envoie",
+    "title2": "des sons",
+    "description": "Faits maison avec amour depuis notre studio-bateau."
+  },
+  "marquee": {
+    "artists": "Artistes",
+    "releases": "Sorties",
+    "established": "Depuis 2018"
+  },
+  "latestReleases": {
+    "title": "Dernières sorties",
+    "viewAll": "Voir tout"
+  },
+  "featuredArtists": {
+    "title": "Artistes à l'affiche",
+    "viewAll": "Voir tout"
+  },
+  "aboutSection": {
+    "title": "Fait pour les artistes qui refusent d'être ordinaires",
+    "description1": "Fondé en 2018, Studio Bato est né de la conviction que la bonne musique mérite plus qu'un algorithme. Nous sommes une communauté de créateurs, de curateurs et de passionnés du pouvoir transformateur du son.",
+    "description2": "Chaque sortie sur notre label répond à un standard sans compromis d'excellence sonore. Nous défendons les sons qui façonnent demain, avec un esprit indépendant et une distribution mondiale.",
+    "artistsOnRoster": "Artistes au roster",
+    "totalReleases": "Sorties totales",
+    "globalStreams": "Streams mondiaux",
+    "countriesReached": "Pays touchés"
+  },
+  "aboutPage": {
+    "subtitle": "À propos",
+    "title1": "Un studio",
+    "title2": "sur l'eau",
+    "heroDescription": "Studio Bato est un studio de musique indépendant basé sur un bateau à Bordeaux, France. On produit, enregistre et partage de la musique qui fait bouger.",
+    "storyTitle": "Né sur le fleuve, construit pour la musique",
+    "storyP1": "Studio Bato a été fondé avec une idée simple : créer un espace où la musique et la vie se rejoignent, loin du bruit de la ville. Notre bateau, amarré sur la Garonne à Bordeaux, est à la fois notre maison et notre moteur créatif.",
+    "storyP2": "Nous sommes une petite équipe dévouée de producteurs, ingénieurs et passionnés de musique. On travaille étroitement avec chaque artiste qui monte à bord — de la première démo au master final, de la pochette à la stratégie de sortie. On croit que la bonne musique mérite une vision complète, et on est là pour la réaliser.",
+    "storyP3": "Être indépendant signifie qu'on répond à la musique, pas à un conseil d'administration. Chaque projet qu'on prend est un choix, pas une obligation. Cette liberté est ce qui nous permet de rester honnêtes, expérimentaux et profondément investis dans les artistes avec qui on travaille.",
+    "servicesTitle": "Ce qu'on fait",
+    "servicesDescription": "De la première note au dernier stream, on gère chaque étape du parcours. Le tout depuis le bateau.",
+    "productionTitle": "Production",
+    "productionDesc": "On produit de la musique à partir de zéro ou on aide à transformer vos idées en morceaux aboutis. Nos producteurs apportent goût, technique et un amour profond du son.",
+    "recordingTitle": "Enregistrement",
+    "recordingDesc": "Notre studio-bateau est équipé pour l'enregistrement professionnel — voix, instruments, sessions live. Compact, traité acoustiquement et étonnamment silencieux pour un espace flottant.",
+    "mixingTitle": "Mixage & Mastering",
+    "mixingDesc": "On mixe et masterise chaque sortie en interne, pour un son poli et cohérent qui passe sur tous les haut-parleurs et toutes les plateformes.",
+    "distributionTitle": "Distribution",
+    "distributionDesc": "On gère la distribution sur toutes les grandes plateformes de streaming — Spotify, Apple Music, Deezer et plus encore. Votre musique, partout où elle doit être.",
+    "communicationTitle": "Communication",
+    "communicationDesc": "De la stratégie réseaux sociaux aux relations presse, on aide les artistes à construire leur audience et raconter leur histoire. On façonne le récit autour de la musique.",
+    "videoClipsTitle": "Clips vidéo",
+    "videoClipsDesc": "On produit des clips et du contenu visuel — du concept au montage final. Le fleuve, le bateau et la ville offrent un décor unique.",
+    "residencyTitle": "Résidence d'artiste",
+    "residencyDescription": "Venez vivre et créer sur le bateau. Repartez avec un projet fini et un concert à votre actif.",
+    "residencyP1": "Notre programme de résidence invite les artistes à monter à bord et à se consacrer entièrement à leur travail créatif. Pendant une période définie, vous vivez sur le bateau, avec un accès complet au studio, au matériel et à notre équipe. Pas de distractions, pas de trajet — juste vous et la musique, bercés par le fleuve.",
+    "residencyP2": "Que vous écriviez un album, développiez un live, expérimentiez de nouveaux sons ou travailliez sur un projet pluridisciplinaire, la résidence vous donne le temps et l'espace pour aller en profondeur. Nos producteurs et ingénieurs sont disponibles pour collaborer, ou simplement vous laisser travailler en paix.",
+    "residencyP3": "Chaque résidence se termine par un concert live sur le bateau, ouvert au public. C'est l'aboutissement de votre temps ici — une occasion de partager ce que vous avez construit avec un public, dans un cadre intime et inoubliable sur l'eau.",
+    "weeksOnBoard": "Semaines à bord",
+    "studioAccess": "Accès studio",
+    "liveShowIncluded": "Concert live inclus",
+    "yourProject": "Votre projet, votre vision"
+  },
+  "contactPage": {
+    "subtitle": "Contact",
+    "title1": "Prenez",
+    "title2": "contact",
+    "heroDescription": "Vous voulez produire ou distribuer votre musique avec nous ? Intéressé par une résidence d'artiste sur le bateau ? On serait ravis de vous entendre.",
+    "instagramTitle": "Instagram",
+    "instagramDesc": "Envoyez-nous un DM sur Instagram. C'est le moyen le plus rapide de démarrer une conversation — on consulte nos messages tous les jours.",
+    "emailTitle": "Email",
+    "emailDesc": "Pour les propositions de projets, candidatures de résidence ou toute demande détaillée, envoyez-nous un email.",
+    "location": "Bordeaux, France — amarré sur la Garonne"
+  },
+  "artistsPage": {
+    "title": "Artistes"
+  },
+  "releasesPage": {
+    "title": "Sorties"
+  },
+  "videosPage": {
+    "title": "Vidéos"
+  },
+  "artistDetail": {
+    "allArtists": "Tous les artistes",
+    "releases": "Sorties"
+  },
+  "releaseDetail": {
+    "allReleases": "Toutes les sorties",
+    "tracklist": "Tracklist",
+    "videoClips": "Clips vidéo",
+    "listenOnPlatforms": "Écouter sur les plateformes"
+  },
+  "notFound": {
+    "title": "Page introuvable :/",
+    "goHome": "Retour à l'accueil"
+  },
+  "footer": {
+    "description": "Label de musique indépendant fait sur un bateau",
+    "location": "Bordeaux, France",
+    "labelSection": "Label",
+    "connectSection": "Suivre",
+    "infoSection": "Info",
+    "about": "À propos",
+    "artists": "Artistes",
+    "releases": "Sorties",
+    "contact": "Contact",
+    "copyright": "© 2026 StudioBato. Tous droits réservés.",
+    "privacy": "Confidentialité",
+    "terms": "Mentions légales"
+  }
+}

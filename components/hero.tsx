@@ -1,7 +1,9 @@
 import { getRandomVideoClip } from "@/data/utils";
 import { getYouTubeId } from "@/components/video-clip-embed";
+import { getTranslations } from "next-intl/server";
 
-export function Hero() {
+export async function Hero() {
+  const t = await getTranslations("hero");
   const clip = getRandomVideoClip();
   const ytId = clip ? getYouTubeId(clip.url) : null;
 
@@ -9,15 +11,15 @@ export function Hero() {
     <section className="relative min-h-[calc(100dvh-16rem)] overflow-hidden flex flex-col justify-between">
       <div className="flex-1 flex flex-col items-center justify-center px-6 py-16 lg:py-32">
         <p className="text-sm text-muted-foreground tracking-widest uppercase mb-8">
-          Independent Music Label
+          {t("subtitle")}
         </p>
         <h1 className="font-display text-5xl sm:text-7xl lg:text-[8rem] leading-[0.9] text-foreground text-center tracking-tight text-balance">
-          We ship
+          {t("title1")}
           <br />
-          songs
+          {t("title2")}
         </h1>
         <p className="mt-8 text-muted-foreground text-center max-w-md leading-relaxed">
-          House made and lovely brought to you from our boat studio.
+          {t("description")}
         </p>
       </div>
 
@@ -36,30 +38,6 @@ export function Hero() {
           </div>
         </div>
       )}
-
-      {/*<div className="mx-auto max-w-6xl w-full px-6 pb-6">
-       
-        <div className="grid grid-cols-3 gap-3 h-72 sm:h-96">
-           <div className="relative overflow-hidden col-span-2">
-            <Image
-              src="/images/hero.jpg"
-              alt="Live concert with dramatic stage lighting"
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
-          <div className="relative overflow-hidden">
-            <Image
-              src="/images/artist-1.jpg"
-              alt="Featured artist portrait"
-              fill
-              className="object-cover"
-              priority
-            />
-          </div> 
-        </div>
-      </div>*/}
     </section>
   );
 }

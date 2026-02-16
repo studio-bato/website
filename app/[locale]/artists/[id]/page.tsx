@@ -1,19 +1,22 @@
 import { artists, getArtistReleases } from "@/data";
-import { redirect } from "next/navigation";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { ArrowLeft } from "lucide-react";
 import { icons } from "@/lib/icons";
 import type { Socials } from "@/data";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 export default async function ArtistPage({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: Promise<{ locale: string; id: string }>;
 }) {
-  const { id } = await params;
+  const { locale, id } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("artistDetail");
+
   let artist = artists.find((a) => a.id === id);
-  
+
   if (!artist) {
     artist = {
       id,
@@ -33,7 +36,7 @@ export default async function ArtistPage({
             className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mb-12"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
-            All artists
+            {t("allArtists")}
           </Link>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
@@ -88,7 +91,7 @@ export default async function ArtistPage({
           {releases.length > 0 && (
             <div className="mt-8">
               <h2 className="font-display text-2xl sm:text-3xl tracking-tight text-foreground mb-8">
-                Releases
+                {t("releases")}
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
                 {releases.map((release) => (

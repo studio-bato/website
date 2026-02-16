@@ -1,0 +1,124 @@
+{
+  "metadata": {
+    "title": "Studio Bato | Wir verschicken Songs",
+    "description": "Ein unabhängiges Musiklabel, das Künstler fördert, die die Zukunft des Sounds definieren. Entdecken Sie unser Roster und die neuesten Veröffentlichungen."
+  },
+  "nav": {
+    "artists": "Künstler",
+    "releases": "Releases",
+    "videos": "Videos",
+    "about": "Über uns",
+    "contact": "Kontakt",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen"
+  },
+  "hero": {
+    "subtitle": "Unabhängiges Musiklabel",
+    "title1": "Wir verschicken",
+    "title2": "Songs",
+    "description": "Hausgemacht und mit Liebe von unserem Boot-Studio zu Ihnen gebracht."
+  },
+  "marquee": {
+    "artists": "Künstler",
+    "releases": "Releases",
+    "established": "Seit 2018"
+  },
+  "latestReleases": {
+    "title": "Neueste Releases",
+    "viewAll": "Alle anzeigen"
+  },
+  "featuredArtists": {
+    "title": "Ausgewählte Künstler",
+    "viewAll": "Alle anzeigen"
+  },
+  "aboutSection": {
+    "title": "Gemacht für Künstler, die sich weigern, gewöhnlich zu sein",
+    "description1": "2018 gegründet, entstand Studio Bato aus der Überzeugung, dass großartige Musik mehr verdient als einen Algorithmus. Wir sind eine Gemeinschaft von Schöpfern, Kuratoren und Gläubigen an die transformative Kraft des Klangs.",
+    "description2": "Jede Veröffentlichung auf unserem Label erfüllt einen kompromisslosen Standard für klangliche Exzellenz. Wir fördern die Sounds, die das Morgen gestalten, mit unabhängigem Geist und weltweiter Distribution.",
+    "artistsOnRoster": "Künstler im Roster",
+    "totalReleases": "Veröffentlichungen gesamt",
+    "globalStreams": "Weltweite Streams",
+    "countriesReached": "Erreichte Länder"
+  },
+  "aboutPage": {
+    "subtitle": "Über uns",
+    "title1": "Ein Studio",
+    "title2": "auf dem Wasser",
+    "heroDescription": "Studio Bato ist ein unabhängiges Musikstudio auf einem Boot in Bordeaux, Frankreich. Wir produzieren, nehmen auf und teilen Musik, die bewegt.",
+    "storyTitle": "Am Fluss geboren, für die Musik gebaut",
+    "storyP1": "Studio Bato wurde mit einer einfachen Idee gegründet: einen Raum zu schaffen, wo Musik und Leben zusammenfinden, abseits vom Lärm der Stadt. Unser Boot, an der Garonne in Bordeaux vertäut, ist sowohl unser Zuhause als auch unser kreativer Motor.",
+    "storyP2": "Wir sind ein kleines, engagiertes Team aus Produzenten, Ingenieuren und Musikliebhabern. Wir arbeiten eng mit jedem Künstler zusammen, der an Bord kommt — von der ersten Demo bis zum finalen Master, vom Album-Artwork bis zur Release-Strategie. Wir glauben, dass großartige Musik eine vollständige Vision verdient, und wir sind hier, um sie zu verwirklichen.",
+    "storyP3": "Unabhängig zu sein bedeutet, dass wir der Musik antworten, nicht einem Vorstand. Jedes Projekt, das wir annehmen, ist eine Wahl, keine Pflicht. Diese Freiheit erlaubt es uns, ehrlich, experimentell und tief investiert in die Künstler zu bleiben, mit denen wir arbeiten.",
+    "servicesTitle": "Was wir machen",
+    "servicesDescription": "Von der ersten Note bis zum letzten Stream begleiten wir jeden Schritt der Reise. Alles vom Boot aus.",
+    "productionTitle": "Produktion",
+    "productionDesc": "Wir produzieren Musik von Grund auf oder helfen, Ihre bestehenden Ideen in vollständig realisierte Tracks zu verwandeln. Unsere Produzenten bringen Geschmack, Technik und eine tiefe Liebe zum Sound.",
+    "recordingTitle": "Aufnahme",
+    "recordingDesc": "Unser Boot-Studio ist für professionelle Aufnahmen ausgestattet — Gesang, Instrumente, Live-Sessions. Kompakt, akustisch behandelt und überraschend leise für einen schwimmenden Raum.",
+    "mixingTitle": "Mixing & Mastering",
+    "mixingDesc": "Wir mischen und mastern jede Veröffentlichung intern und sorgen für einen polierten, zusammenhängenden Sound, der auf jedem Lautsprecher und jeder Plattform funktioniert.",
+    "distributionTitle": "Distribution",
+    "distributionDesc": "Wir übernehmen die Distribution auf allen großen Streaming-Plattformen — Spotify, Apple Music, Deezer und mehr. Ihre Musik, überall wo sie sein muss.",
+    "communicationTitle": "Kommunikation",
+    "communicationDesc": "Von Social-Media-Strategie bis Pressearbeit helfen wir Künstlern, ihr Publikum aufzubauen und ihre Geschichte zu erzählen. Wir gestalten die Erzählung rund um die Musik.",
+    "videoClipsTitle": "Musikvideos",
+    "videoClipsDesc": "Wir produzieren Musikvideos und visuellen Content — vom Konzept bis zum Endschnitt. Der Fluss, das Boot und die Stadt bieten eine einzigartige Kulisse.",
+    "residencyTitle": "Künstlerresidenz",
+    "residencyDescription": "Kommen Sie an Bord, leben und kreieren Sie auf dem Boot. Gehen Sie mit einem fertigen Projekt und einem Konzert nach Hause.",
+    "residencyP1": "Unser Residenzprogramm lädt Künstler ein, an Bord zu kommen und sich ganz ihrer kreativen Arbeit zu widmen. Für einen festgelegten Zeitraum leben Sie auf dem Boot, mit vollem Zugang zum Studio, zur Ausrüstung und zu unserem Team. Keine Ablenkungen, kein Pendeln — nur Sie und die Musik, gewiegt vom Fluss.",
+    "residencyP2": "Ob Sie ein Album schreiben, eine Live-Performance entwickeln, mit neuen Sounds experimentieren oder an einem interdisziplinären Projekt arbeiten — die Residenz gibt Ihnen die Zeit und den Raum, tief einzutauchen. Unsere Produzenten und Ingenieure stehen zur Zusammenarbeit bereit oder lassen Sie einfach in Ruhe arbeiten.",
+    "residencyP3": "Jede Residenz endet mit einem Live-Konzert auf dem Boot, öffentlich zugänglich. Es ist der Höhepunkt Ihrer Zeit hier — eine Gelegenheit, das, was Sie geschaffen haben, mit einem Publikum zu teilen, in einem intimen und unvergesslichen Rahmen auf dem Wasser.",
+    "weeksOnBoard": "Wochen an Bord",
+    "studioAccess": "Studio-Zugang",
+    "liveShowIncluded": "Live-Konzert inklusive",
+    "yourProject": "Ihr Projekt, Ihre Vision"
+  },
+  "contactPage": {
+    "subtitle": "Kontakt",
+    "title1": "Nehmen Sie",
+    "title2": "Kontakt auf",
+    "heroDescription": "Möchten Sie Ihre Musik mit uns produzieren oder vertreiben? Interesse an einer Künstlerresidenz auf dem Boot? Wir würden uns freuen, von Ihnen zu hören.",
+    "instagramTitle": "Instagram",
+    "instagramDesc": "Schreiben Sie uns auf Instagram. Es ist der schnellste Weg, ein Gespräch zu beginnen — wir lesen unsere Nachrichten täglich.",
+    "emailTitle": "E-Mail",
+    "emailDesc": "Für Projektvorschläge, Residenz-Bewerbungen oder detaillierte Anfragen schreiben Sie uns eine E-Mail.",
+    "location": "Bordeaux, Frankreich — vertäut an der Garonne"
+  },
+  "artistsPage": {
+    "title": "Künstler"
+  },
+  "releasesPage": {
+    "title": "Releases"
+  },
+  "videosPage": {
+    "title": "Videos"
+  },
+  "artistDetail": {
+    "allArtists": "Alle Künstler",
+    "releases": "Releases"
+  },
+  "releaseDetail": {
+    "allReleases": "Alle Releases",
+    "tracklist": "Tracklist",
+    "videoClips": "Musikvideos",
+    "listenOnPlatforms": "Auf Plattformen hören"
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden :/",
+    "goHome": "Zur Startseite"
+  },
+  "footer": {
+    "description": "Unabhängiges Musiklabel vom Boot",
+    "location": "Bordeaux, Frankreich",
+    "labelSection": "Label",
+    "connectSection": "Folgen",
+    "infoSection": "Info",
+    "about": "Über uns",
+    "artists": "Künstler",
+    "releases": "Releases",
+    "contact": "Kontakt",
+    "copyright": "© 2026 StudioBato. Alle Rechte vorbehalten.",
+    "privacy": "Datenschutz",
+    "terms": "Impressum"
+  }
+}

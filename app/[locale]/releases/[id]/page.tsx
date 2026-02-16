@@ -1,24 +1,28 @@
 import { getReleaseArtists, releases } from "@/data";
 import { mapReleaseToPlayer } from "@/components/player/utils";
-import { redirect } from "next/navigation";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { ArrowLeft } from "lucide-react";
 import { PlayTrackButton } from "@/components/player/play-track-button";
 import { PlayReleaseButton } from "@/components/player/play-release-button";
 import { ListenDropdown } from "@/components/listen-dropdown";
 import { VideoClipEmbed } from "@/components/video-clip-embed";
 import { artists } from "@/data";
+import { notFound } from "next/navigation";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 export default async function ReleasePage({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: Promise<{ locale: string; id: string }>;
 }) {
-  const { id } = await params;
+  const { locale, id } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("releaseDetail");
+
   const release = releases.find((a) => a.id === id);
   if (!release) {
-    redirect(`/404`);
+    notFound();
   }
 
   const playerTracks = mapReleaseToPlayer(release);
@@ -33,7 +37,7 @@ export default async function ReleasePage({
             className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mb-12"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
-            All releases
+            {t("allReleases")}
           </Link>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
@@ -84,7 +88,7 @@ export default async function ReleasePage({
                 <div className="mt-8">
                   <div className="flex justify-between items-end mb-4">
                     <h2 className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                      Tracklist
+                      {t("tracklist")}
                     </h2>
                   </div>
                   <ol className="divide-y divide-border">
@@ -128,7 +132,7 @@ export default async function ReleasePage({
           {release.videoClips && release.videoClips.length > 0 && (
             <div className="mt-16">
               <h2 className="font-display text-2xl sm:text-3xl tracking-tight text-foreground mb-8">
-                Video Clips
+                {t("videoClips")}
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {release.videoClips.map((clip, index) => (
