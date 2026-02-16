@@ -1,5 +1,17 @@
 import { Instagram, Mail, Anchor } from "lucide-react";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact | Studio Bato",
+  description:
+    "Get in touch with Studio Bato. Reach out for music production, distribution, or artist residency on our boat in Bordeaux.",
+  openGraph: {
+    title: "Contact | Studio Bato",
+    description:
+      "Get in touch with Studio Bato. Reach out for music production, distribution, or artist residency on our boat in Bordeaux.",
+  },
+};
 
 export default function Contact() {
   return (

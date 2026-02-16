@@ -1,5 +1,17 @@
 import { releases } from "@/data";
 import { Release } from "@/components/release";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Releases | Studio Bato",
+  description:
+    "Browse all Studio Bato releases — singles, EPs, and albums from our artists.",
+  openGraph: {
+    title: "Releases | Studio Bato",
+    description:
+      "Browse all Studio Bato releases — singles, EPs, and albums from our artists.",
+  },
+};
 
 export default function Releases() {
   const sortedReleases = [...releases].sort((a, b) => {

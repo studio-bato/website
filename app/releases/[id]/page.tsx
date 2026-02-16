@@ -9,6 +9,39 @@ import { PlayReleaseButton } from "@/components/player/play-release-button";
 import { ListenDropdown } from "@/components/listen-dropdown";
 import { VideoClipEmbed } from "@/components/video-clip-embed";
 import { artists } from "@/data";
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  const { id } = await params;
+  const release = releases.find((a) => a.id === id);
+  if (!release) return {};
+
+  const releaseArtists = getReleaseArtists(release);
+  const artistNames = releaseArtists.map((a) => a.name).join(", ");
+  const title = `${release.title} by ${artistNames} | Studio Bato`;
+  const description =
+    release.description ||
+    `Listen to ${release.title} by ${artistNames}. ${release.type} · ${release.genres.join(", ")}.`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: "music.album",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+  };
+}
 
 export default async function ReleasePage({
   params,

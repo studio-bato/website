@@ -8,6 +8,18 @@ import {
   Video,
   Ship,
 } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About | Studio Bato",
+  description:
+    "Studio Bato is an independent music studio based on a boat in Bordeaux, France. We produce, record, mix, master, and distribute music.",
+  openGraph: {
+    title: "About | Studio Bato",
+    description:
+      "Studio Bato is an independent music studio based on a boat in Bordeaux, France. We produce, record, mix, master, and distribute music.",
+  },
+};
 
 export default function About() {
   return (

@@ -8,7 +8,7 @@ import { Footer } from "@/components/footer";
 import { getInitialPlaylist } from "@/components/player/initialPlaylist";
 
 import "./globals.css";
-import { Player, PlayerProvider, type Track } from "@/components/player";
+import { Player, PlayerProvider } from "@/components/player";
 
 const _dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dm-sans" });
 const _playfair = Playfair_Display({
@@ -17,9 +17,13 @@ const _playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://studiobato.com"),
   title: "Studio Bato | We ship songs",
   description:
     "An independent music label championing artists who define the future of sound. Discover our roster and latest releases.",
+  openGraph: {
+    siteName: "Studio Bato",
+  },
 };
 
 export const viewport: Viewport = {

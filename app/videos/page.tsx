@@ -2,6 +2,18 @@ import { releases } from "@/data";
 import { getReleaseArtists } from "@/data/utils";
 import { VideoClipEmbed } from "@/components/video-clip-embed";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Videos | Studio Bato",
+  description:
+    "Watch music videos and visual content from Studio Bato artists.",
+  openGraph: {
+    title: "Videos | Studio Bato",
+    description:
+      "Watch music videos and visual content from Studio Bato artists.",
+  },
+};
 
 export default function VideosPage() {
   const releasesWithVideos = releases.filter(

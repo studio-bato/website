@@ -1,5 +1,17 @@
 import { artists } from "@/data";
 import { Artist } from "@/components/artist";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Artists | Studio Bato",
+  description:
+    "Explore the Studio Bato roster. Discover the artists we produce, record, and release music with.",
+  openGraph: {
+    title: "Artists | Studio Bato",
+    description:
+      "Explore the Studio Bato roster. Discover the artists we produce, record, and release music with.",
+  },
+};
 
 export default function Artists() {
   return (

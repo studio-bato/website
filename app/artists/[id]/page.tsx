@@ -4,7 +4,37 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { icons } from "@/lib/icons";
+import type { Metadata } from "next";
 import type { Socials } from "@/data";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  const { id } = await params;
+  const artist = artists.find((a) => a.id === id);
+  if (!artist) return {};
+
+  const title = `${artist.name} | Studio Bato`;
+  const description =
+    artist.bio || `Discover ${artist.name} on Studio Bato.`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: "profile",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+  };
+}
 
 export default async function ArtistPage({
   params,
