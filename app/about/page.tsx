@@ -25,11 +25,11 @@ export default function About() {
   return (
     <main>
       {/* Hero */}
-      <section className="relative min-h-[60dvh] flex flex-col items-center justify-center px-6 py-24 lg:py-32">
+      <section className="relative min-h-[60dvh] flex flex-col items-center justify-center px-6 py-16 lg:py-16">
         <p className="text-sm text-muted-foreground tracking-widest uppercase mb-8">
           About Us
         </p>
-        <h1 className="font-display text-5xl sm:text-7xl lg:text-[6rem] leading-[0.9] text-foreground text-center tracking-tight text-balance">
+        <h1 className="font-display text-5xl sm:text-7xl lg:text-[6rem]  leading-[0.9] text-foreground text-center tracking-tight text-balance">
           A studio
           <br />
           on the water
@@ -38,7 +38,45 @@ export default function About() {
           Studio Bato is an independent music studio based on a boat in
           Bordeaux, France. We produce, record, and share music that moves.
         </p>
+
+        <section className="w-full h-[500px] lg:h-[800px] max-w-screen-lg overflow-hidden mx-auto mt-16">
+          <video
+            autoPlay
+            muted
+            loop
+            className="w-full h-full object-cover overflow-hidden"
+          >
+            <source src="/studiobato_vid.webm" type="video/webm" />
+            Your browser does not support the video tag.
+          </video>
+        </section>
       </section>
+
+      {/* <section className="relative w-full h-[1000px] flex flex-col items-center px-6 py-12">
+        <div className="absolute flex justify-center top-0 w-full min-w-[720px] h-full object-cover opacity-80 -z-20">
+          <video
+            autoPlay
+            muted
+            loop
+            className="w-full h-full max-w-screen-md z-0"
+          >
+            <source src="/studiobato_vid.webm" type="video/webm" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <p className="text-sm text-muted-foreground tracking-widest uppercase mb-8">
+          About Us
+        </p>
+        <h1 className="font-display text-5xl leading-[0.9] text-foreground text-center tracking-tight text-balance">
+          A studio
+          <br />
+          on the water
+        </h1>
+        <p className="mt-8 text-muted-foreground text-center max-w-lg leading-relaxed">
+          Studio Bato is an independent music studio based on a boat in
+          Bordeaux, France. We produce, record, and share music that moves.
+        </p>
+      </section> */}
 
       {/* Story */}
       <section className="py-24 lg:py-32 border-t border-border">
@@ -60,8 +98,8 @@ export default function About() {
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 We are a small, dedicated team of producers, engineers, and
-                music lovers. We work closely with every artist who comes
-                aboard — from the first demo to the final master, from the album
+                music lovers. We work closely with every artist who comes aboard
+                — from the first demo to the final master, from the album
                 artwork to the release strategy. We believe great music deserves
                 a complete vision, and we are here to make it happen.
               </p>
@@ -133,10 +171,10 @@ export default function About() {
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 Whether you are writing an album, developing a live performance,
-                experimenting with new sounds, or working on a cross-disciplinary
-                project, the residency gives you the time and space to go deep.
-                Our producers and engineers are available to collaborate, or to
-                simply let you work in peace.
+                experimenting with new sounds, or working on a
+                cross-disciplinary project, the residency gives you the time and
+                space to go deep. Our producers and engineers are available to
+                collaborate, or to simply let you work in peace.
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 Every residency ends with a live show on the boat, open to the
