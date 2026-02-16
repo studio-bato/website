@@ -1,55 +1,7 @@
-import type { Artist } from "./types";
+import { Artist, ArtistsSchema } from "./schemas";
+import artistsData from "./artists.json";
 
-export const artists: Array<Artist> = [
-  {
-    id: "radiobato",
-    name: "RadioBato",
-    bio: "Robotic Poetry eats mushrooms at party",
-    image:
-      "https://sb-cdn.opac.me/file/studiobato-assets/artists/radiobato/profile.jpg",
-    socials: {
-      instagram: "https://instagram.com/radiobato",
-      soundcloud: "https://soundcloud.com/radiobato",
-    },
-    // featuredReleases: ["release-1", "release-3"],
-  },
-  {
-    id: "walass",
-    name: "Walass",
-    bio: "Quand c'est pas l'angoissse",
-    image:
-      "https://sb-cdn.opac.me/file/studiobato-assets/artists/walass/profile.jpg",
-    socials: {
-      instagram: "https://instagram.com/___walass___",
-      youtube: "https://www.youtube.com/channel/UCJ6Js5k57v-7KZZ3ROSMm6g",
-      bandcamp: "https://voilawalass.bandcamp.com",
-    },
-  },
-  {
-    id: "youyou",
-    name: "Youyou",
-    bio: "des Bisous",
-    image:
-      "https://sb-cdn.opac.me/file/studiobato-assets/artists/youyou/profile.jpg",
-    socials: {
-      instagram: "https://instagram.com/youyou.wav",
-    },
-  },
-  {
-    id: "dzuko",
-    name: "Dzuko",
-    bio: "Lyriciste",
-    image:
-      "https://sb-cdn.opac.me/file/studiobato-assets/artists/dzuko/profile.jpg",
-  },
-  {
-    id: "kmn",
-    name: "KMN",
-    bio: "Old-school survivor",
-    image:
-      "https://sb-cdn.opac.me/file/studiobato-assets/artists/kmn/profile.jpg",
-  },
-];
+export const artists: Array<Artist> = ArtistsSchema.parse(artistsData);
 
 const featuredArtistsIds = ["radiobato", "walass"];
 
