@@ -58,7 +58,7 @@ export default async function About() {
           {t("heroDescription")}
         </p>
 
-        <section className="w-full h-[500px] lg:h-[800px] max-w-screen-lg overflow-hidden mx-auto mt-16">
+        <section className="w-full h-[500px] lg:h-[800px] max-w-(--breakpoint-lg) overflow-hidden mx-auto mt-16">
           <video
             autoPlay
             muted

@@ -51,7 +51,7 @@ export function Newsletter() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="your@email.com"
                 required
-                className="flex-1 bg-transparent py-4 text-foreground placeholder:text-muted-foreground focus:outline-none text-lg"
+                className="flex-1 bg-transparent py-4 text-foreground placeholder:text-muted-foreground focus:outline-hidden text-lg"
               />
               <button
                 type="submit"

@@ -11,7 +11,7 @@ export function CardRow({ src, alt, href, children }: CardRowProps) {
   return (
     <Link href={href} className="group cursor-pointer hover:bg-card/50">
       <div className="flex flex-col">
-        <div className="relative aspect-[1/1] overflow-hidden w-full">
+        <div className="relative aspect-square overflow-hidden w-full">
           <Image
             src={src}
             alt={alt}
