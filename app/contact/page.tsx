@@ -76,9 +76,7 @@ export default async function Contact() {
 
           <div className="mt-16 flex items-center gap-4 text-muted-foreground">
             <Anchor className="h-4 w-4" />
-            <p className="text-sm">
-              {t("location")}
-            </p>
+            <p className="text-sm">{t("location")}</p>
           </div>
         </div>
       </section>

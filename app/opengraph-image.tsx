@@ -6,40 +6,38 @@ export const contentType = "image/png";
 
 export default function Image() {
   return new ImageResponse(
-    (
+    <div
+      style={{
+        background: "hsl(40, 20%, 96%)",
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        fontFamily: "serif",
+      }}
+    >
       <div
         style={{
-          background: "hsl(40, 20%, 96%)",
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          fontFamily: "serif",
+          fontSize: 72,
+          fontWeight: 700,
+          color: "hsl(0, 0%, 8%)",
+          letterSpacing: "-0.02em",
         }}
       >
-        <div
-          style={{
-            fontSize: 72,
-            fontWeight: 700,
-            color: "hsl(0, 0%, 8%)",
-            letterSpacing: "-0.02em",
-          }}
-        >
-          Studio Bato
-        </div>
-        <div
-          style={{
-            fontSize: 28,
-            color: "hsl(0, 0%, 45%)",
-            marginTop: 16,
-          }}
-        >
-          We ship songs
-        </div>
+        Studio Bato
       </div>
-    ),
+      <div
+        style={{
+          fontSize: 28,
+          color: "hsl(0, 0%, 45%)",
+          marginTop: 16,
+        }}
+      >
+        We ship songs
+      </div>
+    </div>,
     { ...size },
   );
 }

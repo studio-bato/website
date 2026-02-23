@@ -38,7 +38,10 @@ export function ArrayFieldRenderer({
   const override = matchOverride(fullName, fieldOverrides);
 
   // Multi-select via checkboxes for array-of-string fields with a select override
-  if (override?.type === "select" && !(meta.innerSchema instanceof z.ZodObject)) {
+  if (
+    override?.type === "select" &&
+    !(meta.innerSchema instanceof z.ZodObject)
+  ) {
     return (
       <FormField
         control={form.control}
@@ -58,9 +61,7 @@ export function ArrayFieldRenderer({
             <FormItem>
               <FormLabel>
                 {meta.label}
-                {meta.required && (
-                  <span className="text-destructive"> *</span>
-                )}
+                {meta.required && <span className="text-destructive"> *</span>}
               </FormLabel>
               <div className="grid grid-cols-2 gap-2">
                 {override.options.map((opt) => (
@@ -85,7 +86,14 @@ export function ArrayFieldRenderer({
   }
 
   // Default: dynamic add/remove list
-  return <DefaultArrayField meta={meta} form={form} fullName={fullName} fieldOverrides={fieldOverrides} />;
+  return (
+    <DefaultArrayField
+      meta={meta}
+      form={form}
+      fullName={fullName}
+      fieldOverrides={fieldOverrides}
+    />
+  );
 }
 
 function DefaultArrayField({

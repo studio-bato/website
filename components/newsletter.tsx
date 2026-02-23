@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react"
+import React from "react";
 
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
@@ -32,9 +32,7 @@ export function Newsletter() {
 
           {submitted ? (
             <div className="mt-8 py-4 border-t border-foreground">
-              <p className="text-foreground">
-                {t("success")}
-              </p>
+              <p className="text-foreground">{t("success")}</p>
             </div>
           ) : (
             <form

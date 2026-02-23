@@ -32,15 +32,14 @@ function camelToLabel(s: string): string {
     .trim();
 }
 
-export function extractFields(
-  schema: z.ZodObject<z.ZodRawShape>
-): FieldMeta[] {
+export function extractFields(schema: z.ZodObject<z.ZodRawShape>): FieldMeta[] {
   const shape = schema.shape;
 
   return Object.entries(shape).map(([name, rawSchema]) => {
     const { inner, optional } = unwrapOptional(rawSchema as z.ZodTypeAny);
     const required = !optional;
-    const description = (rawSchema as z.ZodTypeAny).description ?? inner.description;
+    const description =
+      (rawSchema as z.ZodTypeAny).description ?? inner.description;
 
     if (inner instanceof z.ZodArray) {
       const element = inner.element;
@@ -51,8 +50,7 @@ export function extractFields(
         kind: "array" as const,
         description,
         innerSchema: element,
-        objectSchema:
-          element instanceof z.ZodObject ? element : undefined,
+        objectSchema: element instanceof z.ZodObject ? element : undefined,
       };
     }
 

@@ -55,14 +55,14 @@ export function FieldRenderer({
           <FormItem>
             <FormLabel>
               {meta.label}
-              {meta.required && (
-                <span className="text-destructive"> *</span>
-              )}
+              {meta.required && <span className="text-destructive"> *</span>}
             </FormLabel>
             <Select onValueChange={field.onChange} value={field.value ?? ""}>
               <FormControl>
                 <SelectTrigger>
-                  <SelectValue placeholder={`Select ${meta.label.toLowerCase()}`} />
+                  <SelectValue
+                    placeholder={`Select ${meta.label.toLowerCase()}`}
+                  />
                 </SelectTrigger>
               </FormControl>
               <SelectContent>
@@ -91,9 +91,7 @@ export function FieldRenderer({
           <FormItem>
             <FormLabel>
               {meta.label}
-              {meta.required && (
-                <span className="text-destructive"> *</span>
-              )}
+              {meta.required && <span className="text-destructive"> *</span>}
             </FormLabel>
             <FormControl>
               {isTextarea ? (

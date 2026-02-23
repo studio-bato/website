@@ -9,13 +9,13 @@ export async function FeaturedReleases() {
   const featuredReleases = releases.slice(0, 8);
 
   return (
-      <div className="pt-12">
-      <FeaturedList<typeof releases[number]>
+    <div className="pt-12">
+      <FeaturedList<(typeof releases)[number]>
         items={featuredReleases}
         allUrl={"/releases"}
         childComponent={(release) => <Release release={release} />}
         title={t("title")}
-        />
-      </div>
+      />
+    </div>
   );
 }

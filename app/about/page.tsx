@@ -27,12 +27,32 @@ export default async function About() {
   const t = await getTranslations("aboutPage");
 
   const services = [
-    { icon: Music, title: t("productionTitle"), description: t("productionDesc") },
+    {
+      icon: Music,
+      title: t("productionTitle"),
+      description: t("productionDesc"),
+    },
     { icon: Mic, title: t("recordingTitle"), description: t("recordingDesc") },
-    { icon: SlidersHorizontal, title: t("mixingTitle"), description: t("mixingDesc") },
-    { icon: Radio, title: t("distributionTitle"), description: t("distributionDesc") },
-    { icon: Share2, title: t("communicationTitle"), description: t("communicationDesc") },
-    { icon: Video, title: t("videoClipsTitle"), description: t("videoClipsDesc") },
+    {
+      icon: SlidersHorizontal,
+      title: t("mixingTitle"),
+      description: t("mixingDesc"),
+    },
+    {
+      icon: Radio,
+      title: t("distributionTitle"),
+      description: t("distributionDesc"),
+    },
+    {
+      icon: Share2,
+      title: t("communicationTitle"),
+      description: t("communicationDesc"),
+    },
+    {
+      icon: Video,
+      title: t("videoClipsTitle"),
+      description: t("videoClipsDesc"),
+    },
   ];
 
   const residencyDetails = [

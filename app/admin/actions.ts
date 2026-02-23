@@ -35,4 +35,4 @@ export async function login(formData: FormData) {
   if (password === process.env.ADMIN_PASSWORD) {
     await createSession("admin");
   }
-} 
+}

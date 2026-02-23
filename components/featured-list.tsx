@@ -2,21 +2,21 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "./ui/button";
 import { getTranslations } from "next-intl/server";
-import {JSX} from "react";
+import { JSX } from "react";
 
 interface FeatListProps<T> {
-    title: string;
-    allUrl: string;
-    items: T[];
-    childComponent: (item: T) => JSX.Element;
+  title: string;
+  allUrl: string;
+  items: T[];
+  childComponent: (item: T) => JSX.Element;
 }
 
 export async function FeaturedList<T>({
-    title,
-    allUrl,
-    items,
-    childComponent,
-                               }: FeatListProps<T>) {
+  title,
+  allUrl,
+  items,
+  childComponent,
+}: FeatListProps<T>) {
   const t = await getTranslations("latestReleases");
 
   return (
@@ -39,9 +39,9 @@ export async function FeaturedList<T>({
 
         <div className="flex w-full gap-4 lg:gap-8 overflow-x-scroll snap-x hide-scrollbar pb-2">
           {items.map((item, index) => (
-              <div className="snap-start w-32 lg:w-64 shrink-0" key={index}>
-                  {childComponent(item)}
-              </div>
+            <div className="snap-start w-32 lg:w-64 shrink-0" key={index}>
+              {childComponent(item)}
+            </div>
           ))}
         </div>
       </div>
