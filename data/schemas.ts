@@ -62,10 +62,6 @@ export const ReleaseSchema = z.object({
 export const ReleasesSchema = z.array(ReleaseSchema);
 export const ArtistsSchema = z.array(ArtistSchema);
 
-export const FeaturesSchema = z.object({
-  heroYTEmbed: z.array(z.string()),
-});
-
 export type Socials = z.infer<typeof SocialsSchema>;
 export type AudioPlatformLinks = z.infer<typeof AudioPlatformLinksSchema>;
 export type BuyLinks = z.infer<typeof BuyLinksSchema>;
@@ -73,4 +69,3 @@ export type Track = z.infer<typeof TrackSchema>;
 export type ReleaseVideoClip = z.infer<typeof ReleaseVideoClipSchema>;
 export type Artist = z.infer<typeof ArtistSchema>;
 export type Release = z.infer<typeof ReleaseSchema>;
-export type Features = z.infer<typeof FeaturesSchema>;

@@ -6,5 +6,4 @@ export type {
   ReleaseVideoClip,
   Artist,
   Release,
-  Features,
 } from "./schemas";

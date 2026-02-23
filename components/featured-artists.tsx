@@ -2,13 +2,15 @@
 
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { featuredArtists } from "@/data";
+import { artists } from "@/data";
 import { Artist } from "./artist";
 import { Button } from "./ui/button";
 import { useTranslations } from "next-intl";
 
 export function FeaturedArtists() {
   const t = useTranslations("featuredArtists");
+
+  const randomArtists = artists.sort(() => Math.random() - 0.5).slice(0, 8);
 
   return (
     <section id="artists" className="py-24 lg:py-32 border-t">
@@ -27,8 +29,8 @@ export function FeaturedArtists() {
             </Button>
           </Link>
         </div>
-        <div className="flex flex-col gap-4 sm:grid sm:grid-cols-2 lg:gap-8">
-          {featuredArtists.map((artist, index) => (
+        <div className="flex w-full gap-4 lg:gap-8 overflow-x-scroll">
+          {randomArtists.map((artist, index) => (
             <Artist artist={artist} key={index} />
           ))}
         </div>

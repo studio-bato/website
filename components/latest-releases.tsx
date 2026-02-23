@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { featuredReleases } from "@/data";
+import { releases } from "@/data";
 import { Release } from "./release";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "./ui/button";
@@ -27,7 +27,7 @@ export async function LatestReleases() {
         </div>
 
         <div className="flex flex-col gap-4 sm:grid sm:grid-cols-2 lg:gap-8">
-          {featuredReleases.map((release, index) => (
+          {releases.slice(0, 2).map((release, index) => (
             <Release release={release} key={index} />
           ))}
         </div>
