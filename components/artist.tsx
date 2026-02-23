@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { getArtistReleases, type Artist } from "@/data";
-import { CardRow } from "./CardRow";
+import { CardRow } from "./card-row";
 
 export function Artist({ artist }: { artist: Artist }) {
   const releases = getArtistReleases(artist);
@@ -17,7 +17,7 @@ export function Artist({ artist }: { artist: Artist }) {
     >
       <div className="flex flex-col flex-1">
         <div className="flex justify-between">
-          <h3 className="font-display text-2xl text-foreground">
+          <h3 className="font-display text-md lg:text-2xl text-foreground">
             {artist.name}
           </h3>
           <ArrowUpRight className="h-3.5 w-3.5 mr-2" />

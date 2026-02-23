@@ -17,7 +17,7 @@ export async function RandomVideoClipDefer() {
   }
 
   return (
-    <div className="mx-auto w-full max-w-6xl px-6 pb-10">
+    <div className="mx-auto w-full max-w-4xl px-6 pb-10">
       <div className="relative w-full aspect-video">
         <iframe
           className="absolute inset-0 w-full h-full"

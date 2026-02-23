@@ -56,7 +56,7 @@ export default async function RootLayout({
           >
             <PlayerProvider initialPlaylist={getInitialPlaylist()}>
               <Navbar />
-              <div className="mt-20 ">{children}</div>
+              <div className="mt-20">{children}</div>
               <Footer />
               <Player />
             </PlayerProvider>

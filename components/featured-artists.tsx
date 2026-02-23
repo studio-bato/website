@@ -1,40 +1,24 @@
-"use client";
-
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
-import { artists } from "@/data";
+import { getTranslations } from "next-intl/server";
+import { FeaturedList } from "@/components/featured-list";
 import { Artist } from "./artist";
-import { Button } from "./ui/button";
-import { useTranslations } from "next-intl";
+import {artists} from "@/data";
+import { connection } from "next/server";
 
-export function FeaturedArtists() {
-  const t = useTranslations("featuredArtists");
-
-  const randomArtists = artists.sort(() => Math.random() - 0.5).slice(0, 8);
+export async function FeaturedArtists() {
+  await connection();
+  const t = await getTranslations("featuredArtists");
+  const featuredArtists = artists.sort(() => Math.random() - 0.5).slice(0, 8);
 
   return (
-    <section id="artists" className="py-24 lg:py-32 border-t">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="flex items-end justify-between mb-16">
-          <h2 className="font-display text-4xl sm:text-5xl tracking-tight text-foreground">
-            {t("title")}
-          </h2>
-          <Link
-            href="/artists"
-            className="ml-4 inline-flex items-center gap-1.5 text-md text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <Button variant="outline">
-              {t("viewAll")}
-              <ArrowUpRight className="h-3.5 w-3.5" />
-            </Button>
-          </Link>
-        </div>
-        <div className="flex w-full gap-4 lg:gap-8 overflow-x-scroll">
-          {randomArtists.map((artist, index) => (
-            <Artist artist={artist} key={index} />
-          ))}
-        </div>
+      <div className="py-12">
+      <FeaturedList<typeof featuredArtists[number]>
+          items={featuredArtists}
+          allUrl={"/artists"}
+          childComponent={(artist) => <Artist artist={artist} />}
+          title={t("title")}
+      />
       </div>
-    </section>
   );
 }
+
+

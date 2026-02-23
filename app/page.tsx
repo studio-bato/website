@@ -1,7 +1,7 @@
 import { Hero } from "@/components/hero";
 import { MarqueeBanner } from "@/components/marquee-banner";
 import { FeaturedArtists } from "@/components/featured-artists";
-import { LatestReleases } from "@/components/latest-releases";
+import { FeaturedReleases } from "@/components/featured-releases";
 import { AboutSection } from "@/components/about-section";
 
 export default function Page() {
@@ -9,7 +9,7 @@ export default function Page() {
     <main>
       <Hero />
       <MarqueeBanner />
-      <LatestReleases />
+      <FeaturedReleases />
       <FeaturedArtists />
       <AboutSection />
     </main>
