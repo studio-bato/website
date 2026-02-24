@@ -12,10 +12,13 @@ export async function getGenres(): Promise<Array<Genre>> {
   return genres;
 }
 
-export async function getGenreById(
-  genreId: string,
-): Promise<Genre | undefined> {
-  return genres.find((g) => g.id === genreId);
+export async function getGenreById(genreId: string): Promise<Genre> {
+  return (
+    genres.find((g) => g.id === genreId) || {
+      id: genreId,
+      label: genreId,
+    }
+  );
 }
 
 export async function getRelatedReleases(
@@ -29,7 +32,9 @@ export async function getRelatedReleases(
       (r) =>
         r.id !== releaseId &&
         r.genreIds &&
-        r.genreIds.some((genreId) => release.genreIds!.includes(genreId)),
+        r.genreIds.some(
+          (genreId) => release.genreIds && release.genreIds.includes(genreId),
+        ),
     )
     .slice(0, limit);
 }

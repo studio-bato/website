@@ -122,7 +122,7 @@ export default async function ReleasePage({
                   <span>{t("variousArtists")}</span>
                 )}
               </p>
-              {releaseMapped.genres && (
+              {releaseMapped.genres && releaseMapped.genres.length > 0 && (
                 <p className="text-sm text-muted-foreground mt-1">
                   {releaseMapped.genres.map((genre) => (
                     <Link
