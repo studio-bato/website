@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { artists as initialArtists } from "@/data/artists";
+import { artists as initialArtists } from "@/data/local-data";
 import { ArtistSchema } from "@/data/schemas";
 import type { Artist } from "@/data/types";
 import { AutoForm, type FieldOverrides } from "@/components/auto-form";

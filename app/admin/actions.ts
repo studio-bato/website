@@ -12,7 +12,7 @@ export async function saveArtists(artists: Artist[]) {
     return { success: false, error: parsed.error.flatten() };
   }
 
-  const filePath = join(process.cwd(), "data", "artists.json");
+  const filePath = join(process.cwd(), "data", "json", "artists.json");
   writeFileSync(filePath, JSON.stringify(parsed.data, null, 2), "utf-8");
 
   return { success: true };
@@ -24,7 +24,7 @@ export async function saveReleases(releases: Release[]) {
     return { success: false, error: parsed.error.flatten() };
   }
 
-  const filePath = join(process.cwd(), "data", "releases.json");
+  const filePath = join(process.cwd(), "data", "json", "releases.json");
   writeFileSync(filePath, JSON.stringify(parsed.data, null, 2), "utf-8");
 
   return { success: true };

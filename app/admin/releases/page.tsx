@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { releases as initialReleases } from "@/data/releases";
+import { releases as initialReleases } from "@/data/local-data";
 import { ReleaseSchema } from "@/data/schemas";
 import type { Release } from "@/data/types";
 import { AutoForm, type FieldOverrides } from "@/components/auto-form";

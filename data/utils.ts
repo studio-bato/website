@@ -4,9 +4,8 @@ import {
   type Release,
   ReleaseMapped,
 } from "./types";
-import { releases } from "./releases";
-import { artists } from "./artists";
-import { genres } from "./genres";
+
+import { artists, releases, genres } from "./local-data";
 
 export async function getGenreById(genreId: string) {
   return genres.find((g) => g.id === genreId);
