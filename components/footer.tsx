@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { icons } from "@/lib/icons";
+
 export async function Footer() {
   const t = await getTranslations("footer");
 
@@ -34,8 +35,8 @@ export async function Footer() {
 
   return (
     <footer className="border-t border-border">
-      <div className="mx-auto max-w-6xl px-6 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
+      <div className="mx-auto max-w-6xl px-6 py-8">
+        <div className="flex justify-between flex-col md:flex-row">
           <div>
             <Link
               href="/"
@@ -50,7 +51,7 @@ export async function Footer() {
             </p>
           </div>
 
-          <div className="flex gap-4 py-4 ">
+          <div className="flex gap-4 pt-8">
             {socials.map((social) => {
               const Icon = icons[social.label].icon;
               return (
@@ -67,7 +68,7 @@ export async function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 pt-6 border-t border-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="mt-8 py-6 border-t border-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <p className="text-xs text-muted-foreground">{t("copyright")}</p>
           <div className="flex items-center gap-6">
             <Link
