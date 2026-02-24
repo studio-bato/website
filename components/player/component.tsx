@@ -17,6 +17,7 @@ import { Slider } from "@/components/ui/slider";
 import { cn } from "@/lib/utils";
 import { usePlayer } from "./context";
 import { useTranslations } from "next-intl";
+import { getMediaUrl } from "@/data";
 
 function formatTime(seconds: number): string {
   if (!isFinite(seconds)) return "0:00";
@@ -104,7 +105,10 @@ export function Player() {
                   {/* Cover */}
                   <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-lg shadow-lg">
                     <Image
-                      src={currentTrack.cover || "/placeholder-release.svg"}
+                      src={
+                        getMediaUrl(currentTrack.cover) ||
+                        "/placeholder-release.svg"
+                      }
                       alt={currentTrack.title}
                       fill
                       className="object-cover"
@@ -183,7 +187,9 @@ export function Player() {
                   >
                     <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded">
                       <Image
-                        src={track.cover || "/placeholder-release.svg"}
+                        src={
+                          getMediaUrl(track.cover) || "/placeholder-release.svg"
+                        }
                         alt={track.title}
                         fill
                         className="object-cover"
@@ -232,7 +238,9 @@ export function Player() {
           >
             <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded">
               <Image
-                src={currentTrack.cover || "/placeholder-release.svg"}
+                src={
+                  getMediaUrl(currentTrack.cover) || "/placeholder-release.svg"
+                }
                 alt={currentTrack.title}
                 fill
                 className="object-cover"

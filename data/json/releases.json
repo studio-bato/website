@@ -2,15 +2,10 @@
   {
     "id": "random-waves",
     "title": "Random Waves",
-    "artistIds": [
-      "walass",
-      "manmeet"
-    ],
-    "cover": "https://f003.backblazeb2.com/file/studiobato-assets/releases/walass/walass-x-manmeet-random-waves/cover.jpg",
+    "artistIds": ["walass", "manmeet"],
+    "cover": "releases/walass/walass-x-manmeet-random-waves/cover.jpg",
     "date": "2026-01-10",
-    "genreIds": [
-      "hiphop"
-    ],
+    "genreIds": ["hiphop"],
     "type": "EP",
     "plaftormLinks": {
       "soundcloud": "https://soundcloud.com/studiobato/sets/random-waves",
@@ -45,14 +40,10 @@
   {
     "id": "kmn-tard-sur-la-rive",
     "title": "Tard sur la rive",
-    "artistIds": [
-      "kmn"
-    ],
-    "cover": "https://f003.backblazeb2.com/file/studiobato-assets/releases/kmn/singles/tard-sur-la-rive.jpg",
+    "artistIds": ["kmn"],
+    "cover": "releases/kmn/singles/tard-sur-la-rive.jpg",
     "date": "2025-12-25",
-    "genreIds": [
-      "hiphop"
-    ],
+    "genreIds": ["hiphop"],
     "type": "Single",
     "plaftormLinks": {
       "spotify": "https://open.spotify.com/track/79yapO0Gvr767LzNVDXrUh",
@@ -76,10 +67,8 @@
   {
     "id": "sern-pheromoney",
     "title": "Pheromoney ",
-    "artistIds": [
-      "SERN."
-    ],
-    "cover": "https://f003.backblazeb2.com/file/studiobato-assets/releases/SERN/singles/pheromoney.jpg",
+    "artistIds": ["SERN."],
+    "cover": "releases/SERN/singles/pheromoney.jpg",
     "date": "2025-12-12",
     "type": "Single",
     "plaftormLinks": {
@@ -92,27 +81,18 @@
     "tracks": [
       {
         "title": "Pheromoney",
-        "artistIds": [
-          "SERN.",
-          "La Virago",
-          "West Galsen",
-          "Lucioylle"
-        ]
+        "artistIds": ["SERN.", "La Virago", "West Galsen", "Lucioylle"]
       }
     ]
   },
   {
     "id": "walass-time-of-love",
     "title": "Time of Love",
-    "artistIds": [
-      "walass"
-    ],
-    "cover": "https://f003.backblazeb2.com/file/studiobato-assets/releases/walass/time-of-love/cover.jpg",
+    "artistIds": ["walass"],
+    "cover": "releases/walass/time-of-love/cover.jpg",
     "description": "Un voyage sonore à travers les saisons de l'amour\n",
     "date": "2025-11-20",
-    "genreIds": [
-      "ambient"
-    ],
+    "genreIds": ["ambient"],
     "type": "EP",
     "plaftormLinks": {
       "soundcloud": "https://soundcloud.com/theo-lasnier/sets/time-of-love"
@@ -156,15 +136,10 @@
   {
     "id": "live-sessions",
     "title": "Live sessions",
-    "artistIds": [
-      "radiobato"
-    ],
-    "cover": "https://f003.backblazeb2.com/file/studiobato-assets/releases/radiobato/live-sessions/cover.jpg",
+    "artistIds": ["radiobato"],
+    "cover": "releases/radiobato/live-sessions/cover.jpg",
     "date": "2025-11-06",
-    "genreIds": [
-      "electronic",
-      "downtempo"
-    ],
+    "genreIds": ["electronic", "downtempo"],
     "type": "Live",
     "plaftormLinks": {
       "soundcloud": "https://soundcloud.com/radiobato/sets/live-sessions",
@@ -173,11 +148,11 @@
     "tracks": [
       {
         "title": "Aulon - Live Session",
-        "url": "file/studiobato-assets/releases/radiobato/live-sessions/aulon-live-sesson-aulon.mp3"
+        "url": "releases/radiobato/live-sessions/aulon-live-sesson-aulon.mp3"
       },
       {
         "title": "Appel de paix - Live Session @Abbey Road Institute",
-        "url": "file/studiobato-assets/releases/radiobato/live-sessions/appel-de-paix-live-abbey-road-institute.mp3"
+        "url": "releases/radiobato/live-sessions/appel-de-paix-live-abbey-road-institute.mp3"
       }
     ],
     "videoClips": [
@@ -194,12 +169,10 @@
   {
     "id": "la-cour-des-miracles",
     "title": "La Cour des Miracles",
-    "cover": "https://f003.backblazeb2.com/file/studiobato-assets/artists/LCDM/profile.jpg",
+    "cover": "artists/LCDM/profile.jpg",
     "description": "Freestyle rap experimentaux, unique à chaque étape",
     "date": "2025-01-31",
-    "genreIds": [
-      "hiphop"
-    ],
+    "genreIds": ["hiphop"],
     "type": "Freestyles",
     "plaftormLinks": {
       "youtube": "https://www.youtube.com/watch?v=2UbtaPJYooY&list=PLz9-Mq513ywPGFXwGTL_-MW4Tk6jxw3Ci"
@@ -207,12 +180,7 @@
     "tracks": [
       {
         "title": "La Cour des Miracles - #1",
-        "artistIds": [
-          "idial",
-          "alphao",
-          "walass",
-          "kmn"
-        ]
+        "artistIds": ["idial", "alphao", "walass", "kmn"]
       },
       {
         "title": "La Cour des Miracles - #2",
@@ -242,10 +210,8 @@
   {
     "id": "youyou-rencontres-improvisees",
     "title": "Rencontres improvisées",
-    "artistIds": [
-      "youyou"
-    ],
-    "cover": "https://f003.backblazeb2.com/file/studiobato-assets/releases/youyou/rencontres-improvisees/cover.jpg",
+    "artistIds": ["youyou"],
+    "cover": "releases/youyou/rencontres-improvisees/cover.jpg",
     "date": "2024-12-13",
     "type": "EP",
     "plaftormLinks": {
@@ -258,42 +224,26 @@
     "tracks": [
       {
         "title": "La route du groove",
-        "artistIds": [
-          "stephane-barbas",
-          "mellowfish"
-        ]
+        "artistIds": ["stephane-barbas", "mellowfish"]
       },
       {
         "title": "Danse pour moi",
-        "artistIds": [
-          "lunatic-birdz",
-          "saiia",
-          "stephane-barbas",
-          "mellowfish"
-        ]
+        "artistIds": ["lunatic-birdz", "saiia", "stephane-barbas", "mellowfish"]
       },
       {
         "title": "Première fois",
-        "artistIds": [
-          "stephane-barbas"
-        ]
+        "artistIds": ["stephane-barbas"]
       }
     ]
   },
   {
     "id": "dzuko-walass-clavier-a-la-mer",
     "title": "Clavier à la mer",
-    "artistIds": [
-      "dzuko",
-      "walass"
-    ],
-    "cover": "https://f003.backblazeb2.com/file/studiobato-assets/releases/walass/walass-x-dzuko-clavier-a-la-mer/cover.jpg",
+    "artistIds": ["dzuko", "walass"],
+    "cover": "releases/walass/walass-x-dzuko-clavier-a-la-mer/cover.jpg",
     "description": "A vocal experience",
     "date": "2024-03-31",
-    "genreIds": [
-      "ambient",
-      "hiphop"
-    ],
+    "genreIds": ["ambient", "hiphop"],
     "type": "EP",
     "plaftormLinks": {
       "spotify": "https://open.spotify.com/album/7lSleoBKWRuDapH4qyD0jt",
@@ -308,23 +258,23 @@
     "tracks": [
       {
         "title": "Autour de moi",
-        "url": "file/studiobato-assets/releases/walass/walass-x-dzuko-clavier-a-la-mer/01-autour-de-moi.mp3"
+        "url": "releases/walass/walass-x-dzuko-clavier-a-la-mer/01-autour-de-moi.mp3"
       },
       {
         "title": "Clavier à la mer",
-        "url": "file/studiobato-assets/releases/walass/walass-x-dzuko-clavier-a-la-mer/02-clavier-a-la-mer.mp3"
+        "url": "releases/walass/walass-x-dzuko-clavier-a-la-mer/02-clavier-a-la-mer.mp3"
       },
       {
         "title": "Remède",
-        "url": "file/studiobato-assets/releases/walass/walass-x-dzuko-clavier-a-la-mer/03-remede.mp3"
+        "url": "releases/walass/walass-x-dzuko-clavier-a-la-mer/03-remede.mp3"
       },
       {
         "title": "Habeas Corpus",
-        "url": "file/studiobato-assets/releases/walass/walass-x-dzuko-clavier-a-la-mer/04-habeas-corpus.mp3"
+        "url": "releases/walass/walass-x-dzuko-clavier-a-la-mer/04-habeas-corpus.mp3"
       },
       {
         "title": "La prose et l'épine",
-        "url": "file/studiobato-assets/releases/walass/walass-x-dzuko-clavier-a-la-mer/05-la-prose-et-lepine.mp3"
+        "url": "releases/walass/walass-x-dzuko-clavier-a-la-mer/05-la-prose-et-lepine.mp3"
       }
     ],
     "videoClips": [
@@ -337,16 +287,11 @@
   {
     "id": "radiobato-chappal-pehenke-chalo",
     "title": "Chappal Pehenke Challo",
-    "artistIds": [
-      "radiobato"
-    ],
-    "cover": "https://f003.backblazeb2.com/file/studiobato-assets/releases/radiobato/chappal-pehenke-chalo/cover.jpg",
+    "artistIds": ["radiobato"],
+    "cover": "releases/radiobato/chappal-pehenke-chalo/cover.jpg",
     "description": "A trip through india",
     "date": "2024-01-15",
-    "genreIds": [
-      "electronic",
-      "downtempo"
-    ],
+    "genreIds": ["electronic", "downtempo"],
     "type": "EP",
     "plaftormLinks": {
       "spotify": "https://open.spotify.com/artist/5R712bVV3bkwrzKocBIOao",
@@ -361,23 +306,23 @@
     "tracks": [
       {
         "title": "Moola Mantra",
-        "url": "file/studiobato-assets/releases/radiobato/chappal-pehenke-chalo/01-moola-mantra.mp3"
+        "url": "releases/radiobato/chappal-pehenke-chalo/01-moola-mantra.mp3"
       },
       {
         "title": "Groove Has No Border",
-        "url": "file/studiobato-assets/releases/radiobato/chappal-pehenke-chalo/02-groove-has-no-border.mp3"
+        "url": "releases/radiobato/chappal-pehenke-chalo/02-groove-has-no-border.mp3"
       },
       {
         "title": "32 Janvier",
-        "url": "file/studiobato-assets/releases/radiobato/chappal-pehenke-chalo/03-32-janvier.mp3"
+        "url": "releases/radiobato/chappal-pehenke-chalo/03-32-janvier.mp3"
       },
       {
         "title": "Collect your cash",
-        "url": "file/studiobato-assets/releases/radiobato/chappal-pehenke-chalo/04-collect-your-cash.mp3"
+        "url": "releases/radiobato/chappal-pehenke-chalo/04-collect-your-cash.mp3"
       },
       {
         "title": "Morning with Hanuman",
-        "url": "file/studiobato-assets/releases/radiobato/chappal-pehenke-chalo/05-morning-with-hanuman-master.mp3"
+        "url": "releases/radiobato/chappal-pehenke-chalo/05-morning-with-hanuman-master.mp3"
       }
     ],
     "videoClips": [
@@ -390,15 +335,10 @@
   {
     "id": "banalite",
     "title": "Banalité",
-    "artistIds": [
-      "walass",
-      "skrab"
-    ],
-    "cover": "https://f003.backblazeb2.com/file/studiobato-assets/releases/walass/walass-x-skrab-banalite/cover.jpg",
+    "artistIds": ["walass", "skrab"],
+    "cover": "releases/walass/walass-x-skrab-banalite/cover.jpg",
     "date": "2023-12-04",
-    "genreIds": [
-      "hiphop"
-    ],
+    "genreIds": ["hiphop"],
     "type": "EP",
     "plaftormLinks": {
       "spotify": "https://open.spotify.com/album/0q335zt51qvA6hYmPtZRoA",
@@ -440,12 +380,10 @@
   {
     "id": "bato-sessions",
     "title": "Bato Sessions",
-    "cover": "https://f003.backblazeb2.com/file/studiobato-assets/artists/batosessions/profile.jpg",
+    "cover": "artists/batosessions/profile.jpg",
     "description": "Freestyle rap experimentaux, unique à chaque étape",
     "date": "2023-11-27",
-    "genreIds": [
-      "hiphop"
-    ],
+    "genreIds": ["hiphop"],
     "type": "Freestyles",
     "plaftormLinks": {
       "youtube": "https://www.youtube.com/playlist?list=PLz9-Mq513ywPNI7BFnQ7xTlp2JBuEGsdh"
@@ -453,23 +391,15 @@
     "tracks": [
       {
         "title": "TJSILAROUT - Gezel / Bato Sessions #1",
-        "artistIds": [
-          "gezel"
-        ]
+        "artistIds": ["gezel"]
       },
       {
         "title": "AILE META - Gezel X Al'Phao / Bato Sessions #2",
-        "artistIds": [
-          "gezel",
-          "alphao"
-        ]
+        "artistIds": ["gezel", "alphao"]
       },
       {
         "title": "Banalité - Skrab X Walass / Bato Sessions #3",
-        "artistIds": [
-          "skrab",
-          "walass"
-        ]
+        "artistIds": ["skrab", "walass"]
       }
     ],
     "videoClips": [
@@ -490,15 +420,10 @@
   {
     "id": "gezel-x-walass",
     "title": "Gezel X Walass",
-    "artistIds": [
-      "gezel",
-      "walass"
-    ],
-    "cover": "https://f003.backblazeb2.com/file/studiobato-assets/releases/walass/gezel-x-walass/cover.jpg",
+    "artistIds": ["gezel", "walass"],
+    "cover": "releases/walass/gezel-x-walass/cover.jpg",
     "date": "2023-06-19",
-    "genreIds": [
-      "hiphop"
-    ],
+    "genreIds": ["hiphop"],
     "type": "EP",
     "plaftormLinks": {
       "spotify": "https://open.spotify.com/album/7g9k6ayDV1NiozniFpWAuM",
@@ -510,22 +435,20 @@
     "tracks": [
       {
         "title": "En route pour",
-        "url": "file/studiobato-assets/releases/walass/gezel-x-walass/01-en-route-pour.m4a"
+        "url": "releases/walass/gezel-x-walass/01-en-route-pour.m4a"
       },
       {
         "title": "TLW",
-        "url": "file/studiobato-assets/releases/walass/gezel-x-walass/02-tlw.m4a",
-        "artistIds": [
-          "opac"
-        ]
+        "url": "releases/walass/gezel-x-walass/02-tlw.m4a",
+        "artistIds": ["opac"]
       },
       {
         "title": "BetBet",
-        "url": "file/studiobato-assets/releases/walass/gezel-x-walass/03-betbet.m4a"
+        "url": "releases/walass/gezel-x-walass/03-betbet.m4a"
       },
       {
         "title": "Possession",
-        "url": "file/studiobato-assets/releases/walass/gezel-x-walass/04-possession.m4a"
+        "url": "releases/walass/gezel-x-walass/04-possession.m4a"
       }
     ],
     "videoClips": [
@@ -538,11 +461,9 @@
   {
     "id": "manymen",
     "title": "Many Men",
-    "cover": "https://f003.backblazeb2.com/file/studiobato-assets/releases/gezel/singles/many-men.jpg",
+    "cover": "releases/gezel/singles/many-men.jpg",
     "date": "2023-05-23",
-    "genreIds": [
-      "hiphop"
-    ],
+    "genreIds": ["hiphop"],
     "type": "Single",
     "plaftormLinks": {
       "soundcloud": "https://soundcloud.com/studiobato/gezel-rabza-manymen",
@@ -551,24 +472,17 @@
     "tracks": [
       {
         "title": "Many Men",
-        "artistIds": [
-          "gezel",
-          "rabza"
-        ]
+        "artistIds": ["gezel", "rabza"]
       }
     ]
   },
   {
     "id": "youyou-kalaidon",
     "title": "Kalaidon",
-    "artistIds": [
-      "youyou"
-    ],
-    "cover": "https://f003.backblazeb2.com/file/studiobato-assets/releases/youyou/random-shit/kalaidon.jpg",
+    "artistIds": ["youyou"],
+    "cover": "releases/youyou/random-shit/kalaidon.jpg",
     "date": "2023-05-15",
-    "genreIds": [
-      "downtempo"
-    ],
+    "genreIds": ["downtempo"],
     "type": "Single",
     "plaftormLinks": {
       "spotify": "u",
@@ -580,24 +494,17 @@
     "tracks": [
       {
         "title": "Kalaidon",
-        "artistIds": [
-          "lapierrre"
-        ]
+        "artistIds": ["lapierrre"]
       }
     ]
   },
   {
     "id": "les-oubliettes",
     "title": "Les Oubliettes",
-    "artistIds": [
-      "matos",
-      "et"
-    ],
-    "cover": "https://f003.backblazeb2.com/file/studiobato-assets/releases/matos-et-et/les-oubliettes/cover.jpg",
+    "artistIds": ["matos", "et"],
+    "cover": "releases/matos-et-et/les-oubliettes/cover.jpg",
     "date": "2023-05-01",
-    "genreIds": [
-      "hiphop"
-    ],
+    "genreIds": ["hiphop"],
     "type": "EP",
     "plaftormLinks": {
       "spotify": "https://open.spotify.com/album/2idveRVVpC2aBUUBOMrOuO",
@@ -624,12 +531,7 @@
       },
       {
         "title": "Y'a toujours un truc qui va pas",
-        "artistIds": [
-          "alphao",
-          "youyou",
-          "gezel",
-          "kmn"
-        ]
+        "artistIds": ["alphao", "youyou", "gezel", "kmn"]
       }
     ],
     "videoClips": [
@@ -642,14 +544,10 @@
   {
     "id": "gezel-yotube",
     "title": "YoTube",
-    "artistIds": [
-      "gezel"
-    ],
-    "cover": "https://f003.backblazeb2.com/file/studiobato-assets/releases/gezel/yotube/cover.jpg",
+    "artistIds": ["gezel"],
+    "cover": "releases/gezel/yotube/cover.jpg",
     "date": "2023-04-22",
-    "genreIds": [
-      "hiphop"
-    ],
+    "genreIds": ["hiphop"],
     "type": "EP",
     "plaftormLinks": {
       "soundcloud": "https://soundcloud.com/studiobato/sets/gezel-yotube",
@@ -664,9 +562,7 @@
       },
       {
         "title": "Komela",
-        "artistIds": [
-          "opac"
-        ]
+        "artistIds": ["opac"]
       },
       {
         "title": "Payman"
@@ -676,15 +572,10 @@
   {
     "id": "opac-pause",
     "title": "Pause",
-    "artistIds": [
-      "opac"
-    ],
-    "cover": "https://f003.backblazeb2.com/file/studiobato-assets/releases/opac/pause-ep/cover.jpg",
+    "artistIds": ["opac"],
+    "cover": "releases/opac/pause-ep/cover.jpg",
     "date": "2022-11-11",
-    "genreIds": [
-      "hiphop",
-      "trap"
-    ],
+    "genreIds": ["hiphop", "trap"],
     "type": "EP",
     "plaftormLinks": {
       "spotify": "https://open.spotify.com/album/5NkWgmQAxHtpANc18msrE2",
@@ -696,63 +587,38 @@
     "tracks": [
       {
         "title": "Banm Kalou Banm",
-        "url": "file/studiobato-assets/releases/opac/pause-ep/01-banm-kalou-banm.mp3",
-        "artistIds": [
-          "gezel",
-          "walass"
-        ]
+        "url": "releases/opac/pause-ep/01-banm-kalou-banm.mp3",
+        "artistIds": ["gezel", "walass"]
       },
       {
         "title": "Collègue",
-        "url": "file/studiobato-assets/releases/opac/pause-ep/02-collegue.mp3",
-        "artistIds": [
-          "alphao",
-          "gezel"
-        ]
+        "url": "releases/opac/pause-ep/02-collegue.mp3",
+        "artistIds": ["alphao", "gezel"]
       },
       {
         "title": "Ramène le",
-        "url": "file/studiobato-assets/releases/opac/pause-ep/03-ramene-le.mp3",
-        "artistIds": [
-          "alphao",
-          "gezel"
-        ]
+        "url": "releases/opac/pause-ep/03-ramene-le.mp3",
+        "artistIds": ["alphao", "gezel"]
       },
       {
         "title": "Cocococonnard",
-        "url": "file/studiobato-assets/releases/opac/pause-ep/04-cocococonnard.mp3",
-        "artistIds": [
-          "youyou",
-          "alphao",
-          "gezel",
-          "walass"
-        ]
+        "url": "releases/opac/pause-ep/04-cocococonnard.mp3",
+        "artistIds": ["youyou", "alphao", "gezel", "walass"]
       },
       {
         "title": "Pause",
-        "url": "file/studiobato-assets/releases/opac/pause-ep/05-pause.mp3",
-        "artistIds": [
-          "alphao",
-          "walass",
-          "basti"
-        ]
+        "url": "releases/opac/pause-ep/05-pause.mp3",
+        "artistIds": ["alphao", "walass", "basti"]
       },
       {
         "title": "Elysée",
-        "url": "file/studiobato-assets/releases/opac/pause-ep/06-elysee.mp3",
-        "artistIds": [
-          "walass",
-          "alphao"
-        ]
+        "url": "releases/opac/pause-ep/06-elysee.mp3",
+        "artistIds": ["walass", "alphao"]
       },
       {
         "title": "Métissage",
-        "url": "file/studiobato-assets/releases/opac/pause-ep/07-metissage.mp3",
-        "artistIds": [
-          "gezel",
-          "alphao",
-          "walass"
-        ]
+        "url": "releases/opac/pause-ep/07-metissage.mp3",
+        "artistIds": ["gezel", "alphao", "walass"]
       }
     ]
   }

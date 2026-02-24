@@ -1,5 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
-import { type Artist } from "@/data";
+import { type Artist, getMediaUrl } from "@/data";
 import { CardRow } from "./card-row";
 
 export async function Artist({ artist }: { artist: Artist }) {
@@ -8,7 +8,7 @@ export async function Artist({ artist }: { artist: Artist }) {
 
   return (
     <CardRow
-      src={artist.image || "/placeholder-artist.svg"}
+      src={getMediaUrl(artist.image) || "/placeholder-artist.svg"}
       alt={`${artist.name} artist`}
       href={`/artists/${artist.id}`}
     >

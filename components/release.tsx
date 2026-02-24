@@ -1,5 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
-import { getReleaseByIdMapped, type Release } from "@/data";
+import { getMediaUrl, getReleaseByIdMapped, type Release } from "@/data";
 import { CardRow } from "./card-row";
 import { getTranslations, getFormatter } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -16,7 +16,7 @@ export async function Release({ release }: ReleaseProps) {
 
   return (
     <CardRow
-      src={releaseMapped.cover || "/placeholder-release.svg"}
+      src={getMediaUrl(releaseMapped.cover) || "/placeholder-release.svg"}
       alt={`${releaseMapped.title} album cover`}
       href={`/releases/${releaseMapped.id}`}
     >

@@ -3,7 +3,7 @@
     "id": "radiobato",
     "name": "RadioBato",
     "bio": "Robotic Poetry eats mushrooms at party",
-    "image": "file/studiobato-assets/artists/radiobato/profile.jpg",
+    "image": "artists/radiobato/profile.jpg",
     "socials": {
       "spotify": "https://open.spotify.com/artist/5R712bVV3bkwrzKocBIOao",
       "instagram": "https://instagram.com/radiobato",
@@ -16,7 +16,7 @@
     "id": "walass",
     "name": "Walass",
     "bio": "Quand c'est pas l'angoissse",
-    "image": "file/studiobato-assets/artists/walass/profile.jpg",
+    "image": "artists/walass/profile.jpg",
     "socials": {
       "instagram": "https://instagram.com/___walass___",
       "youtube": "https://www.youtube.com/channel/UCJ6Js5k57v-7KZZ3ROSMm6g",
@@ -27,7 +27,7 @@
     "id": "youyou",
     "name": "Youyou",
     "bio": "des Bisous",
-    "image": "file/studiobato-assets/artists/youyou/profile.jpg",
+    "image": "artists/youyou/profile.jpg",
     "socials": {
       "instagram": "https://instagram.com/youyou.wav",
       "soundcloud": "https://soundcloud.com/youyou-radiobato"
@@ -37,7 +37,7 @@
     "id": "dzuko",
     "name": "Dzuko",
     "bio": "Lyriciste",
-    "image": "file/studiobato-assets/artists/dzuko/profile-2.jpg",
+    "image": "artists/dzuko/profile-2.jpg",
     "socials": {
       "instagram": "https://www.instagram.com/dzuko.music/"
     }
@@ -46,7 +46,7 @@
     "id": "kmn",
     "name": "KMN",
     "bio": "Old-school survivor",
-    "image": "file/studiobato-assets/artists/kmn/profile-3.jpg",
+    "image": "artists/kmn/profile-3.jpg",
     "socials": {
       "instagram": "https://www.instagram.com/kmn_mgp/"
     }
@@ -54,17 +54,17 @@
   {
     "id": "gezel",
     "name": "Gezel",
-    "image": "file/studiobato-assets/artists/gezel/profile.jpg"
+    "image": "artists/gezel/profile.jpg"
   },
   {
     "id": "matos",
     "name": "Matos",
-    "image": "file/studiobato-assets/artists/matos/profile.jpg"
+    "image": "artists/matos/profile.jpg"
   },
   {
     "id": "opac",
     "name": "opac",
-    "image": "file/studiobato-assets/artists/opac/profile-2.jpg",
+    "image": "artists/opac/profile-2.jpg",
     "socials": {
       "instagram": "https://www.instagram.com/pacobacpac/"
     }
@@ -72,7 +72,7 @@
   {
     "id": "skrab",
     "name": "Skrab",
-    "image": "file/studiobato-assets/artists/skrab/profile-2.jpg",
+    "image": "artists/skrab/profile-2.jpg",
     "socials": {
       "instagram": "https://www.instagram.com/le_skrab/"
     }
@@ -80,12 +80,12 @@
   {
     "id": "alphao",
     "name": "Al'Phao",
-    "image": "file/studiobato-assets/artists/alphao/profile-1.jpg"
+    "image": "artists/alphao/profile-1.jpg"
   },
   {
     "id": "lapierrre",
     "name": "La Pierrre",
-    "image": "file/studiobato-assets/artists/lapierrre/profile-2.jpg",
+    "image": "artists/lapierrre/profile-2.jpg",
     "socials": {
       "instagram": "https://www.instagram.com/nattylapierrre/"
     }
@@ -93,7 +93,7 @@
   {
     "id": "i20",
     "name": "i20",
-    "image": "file/studiobato-assets/artists/i20/profile.jpg",
+    "image": "artists/i20/profile.jpg",
     "socials": {
       "instagram": "https://www.instagram.com/i20cestcarre/"
     }
@@ -101,7 +101,7 @@
   {
     "id": "idial",
     "name": "i.d.i.a.l",
-    "image": "file/studiobato-assets/artists/idial/profile.jpg",
+    "image": "artists/idial/profile.jpg",
     "socials": {
       "instagram": "https://www.instagram.com/i.d.i.a.l/"
     }
@@ -109,7 +109,7 @@
   {
     "id": "edikt",
     "name": "Edikt",
-    "image": "file/studiobato-assets/artists/edikt/profile.jpg",
+    "image": "artists/edikt/profile.jpg",
     "socials": {
       "instagram": "https://www.instagram.com/edikt_oazo"
     }

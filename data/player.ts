@@ -1,6 +1,6 @@
 import { type PlayerTrack, shuffle } from "@/components/player";
 import { ReleaseMapped } from "@/data/schemas";
-import { getReleasesMapped } from "@/data/utils";
+import { getMediaUrl, getReleasesMapped } from "@/data/utils";
 
 export function mapReleaseToPlayer(release: ReleaseMapped): Array<PlayerTrack> {
   if (!release.tracks) return [];
@@ -8,8 +8,8 @@ export function mapReleaseToPlayer(release: ReleaseMapped): Array<PlayerTrack> {
   return release.tracks
     .filter((t) => !!t.url)
     .map((t) => ({
-      url: "",
       ...t,
+      url: getMediaUrl(t.url) || "",
       cover: release.cover,
       artist: release.artists?.map((a) => a.name).join(", ") || "",
       album: release.title,

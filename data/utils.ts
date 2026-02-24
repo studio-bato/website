@@ -135,3 +135,12 @@ export async function getArtistByIdMapped(
     releases: artistReleases,
   };
 }
+
+const MEDIA_CDN_URL =
+  process.env.MEDIA_CDN_URL ||
+  "https://f003.backblazeb2.com/file/studiobato-assets/";
+
+export function getMediaUrl(url: string | undefined): string | undefined {
+  if (!url) return undefined;
+  return `${MEDIA_CDN_URL}${url}`;
+}

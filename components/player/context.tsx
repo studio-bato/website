@@ -10,6 +10,7 @@ import {
   type ReactNode,
 } from "react";
 import { shuffle } from "@/components/player/utils";
+import { getMediaUrl } from "@/data";
 
 export interface PlayerTrack {
   title: string;
@@ -230,7 +231,7 @@ export function PlayerProvider({
       title: track.title,
       artist: track.artist,
       album: track.album,
-      artwork: track.cover ? [{ src: track.cover }] : [],
+      artwork: track.cover ? [{ src: getMediaUrl(track.cover)! }] : [],
     });
   }, [playlist, currentTrackIndex]);
 

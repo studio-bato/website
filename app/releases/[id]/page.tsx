@@ -1,4 +1,9 @@
-import { getReleaseByIdMapped, getReleases, getRelatedReleases } from "@/data";
+import {
+  getReleaseByIdMapped,
+  getReleases,
+  getRelatedReleases,
+  getMediaUrl,
+} from "@/data";
 import { Release } from "@/components/release";
 import { mapReleaseToPlayer } from "@/data/player";
 import Image from "next/image";
@@ -174,7 +179,9 @@ export default async function ReleasePage({
                           </span>
                           {track.url && (
                             <div className="flex gap-2">
-                              <DownloadTrackButton url={track.url} />
+                              <DownloadTrackButton
+                                url={getMediaUrl(track.url)!}
+                              />
                               <PlayTrackButton
                                 tracks={playerTracks}
                                 index={index}
