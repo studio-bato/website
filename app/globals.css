@@ -60,11 +60,13 @@
       height: 0;
     }
     to {
+      /*noinspection CssUnresolvedCustomProperty*/
       height: var(--radix-accordion-content-height);
     }
   }
   @keyframes accordion-up {
     from {
+      /*noinspection CssUnresolvedCustomProperty*/
       height: var(--radix-accordion-content-height);
     }
     to {
@@ -74,7 +76,9 @@
 }
 
 @theme inline {
+  /*noinspection CssUnresolvedCustomProperty*/
   --font-sans: var(--font-dm-sans), system-ui, sans-serif;
+  /*noinspection CssUnresolvedCustomProperty*/
   --font-display: var(--font-playfair), Georgia, serif;
 }
 

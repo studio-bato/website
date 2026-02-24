@@ -56,7 +56,7 @@ export async function getReleaseByIdMapped(
     return null;
   }
 
-  const mappedRelease = {
+  return {
     ...release,
     artists:
       release.artistIds &&
@@ -81,8 +81,6 @@ export async function getReleaseByIdMapped(
         })),
       )),
   };
-
-  return mappedRelease;
 }
 
 export async function getReleasesMapped(): Promise<Array<ReleaseMapped>> {
@@ -109,10 +107,8 @@ export async function getArtistByIdMapped(
       r.tracks?.some((t) => t.artistIds?.includes(artist.id)),
   );
 
-  const mappedArtist: ArtistMapped = {
+  return {
     ...artist,
     releases: artistReleases,
   };
-
-  return mappedArtist;
 }
