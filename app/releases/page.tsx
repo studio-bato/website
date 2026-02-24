@@ -1,7 +1,7 @@
-import { releases } from "@/data";
 import { Release } from "@/components/release";
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
+import { getReleases } from "@/data";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("releasesPage");
@@ -17,6 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function Releases() {
   const t = await getTranslations("releasesPage");
+  const releases = await getReleases();
 
   return (
     <section id="releases" className="py-12 lg:py-32">

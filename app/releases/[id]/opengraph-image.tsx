@@ -1,4 +1,4 @@
-import { releases, getReleaseArtists } from "@/data";
+import { getReleaseByIdMapped } from "@/data";
 import {
   ogSize,
   ogContentType,
@@ -6,6 +6,7 @@ import {
   notFoundOg,
   ogImage,
 } from "@/lib/og";
+import { getTranslations } from "next-intl/server";
 
 export const alt = "Release";
 export const size = ogSize;
@@ -17,22 +18,22 @@ export default async function Image({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const release = releases.find((a) => a.id === id);
-  if (!release) return notFoundOg();
 
-  const artistNames = getReleaseArtists(release)
-    .map((a) => a.name)
-    .join(", ");
+  const releaseMapped = await getReleaseByIdMapped(id);
+  if (!releaseMapped) return notFoundOg();
+  const t = await getTranslations("releaseDetail");
 
-  const coverDataUri = release.cover
-    ? await fetchImageAsDataUri(release.cover)
+  const coverDataUri = releaseMapped.cover
+    ? await fetchImageAsDataUri(releaseMapped.cover)
     : null;
 
   return ogImage({
     imageDataUri: coverDataUri,
-    title: release.title,
+    title: releaseMapped.title,
     titleSize: 56,
-    subtitle: artistNames,
-    detail: `${release.type} · ${release.genres.join(", ")}`,
+    subtitle:
+      releaseMapped.artists?.map((a) => a.name).join(", ") ||
+      t("variousArtists"),
+    detail: `${releaseMapped.type} · ${releaseMapped.genres?.map((g) => g.label).join(", ")}`,
   });
 }

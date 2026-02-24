@@ -1,0 +1,18 @@
+[
+  {
+    "id": "hiphop",
+    "label": "Hip Hop"
+  },
+  {
+    "id": "rap",
+    "label": "Rap"
+  },
+  {
+    "id": "electronic",
+    "label": "Electronic"
+  },
+  {
+    "id": "ambiant",
+    "label": "Ambiant"
+  }
+]

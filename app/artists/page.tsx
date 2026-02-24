@@ -1,4 +1,4 @@
-import { artists } from "@/data";
+import { getArtists } from "@/data";
 import { Artist } from "@/components/artist";
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
@@ -17,6 +17,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function Artists() {
   const t = await getTranslations("artistsPage");
+
+  const artists = await getArtists();
 
   return (
     <section id="artists" className="py-12 lg:py-32">

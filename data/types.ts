@@ -6,4 +6,10 @@ export type {
   ReleaseVideoClip,
   Artist,
   Release,
+  Artists,
+  Releases,
+  Genre,
+  Genres,
+  ArtistMapped,
+  ReleaseMapped,
 } from "./schemas";

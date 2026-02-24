@@ -3,9 +3,9 @@
     "id": "kmn-tard-sur-la-rive",
     "title": "Tard sur la rive",
     "artistIds": ["kmn"],
-    "cover": "https://sb-cdn.opac.me/file/studiobato-assets/releases/kmn/tslr.jpg",
+    "cover": "https://sb-cdn.opac.me/file/studiobato-assets/releases/kmn/singles/tard-sur-la-rive.jpg",
     "date": "2025-12-25",
-    "genres": ["Hip Hop"],
+    "genreIds": ["hiphop"],
     "type": "Single",
     "plaftormLinks": {
       "spotify": "https://open.spotify.com/track/79yapO0Gvr767LzNVDXrUh",
@@ -32,7 +32,7 @@
     "cover": "https://f003.backblazeb2.com/file/studiobato-assets/releases/walass/time-of-love/cover.jpg",
     "description": "Un voyage sonore à travers les saisons de l'amour",
     "date": "2025-11-20",
-    "genres": ["Ambient", ""],
+    "genreIds": ["ambient"],
     "type": "EP",
     "plaftormLinks": {
       "soundcloud": "https://soundcloud.com/theo-lasnier/sets/time-of-love"
@@ -49,10 +49,10 @@
   {
     "id": "bato-sessions",
     "title": "Bato Sessions",
-    "cover": "https://sb-cdn.opac.me/file/studiobato-assets/releases/batosessions/profile.jpg",
+    "cover": "https://sb-cdn.opac.me/file/studiobato-assets/artists/batosessions/profile.jpg",
     "description": "Freestyle rap experimentaux, unique à chaque étape",
     "date": "2024-05-20",
-    "genres": ["Hip-hop"],
+    "genreIds": ["hiphop"],
     "type": "Freestyles",
     "tracks": [
       {
@@ -87,9 +87,9 @@
     "id": "sern-pheromoney",
     "title": "Pheromoney ",
     "artistIds": ["SERN."],
-    "cover": "https://sb-cdn.opac.me/file/studiobato-assets/releases/sern/pheromoney/cover.jpg",
+    "cover": "https://sb-cdn.opac.me/file/studiobato-assets/releases/SERN/singles/pheromoney.jpg",
     "date": "2024-05-20",
-    "genres": ["Club Banger"],
+    "genreIds": ["hiphop"],
     "type": "Single",
     "plaftormLinks": {
       "spotify": "https://open.spotify.com/album/1uCxNb7B0EtC8i20OCjrcp",
@@ -108,10 +108,10 @@
   {
     "id": "la-cour-des-miracles",
     "title": "La Cour des Miracles",
-    "cover": "https://sb-cdn.opac.me/file/studiobato-assets/releases/LCDM/profile.jpg",
+    "cover": "https://sb-cdn.opac.me/file/studiobato-assets/artists/LCDM/profile.jpg",
     "description": "Freestyle rap experimentaux, unique à chaque étape",
     "date": "2024-05-10",
-    "genres": ["Hip-hop"],
+    "genreIds": ["hiphop"],
     "type": "Freestyles",
     "tracks": [
       {
@@ -138,10 +138,10 @@
     "id": "dzuko-walass-clavier-a-la-mer",
     "title": "Clavier à la mer",
     "artistIds": ["dzuko", "walass"],
-    "cover": "https://sb-cdn.opac.me/file/studiobato-assets/releases/dzuko-walass/clavier-a-la-mer/cover.jpg",
+    "cover": "https://sb-cdn.opac.me/file/studiobato-assets/releases/walass/walass-x-dzuko-clavier-a-la-mer/cover.jpg",
     "description": "A vocal experience",
     "date": "2024-03-15",
-    "genres": ["Ambient", "Electronic"],
+    "genreIds": ["ambiant", "electronic"],
     "type": "EP",
     "tracks": [
       {
@@ -179,7 +179,7 @@
     "cover": "https://sb-cdn.opac.me/file/studiobato-assets/releases/radiobato/chappal-pehenke-chalo/cover.jpg",
     "description": "A trip through india",
     "date": "2024-01-15",
-    "genres": ["Electronic"],
+    "genreIds": ["electronic"],
     "type": "EP",
     "plaftormLinks": {
       "spotify": "https://open.spotify.com/artist/5R712bVV3bkwrzKocBIOao",

@@ -1,8 +1,11 @@
 import { getTranslations } from "next-intl/server";
-import { artists, releases } from "@/data";
+import { getArtists, getReleases } from "@/data";
 
 export async function AboutSection() {
   const t = await getTranslations("aboutSection");
+
+  const releases = await getReleases();
+  const artists = await getArtists();
 
   return (
     <section id="about" className="py-24 lg:py-32 border-t border-border">

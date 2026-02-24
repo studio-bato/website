@@ -44,6 +44,11 @@ export const ArtistSchema = z.object({
   socials: SocialsSchema.optional(),
 });
 
+export const GenreSchema = z.object({
+  id: z.string(),
+  label: z.string(),
+});
+
 export const ReleaseSchema = z.object({
   id: z.string().min(1, "ID is required"),
   title: z.string().min(1, "Title is required"),
@@ -51,7 +56,7 @@ export const ReleaseSchema = z.object({
   cover: z.string().optional(),
   description: z.string().optional().describe("textarea"),
   date: z.string().min(1, "Date is required"),
-  genres: z.array(z.string()).min(1, "At least one genre is required"),
+  genreIds: z.array(z.string()).min(1, "At least one genre is required"),
   type: z.string().min(1, "Type is required"),
   plaftormLinks: AudioPlatformLinksSchema.optional(),
   buyLinks: BuyLinksSchema.optional(),
@@ -59,8 +64,23 @@ export const ReleaseSchema = z.object({
   videoClips: z.array(ReleaseVideoClipSchema).optional(),
 });
 
+export const TrackMappedSchema = TrackSchema.extend({
+  artists: z.array(ArtistSchema).optional(),
+});
+
+export const ReleaseMappedSchema = ReleaseSchema.extend({
+  artists: z.array(ArtistSchema).optional(),
+  genres: z.array(GenreSchema).optional(),
+  tracks: z.array(TrackMappedSchema).optional(),
+});
+
+export const ArtistMappedSchema = ArtistSchema.extend({
+  releases: z.array(ReleaseSchema).optional(),
+});
+
 export const ReleasesSchema = z.array(ReleaseSchema);
 export const ArtistsSchema = z.array(ArtistSchema);
+export const GenresSchema = z.array(GenreSchema);
 
 export type Socials = z.infer<typeof SocialsSchema>;
 export type AudioPlatformLinks = z.infer<typeof AudioPlatformLinksSchema>;
@@ -69,3 +89,9 @@ export type Track = z.infer<typeof TrackSchema>;
 export type ReleaseVideoClip = z.infer<typeof ReleaseVideoClipSchema>;
 export type Artist = z.infer<typeof ArtistSchema>;
 export type Release = z.infer<typeof ReleaseSchema>;
+export type ArtistMapped = z.infer<typeof ArtistMappedSchema>;
+export type ReleaseMapped = z.infer<typeof ReleaseMappedSchema>;
+export type Artists = z.infer<typeof ArtistsSchema>;
+export type Releases = z.infer<typeof ReleasesSchema>;
+export type Genre = z.infer<typeof GenreSchema>;
+export type Genres = z.infer<typeof GenresSchema>;

@@ -1,5 +1,4 @@
-import { releases } from "@/data";
-import { getReleaseArtists } from "@/data/utils";
+import { getReleasesMapped } from "@/data";
 import { VideoClipEmbed } from "@/components/video-clip-embed";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
@@ -20,7 +19,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function VideosPage() {
   const t = await getTranslations("videosPage");
 
-  const releasesWithVideos = releases.filter(
+  const releasesWithVideos = (await getReleasesMapped()).filter(
     (r) => r.videoClips && r.videoClips.length > 0,
   );
 
@@ -34,7 +33,6 @@ export default async function VideosPage() {
 
           <div className="space-y-8">
             {releasesWithVideos.map((release) => {
-              const artists = getReleaseArtists(release);
               return (
                 <div key={release.id}>
                   <div className="mb-6">
@@ -44,9 +42,19 @@ export default async function VideosPage() {
                     >
                       {release.title}
                     </Link>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      {artists.map((a) => a.name).join(", ")}
-                    </p>
+                    {release.artists && release.artists.length > 0 && (
+                      <p className="text-sm text-muted-foreground mt-1">
+                        {release.artists.map((artist) => (
+                          <Link
+                            href={`/artists/${artist.id}`}
+                            key={artist.id}
+                            className="not-first:before:content-[',_']"
+                          >
+                            {artist.name}
+                          </Link>
+                        ))}
+                      </p>
+                    )}
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">

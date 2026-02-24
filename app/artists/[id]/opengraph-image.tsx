@@ -1,4 +1,4 @@
-import { artists } from "@/data";
+import { getArtistById } from "@/data";
 import {
   ogSize,
   ogContentType,
@@ -17,7 +17,7 @@ export default async function Image({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const artist = artists.find((a) => a.id === id);
+  const artist = await getArtistById(id);
   if (!artist) return notFoundOg();
 
   const bio =

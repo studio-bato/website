@@ -4,7 +4,7 @@ import { DM_Sans, Playfair_Display } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
-import { getInitialPlaylist } from "@/components/player/initialPlaylist";
+import { getAllTracksPlaylist } from "@/data/player";
 import { Player, PlayerProvider } from "@/components/player";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages, getTranslations } from "next-intl/server";
@@ -54,7 +54,9 @@ export default async function RootLayout({
             enableSystem={false}
             disableTransitionOnChange
           >
-            <PlayerProvider initialPlaylist={getInitialPlaylist()}>
+            <PlayerProvider
+              allTracks={await getAllTracksPlaylist()} // TODO: get initial playlist from release page ?
+            >
               <Navbar />
               <div className="mt-20">{children}</div>
               <Footer />

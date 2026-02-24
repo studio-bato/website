@@ -1,5 +1,5 @@
-import { getReleaseArtists, releases } from "@/data";
-import { mapReleaseToPlayer } from "@/components/player/utils";
+import { getReleaseByIdMapped, getReleases } from "@/data";
+import { mapReleaseToPlayer } from "@/data/player";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
@@ -8,7 +8,6 @@ import { PlayTrackButton } from "@/components/player/play-track-button";
 import { PlayReleaseButton } from "@/components/player/play-release-button";
 import { ListenDropdown } from "@/components/listen-dropdown";
 import { VideoClipEmbed } from "@/components/video-clip-embed";
-import { artists } from "@/data";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
@@ -20,15 +19,14 @@ export async function generateMetadata({
   params: Promise<{ id: string }>;
 }): Promise<Metadata> {
   const { id } = await params;
-  const release = releases.find((a) => a.id === id);
-  if (!release) return {};
+  const releaseMapped = await getReleaseByIdMapped(id);
+  if (!releaseMapped) return {};
 
-  const releaseArtists = getReleaseArtists(release);
-  const artistNames = releaseArtists.map((a) => a.name).join(", ");
-  const title = `${release.title} by ${artistNames} | Studio Bato`;
+  const artistNames = releaseMapped.artists?.map((a) => a.name).join(", ");
+  const title = `${releaseMapped.title} by ${artistNames} | Studio Bato`;
   const description =
-    release.description ||
-    `Listen to ${release.title} by ${artistNames}. ${release.type} · ${release.genres.join(", ")}.`;
+    releaseMapped.description ||
+    `Listen to ${releaseMapped.title} by ${artistNames}. ${releaseMapped.type} · ${releaseMapped.genres?.join(", ")}.`;
 
   return {
     title,
@@ -47,7 +45,7 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  return releases.map((release) => ({
+  return (await getReleases()).map((release) => ({
     id: release.id,
   }));
 }
@@ -60,13 +58,12 @@ export default async function ReleasePage({
   const { id } = await params;
   const t = await getTranslations("releaseDetail");
 
-  const release = releases.find((a) => a.id === id);
-  if (!release) {
+  const releaseMapped = await getReleaseByIdMapped(id);
+  if (!releaseMapped) {
     notFound();
   }
 
-  const playerTracks = mapReleaseToPlayer(release);
-  const releaseArtists = getReleaseArtists(release);
+  const playerTracks = await mapReleaseToPlayer(releaseMapped);
 
   return (
     <main>
@@ -84,8 +81,8 @@ export default async function ReleasePage({
             {/* Cover */}
             <div className="relative aspect-square overflow-hidden md:col-span-5">
               <Image
-                src={release.cover || "/placeholder.svg"}
-                alt={`${release.title} album cover`}
+                src={releaseMapped.cover || "/placeholder.svg"}
+                alt={`${releaseMapped.title} album cover`}
                 fill
                 className="object-cover"
                 priority
@@ -95,43 +92,56 @@ export default async function ReleasePage({
             {/* Info + tracklist */}
             <div className="flex flex-col md:col-span-7">
               <p className="text-xs text-muted-foreground mb-2">
-                {release.type} &middot; {release.date}
+                {releaseMapped.type} &middot; {releaseMapped.date}
               </p>
               <h1 className="font-display text-3xl sm:text-4xl tracking-tight text-foreground">
-                {release.title}
+                {releaseMapped.title}
               </h1>
-              <p className="text-lg text-muted-foreground mt-1 flex gap-1">
-                {releaseArtists.map((artist, index) => (
-                  <span key={artist.id}>
-                    <Link href={`/artists/${artist.id}`}>{artist.name}</Link>
-                    {index < releaseArtists.length - 1 && ","}
-                  </span>
-                ))}
+              <p className="text-lg text-muted-foreground mt-1 flex">
+                {releaseMapped.artists ? (
+                  releaseMapped.artists.map((artist) => (
+                    <Link
+                      href={`/artists/${artist.id}`}
+                      key={artist.id}
+                      className="not-first:before:content-[',_']"
+                    >
+                      {artist.name}
+                    </Link>
+                  ))
+                ) : (
+                  <span>{t("variousArtists")}</span>
+                )}
               </p>
-              <p className="text-sm text-muted-foreground mt-1">
-                {release.genres.join(", ")}
-              </p>
-              {release.description && (
+              {releaseMapped.genres && (
+                <p className="text-sm text-muted-foreground mt-1">
+                  {releaseMapped.genres.map((genre) => (
+                    <span className="not-first:before:content-[',_']">
+                      {genre.label}
+                    </span>
+                  ))}
+                </p>
+              )}
+              {releaseMapped.description && (
                 <p className="text-sm text-foreground mt-4">
-                  {release.description}
+                  {releaseMapped.description}
                 </p>
               )}
 
               {/* Platform links */}
               <div className="mt-6 flex gap-4">
-                <PlayReleaseButton tracks={mapReleaseToPlayer(release)} />
-                {release.plaftormLinks &&
-                  Object.values(release.plaftormLinks).some(Boolean) && (
-                    <ListenDropdown links={release.plaftormLinks} />
+                <PlayReleaseButton tracks={playerTracks} />
+                {releaseMapped.plaftormLinks &&
+                  Object.values(releaseMapped.plaftormLinks).some(Boolean) && (
+                    <ListenDropdown links={releaseMapped.plaftormLinks} />
                   )}
-                {release.buyLinks &&
-                  Object.values(release.buyLinks).some(Boolean) && (
-                    <BuyDropdown links={release.buyLinks} />
+                {releaseMapped.buyLinks &&
+                  Object.values(releaseMapped.buyLinks).some(Boolean) && (
+                    <BuyDropdown links={releaseMapped.buyLinks} />
                   )}
               </div>
 
               {/* Track list */}
-              {release.tracks && release.tracks.length > 0 && (
+              {releaseMapped.tracks && releaseMapped.tracks.length > 0 && (
                 <div className="mt-8">
                   <div className="flex justify-between items-end mb-4">
                     <h2 className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
@@ -139,7 +149,7 @@ export default async function ReleasePage({
                     </h2>
                   </div>
                   <ol className="divide-y divide-border">
-                    {release.tracks.map((track, index) => (
+                    {releaseMapped.tracks.map((track, index) => (
                       <li key={index} className="flex flex-col py-2">
                         <div className="flex items-center gap-4">
                           <span className="text-xs text-muted-foreground w-6 text-right tabular-nums">
@@ -158,14 +168,15 @@ export default async function ReleasePage({
                             </div>
                           )}
                         </div>
-                        {track.artistIds && track.artistIds.length > 0 && (
-                          <span className="text-xs text-muted-foreground mt-1 ml-10 space-x-1">
-                            {track.artistIds.map((id, idx) => (
-                              <Link key={id} href={`/artists/${id}`}>
-                                {artists.find((a) => a.id === id)?.name || id}
-                                {track.artistIds &&
-                                  idx < track.artistIds.length - 1 &&
-                                  ","}
+                        {track.artists && track.artists.length > 0 && (
+                          <span className="text-xs text-muted-foreground mt-1 ml-10">
+                            {track.artists.map((artist) => (
+                              <Link
+                                key={id}
+                                href={`/artists/${artist.id}`}
+                                className="not-first:before:content-[',_']"
+                              >
+                                {artist.name}
                               </Link>
                             ))}
                           </span>
@@ -179,13 +190,13 @@ export default async function ReleasePage({
           </div>
 
           {/* Video clips */}
-          {release.videoClips && release.videoClips.length > 0 && (
+          {releaseMapped.videoClips && releaseMapped.videoClips.length > 0 && (
             <div className="mt-16">
               <h2 className="font-display text-2xl sm:text-3xl tracking-tight text-foreground mb-8">
                 {t("videoClips")}
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {release.videoClips.map((clip, index) => (
+                {releaseMapped.videoClips.map((clip, index) => (
                   <VideoClipEmbed key={index} clip={clip} />
                 ))}
               </div>

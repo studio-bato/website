@@ -1,13 +1,10 @@
-"use client";
-
-import Link from "next/link";
-import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
-import { getArtistReleases, type Artist } from "@/data";
+import { type Artist } from "@/data";
 import { CardRow } from "./card-row";
 
-export function Artist({ artist }: { artist: Artist }) {
-  const releases = getArtistReleases(artist);
+export async function Artist({ artist }: { artist: Artist }) {
+  // const artistMapped = await getArtistByIdMapped(artist.id);
+  // if (!artistMapped) return null;
 
   return (
     <CardRow
@@ -23,7 +20,7 @@ export function Artist({ artist }: { artist: Artist }) {
           <ArrowUpRight className="h-3.5 w-3.5 mr-2" />
         </div>
         {/* <p className="text-sm text-muted-foreground leading-relaxed">
-          {releases.length} releases
+          {artistMapped.releases.length} releases
         </p> */}
 
         <p className="text-sm text-muted-foreground leading-relaxed mt-4">

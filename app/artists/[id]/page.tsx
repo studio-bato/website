@@ -1,4 +1,4 @@
-import { artists, getArtistReleases } from "@/data";
+import { getArtistByIdMapped, getArtists } from "@/data";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
@@ -13,11 +13,12 @@ export async function generateMetadata({
   params: Promise<{ id: string }>;
 }): Promise<Metadata> {
   const { id } = await params;
-  const artist = artists.find((a) => a.id === id);
-  if (!artist) return {};
+  const artistMapped = await getArtistByIdMapped(id);
+  if (!artistMapped) return {};
 
-  const title = `${artist.name} | Studio Bato`;
-  const description = artist.bio || `Discover ${artist.name} on Studio Bato.`;
+  const title = `${artistMapped.name} | Studio Bato`;
+  const description =
+    artistMapped.bio || `Discover ${artistMapped.name} on Studio Bato.`;
 
   return {
     title,
@@ -36,7 +37,7 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  return artists.map((artist) => ({
+  return (await getArtists()).map((artist) => ({
     id: artist.id,
   }));
 }
@@ -49,17 +50,14 @@ export default async function ArtistPage({
   const { id } = await params;
   const t = await getTranslations("artistDetail");
 
-  let artist = artists.find((a) => a.id === id);
-
-  if (!artist) {
-    artist = {
+  let artistMapped = await getArtistByIdMapped(id);
+  if (!artistMapped) {
+    artistMapped = {
       id,
       name: id,
-      bio: "An artist like we've never seen before.",
+      bio: t("unknownArtist"),
     };
   }
-
-  const releases = getArtistReleases(artist);
 
   return (
     <main>
@@ -77,8 +75,8 @@ export default async function ArtistPage({
             {/* Artist image */}
             <div className="relative aspect-square overflow-hidden md:col-span-5">
               <Image
-                src={artist.image || "/placeholder-artist.svg"}
-                alt={artist.name}
+                src={artistMapped.image || "/placeholder-artist.svg"}
+                alt={artistMapped.name}
                 fill
                 className="object-cover"
                 priority
@@ -88,47 +86,52 @@ export default async function ArtistPage({
             {/* Artist info */}
             <div className="flex flex-col md:col-span-7">
               <h1 className="font-display text-3xl sm:text-4xl tracking-tight text-foreground">
-                {artist.name}
+                {artistMapped.name}
               </h1>
-              <p className="text-lg text-muted-foreground mt-4 leading-relaxed">
-                {artist.bio}
-              </p>
 
               {/* Socials */}
-              {artist.socials && Object.keys(artist.socials).length > 0 && (
-                <div className="flex flex-wrap gap-4 mt-6">
-                  {(
-                    Object.entries(artist.socials) as [keyof Socials, string][]
-                  ).map(([key, url]) => {
-                    const social = icons[key];
-                    if (!url || !social) return null;
-                    const Icon = social.icon;
-                    return (
-                      <a
-                        key={key}
-                        href={url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-foreground transition-colors"
-                        aria-label={social.label}
-                      >
-                        <Icon className="h-5 w-5" />
-                      </a>
-                    );
-                  })}
-                </div>
-              )}
+              {artistMapped.socials &&
+                Object.keys(artistMapped.socials).length > 0 && (
+                  <div className="flex flex-wrap gap-4 mt-6">
+                    {(
+                      Object.entries(artistMapped.socials) as [
+                        keyof Socials,
+                        string,
+                      ][]
+                    ).map(([key, url]) => {
+                      const social = icons[key];
+                      if (!url || !social) return null;
+                      const Icon = social.icon;
+                      return (
+                        <a
+                          key={key}
+                          href={url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-muted-foreground hover:text-foreground transition-colors"
+                          aria-label={social.label}
+                        >
+                          <Icon className="h-5 w-5" />
+                        </a>
+                      );
+                    })}
+                  </div>
+                )}
+
+              <p className="text-lg text-muted-foreground mt-4 leading-relaxed">
+                {artistMapped.bio}
+              </p>
             </div>
           </div>
 
           {/* Releases */}
-          {releases.length > 0 && (
+          {artistMapped.releases && artistMapped.releases.length > 0 && (
             <div className="mt-8">
               <h2 className="font-display text-2xl sm:text-3xl tracking-tight text-foreground mb-8">
                 {t("releases")}
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-                {releases.map((release) => (
+                {artistMapped.releases.map((release) => (
                   <Link
                     key={release.id}
                     href={`/releases/${release.id}`}

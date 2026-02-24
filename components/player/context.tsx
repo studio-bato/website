@@ -9,6 +9,7 @@ import {
   useRef,
   type ReactNode,
 } from "react";
+import { shuffle } from "@/components/player/utils";
 
 export interface PlayerTrack {
   title: string;
@@ -31,28 +32,35 @@ interface PlayerContextValue {
   currentTime: number;
   duration: number;
   seek: (time: number) => void;
+  startRadio: () => Promise<void>;
 }
 
 const PlayerContext = createContext<PlayerContextValue | null>(null);
 
+interface PlayerProviderProps {
+  children: ReactNode;
+  allTracks?: PlayerTrack[];
+}
 export function PlayerProvider({
   children,
-  initialPlaylist = [],
-}: {
-  children: ReactNode;
-  initialPlaylist?: PlayerTrack[];
-}) {
+  allTracks = [],
+}: PlayerProviderProps) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const [playlist, setPlaylist] = useState<PlayerTrack[]>(initialPlaylist);
+  const [playlist, setPlaylist] = useState<PlayerTrack[]>([]);
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
 
+  const nextTrack = useCallback(() => {
+    setCurrentTrackIndex((i) => (i < playlist.length - 1 ? i + 1 : 0));
+  }, [playlist]);
+
   // Create the Audio object once on mount
   useEffect(() => {
     audioRef.current = new Audio();
     audioRef.current.preload = "metadata";
+    setPlaylist(shuffle(allTracks));
     return () => {
       audioRef.current?.pause();
       audioRef.current = null;
@@ -64,11 +72,14 @@ export function PlayerProvider({
     const audio = audioRef.current;
     if (!audio) return;
     if (isPlaying) {
-      audio.play();
+      audio.play().catch((e) => {
+        console.error(e);
+        nextTrack();
+      });
     } else {
       audio.pause();
     }
-  }, [isPlaying]);
+  }, [isPlaying, nextTrack]);
 
   // Update audio source when track changes
   useEffect(() => {
@@ -77,10 +88,13 @@ export function PlayerProvider({
     audio.src = playlist[currentTrackIndex].url;
     audio.load();
     if (isPlaying) {
-      audio.play();
+      audio.play().catch((e) => {
+        console.error(e);
+        nextTrack();
+      });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentTrackIndex, playlist]);
+  }, [currentTrackIndex, playlist, nextTrack]);
 
   // Audio event listeners
   useEffect(() => {
@@ -90,19 +104,20 @@ export function PlayerProvider({
     const onTimeUpdate = () => setCurrentTime(audio.currentTime);
     const onLoadedMetadata = () => setDuration(audio.duration);
     const onEnded = () => {
-      setCurrentTrackIndex((i) => (i < playlist.length - 1 ? i + 1 : 0));
+      nextTrack();
     };
 
     audio.addEventListener("timeupdate", onTimeUpdate);
     audio.addEventListener("loadedmetadata", onLoadedMetadata);
     audio.addEventListener("ended", onEnded);
+    audio.addEventListener("all", console.log);
 
     return () => {
       audio.removeEventListener("timeupdate", onTimeUpdate);
       audio.removeEventListener("loadedmetadata", onLoadedMetadata);
       audio.removeEventListener("ended", onEnded);
     };
-  }, [playlist.length]);
+  }, [playlist, nextTrack]);
 
   const seek = useCallback((time: number) => {
     if (audioRef.current) {
@@ -124,6 +139,12 @@ export function PlayerProvider({
     [],
   );
 
+  const startRadio = useCallback(async () => {
+    const tracks = shuffle(allTracks);
+    console.log(tracks);
+    replaceAndPlay(tracks);
+  }, []);
+
   return (
     <PlayerContext.Provider
       value={{
@@ -138,6 +159,7 @@ export function PlayerProvider({
         currentTime,
         duration,
         seek,
+        startRadio,
       }}
     >
       {children}

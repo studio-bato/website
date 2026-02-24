@@ -1,20 +1,23 @@
 import { getYouTubeId } from "@/components/video-clip-embed";
-import { getAllVideoClips } from "@/data";
+import { getReleases, ReleaseVideoClip, Release } from "@/data";
 import { Suspense } from "react";
 import { connection } from "next/server";
+
+async function getRandomVideoClip(): Promise<ReleaseVideoClip | null> {
+  const releases = await getReleases();
+  const clips = releases.flatMap((release) => release.videoClips ?? []);
+  if (clips.length === 0) return null;
+  const clip = clips[Math.floor(Math.random() * clips.length)];
+  return clip;
+}
 
 export async function RandomVideoClipDefer() {
   // Explicitly defer to request time
   await connection();
 
-  const all = getAllVideoClips();
-  if (all.length === 0) return null;
-  const clip = all[Math.floor(Math.random() * all.length)].clip;
-  const ytId = clip ? getYouTubeId(clip.url) : null;
-
-  if (!ytId) {
-    return null;
-  }
+  const clip = await getRandomVideoClip();
+  if (!clip) return null;
+  const ytId = getYouTubeId(clip.url);
 
   return (
     <div className="mx-auto w-full max-w-4xl px-6 pb-10">

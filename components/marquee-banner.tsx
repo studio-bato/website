@@ -1,8 +1,11 @@
-import { artists, releases } from "@/data";
+import { getArtists, getReleases } from "@/data";
 import { getTranslations } from "next-intl/server";
 
 export async function MarqueeBanner() {
   const t = await getTranslations("marquee");
+
+  const artists = await getArtists();
+  const releases = await getReleases();
 
   return (
     <div className="border-y border-border py-5">

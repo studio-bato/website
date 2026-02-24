@@ -105,7 +105,8 @@
   },
   "artistDetail": {
     "allArtists": "All artists",
-    "releases": "Releases"
+    "releases": "Releases",
+    "unknownArtist": "An artist like we've never seen before."
   },
   "releaseDetail": {
     "allReleases": "All releases",
