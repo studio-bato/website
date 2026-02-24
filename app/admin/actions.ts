@@ -2,8 +2,8 @@
 
 import { writeFileSync } from "fs";
 import { join } from "path";
-import { ArtistsSchema, ReleasesSchema } from "@/data/schemas";
-import type { Artist, Release } from "@/data/types";
+import { ArtistsSchema, GenresSchema, ReleasesSchema } from "@/data/schemas";
+import type { Artist, Genre, Release } from "@/data/types";
 import { createSession } from "./session";
 
 export async function saveArtists(artists: Artist[]) {
@@ -25,6 +25,18 @@ export async function saveReleases(releases: Release[]) {
   }
 
   const filePath = join(process.cwd(), "data", "json", "releases.json");
+  writeFileSync(filePath, JSON.stringify(parsed.data, null, 2), "utf-8");
+
+  return { success: true };
+}
+
+export async function saveGenres(genres: Genre[]) {
+  const parsed = GenresSchema.safeParse(genres);
+  if (!parsed.success) {
+    return { success: false, error: parsed.error.flatten() };
+  }
+
+  const filePath = join(process.cwd(), "data", "json", "genres.json");
   writeFileSync(filePath, JSON.stringify(parsed.data, null, 2), "utf-8");
 
   return { success: true };
