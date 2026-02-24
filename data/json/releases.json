@@ -2,14 +2,10 @@
   {
     "id": "kmn-tard-sur-la-rive",
     "title": "Tard sur la rive",
-    "artistIds": [
-      "kmn"
-    ],
+    "artistIds": ["kmn"],
     "cover": "https://sb-cdn.opac.me/file/studiobato-assets/releases/kmn/singles/tard-sur-la-rive.jpg",
     "date": "2025-12-25",
-    "genreIds": [
-      "hiphop"
-    ],
+    "genreIds": ["hiphop"],
     "type": "Single",
     "plaftormLinks": {
       "spotify": "https://open.spotify.com/track/79yapO0Gvr767LzNVDXrUh",
@@ -32,15 +28,11 @@
   {
     "id": "walass-time-of-love",
     "title": "Time of Love",
-    "artistIds": [
-      "walass"
-    ],
+    "artistIds": ["walass"],
     "cover": "https://f003.backblazeb2.com/file/studiobato-assets/releases/walass/time-of-love/cover.jpg",
     "description": "Un voyage sonore à travers les saisons de l'amour",
     "date": "2025-11-20",
-    "genreIds": [
-      "ambient"
-    ],
+    "genreIds": ["ambient"],
     "type": "EP",
     "plaftormLinks": {
       "soundcloud": "https://soundcloud.com/theo-lasnier/sets/time-of-love"
@@ -60,30 +52,20 @@
     "cover": "https://sb-cdn.opac.me/file/studiobato-assets/artists/batosessions/profile.jpg",
     "description": "Freestyle rap experimentaux, unique à chaque étape",
     "date": "2024-05-20",
-    "genreIds": [
-      "hiphop"
-    ],
+    "genreIds": ["hiphop"],
     "type": "Freestyles",
     "tracks": [
       {
         "title": "TJSILAROUT - Gezel / Bato Sessions #1",
-        "artistIds": [
-          "gezel"
-        ]
+        "artistIds": ["gezel"]
       },
       {
         "title": "AILE META - Gezel X Al'Phao / Bato Sessions #2",
-        "artistIds": [
-          "gezel",
-          "alphao"
-        ]
+        "artistIds": ["gezel", "alphao"]
       },
       {
         "title": "Banalité - Skrab X Walass / Bato Sessions #3",
-        "artistIds": [
-          "skrab",
-          "walass"
-        ]
+        "artistIds": ["skrab", "walass"]
       }
     ],
     "videoClips": [
@@ -104,14 +86,10 @@
   {
     "id": "sern-pheromoney",
     "title": "Pheromoney ",
-    "artistIds": [
-      "SERN."
-    ],
+    "artistIds": ["SERN."],
     "cover": "https://sb-cdn.opac.me/file/studiobato-assets/releases/SERN/singles/pheromoney.jpg",
     "date": "2024-05-20",
-    "genreIds": [
-      "hiphop"
-    ],
+    "genreIds": ["hiphop"],
     "type": "Single",
     "plaftormLinks": {
       "spotify": "https://open.spotify.com/album/1uCxNb7B0EtC8i20OCjrcp",
@@ -123,12 +101,7 @@
     "tracks": [
       {
         "title": "Pheromoney",
-        "artistIds": [
-          "SERN.",
-          "La Virago",
-          "West Galsen",
-          "Lucioylle"
-        ]
+        "artistIds": ["SERN.", "La Virago", "West Galsen", "Lucioylle"]
       }
     ]
   },
@@ -138,30 +111,16 @@
     "cover": "https://sb-cdn.opac.me/file/studiobato-assets/artists/LCDM/profile.jpg",
     "description": "Freestyle rap experimentaux, unique à chaque étape",
     "date": "2024-05-10",
-    "genreIds": [
-      "hiphop"
-    ],
+    "genreIds": ["hiphop"],
     "type": "Freestyles",
     "tracks": [
       {
         "title": "La Cour des Miracles - #1",
-        "artistIds": [
-          "idial",
-          "alphao",
-          "walass",
-          "kmn"
-        ]
+        "artistIds": ["idial", "alphao", "walass", "kmn"]
       },
       {
         "title": "La Cour des Miracles - #2",
-        "artistIds": [
-          "youyou",
-          "i20",
-          "idial",
-          "alphao",
-          "walass",
-          "kmn"
-        ]
+        "artistIds": ["youyou", "i20", "idial", "alphao", "walass", "kmn"]
       }
     ],
     "videoClips": [
@@ -178,17 +137,11 @@
   {
     "id": "dzuko-walass-clavier-a-la-mer",
     "title": "Clavier à la mer",
-    "artistIds": [
-      "dzuko",
-      "walass"
-    ],
+    "artistIds": ["dzuko", "walass"],
     "cover": "https://sb-cdn.opac.me/file/studiobato-assets/releases/walass/walass-x-dzuko-clavier-a-la-mer/cover.jpg",
     "description": "A vocal experience",
     "date": "2024-03-15",
-    "genreIds": [
-      "ambiant",
-      "electronic"
-    ],
+    "genreIds": ["ambient", "electronic"],
     "type": "EP",
     "tracks": [
       {
@@ -222,15 +175,11 @@
   {
     "id": "radiobato-chappal-pehenke-chalo",
     "title": "Chappal Pehenke Challo",
-    "artistIds": [
-      "radiobato"
-    ],
+    "artistIds": ["radiobato"],
     "cover": "https://sb-cdn.opac.me/file/studiobato-assets/releases/radiobato/chappal-pehenke-chalo/cover.jpg",
     "description": "A trip through india",
     "date": "2024-01-15",
-    "genreIds": [
-      "electronic"
-    ],
+    "genreIds": ["electronic"],
     "type": "EP",
     "plaftormLinks": {
       "spotify": "https://open.spotify.com/artist/5R712bVV3bkwrzKocBIOao",

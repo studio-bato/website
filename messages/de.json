@@ -96,7 +96,9 @@
   "releasesPage": {
     "metaTitle": "Releases | Studio Bato",
     "metaDescription": "Alle Studio Bato Veröffentlichungen durchstöbern — Singles, EPs und Alben unserer Künstler.",
-    "title": "Releases"
+    "title": "Releases",
+    "filterByGenre": "Nach Genre filtern",
+    "allGenres": "Alle"
   },
   "videosPage": {
     "metaTitle": "Videos | Studio Bato",
@@ -114,7 +116,8 @@
     "listenOnPlatforms": "Auf Plattformen hören",
     "buy": "Kaufen",
     "playAll": "Alle abspielen",
-    "variousArtists": "Verschiedene Künstler"
+    "variousArtists": "Verschiedene Künstler",
+    "relatedReleases": "Ähnliche Releases"
   },
   "notFound": {
     "title": "Seite nicht gefunden :/",

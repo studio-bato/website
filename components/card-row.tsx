@@ -9,14 +9,14 @@ interface CardRowProps {
 }
 export function CardRow({ src, alt, href, children }: CardRowProps) {
   return (
-    <Link href={href} className="group cursor-pointer hover:bg-card/50">
+    <Link href={href} className="group cursor-pointer">
       <div className="flex flex-col w-full">
         <div className="relative aspect-square overflow-hidden w-full">
           <Image
             src={src}
             alt={alt}
             fill
-            className="object-cover group-hover:grayscale-0 transition-all duration-500"
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
           />
         </div>
         <div className="pt-4">{children}</div>

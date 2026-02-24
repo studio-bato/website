@@ -6,6 +6,7 @@ import { icons } from "@/lib/icons";
 import type { Metadata } from "next";
 import type { Socials } from "@/data";
 import { getTranslations } from "next-intl/server";
+import { Release } from "@/components/release";
 
 export async function generateMetadata({
   params,
@@ -130,28 +131,9 @@ export default async function ArtistPage({
               <h2 className="font-display text-2xl sm:text-3xl tracking-tight text-foreground mb-8">
                 {t("releases")}
               </h2>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-8">
                 {artistMapped.releases.map((release) => (
-                  <Link
-                    key={release.id}
-                    href={`/releases/${release.id}`}
-                    className="group"
-                  >
-                    <div className="relative aspect-square overflow-hidden mb-3">
-                      <Image
-                        src={release.cover || "/placeholder.svg"}
-                        alt={release.title}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                    <h3 className="text-sm font-medium text-foreground group-hover:text-foreground/80 transition-colors">
-                      {release.title}
-                    </h3>
-                    <p className="text-xs text-muted-foreground mt-0.5">
-                      {release.type} &middot; {release.date.slice(0, 4)}
-                    </p>
-                  </Link>
+                  <Release key={release.id} release={release} />
                 ))}
               </div>
             </div>

@@ -1,7 +1,8 @@
-import { Release } from "@/components/release";
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
-import { getReleases } from "@/data";
+import { getGenres, getReleases } from "@/data";
+import { Release } from "@/components/release";
+import { GenreFilter } from "@/components/genre-filter";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("releasesPage");
@@ -15,20 +16,39 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function Releases() {
+export default async function Releases({
+  searchParams,
+}: {
+  searchParams: Promise<{ genres?: string }>;
+}) {
   const t = await getTranslations("releasesPage");
-  const releases = await getReleases();
+  const { genres: genresParam } = await searchParams;
+
+  const selectedGenres = genresParam
+    ? genresParam.split(",").filter(Boolean)
+    : [];
+
+  const [allReleases, genres] = await Promise.all([getReleases(), getGenres()]);
+
+  const releases =
+    selectedGenres.length === 0
+      ? allReleases
+      : allReleases.filter((release) =>
+          release.genreIds.some((id) => selectedGenres.includes(id)),
+        );
 
   return (
     <section id="releases" className="py-12 lg:py-32">
       <div className="mx-auto max-w-6xl px-6">
-        <h2 className="font-display text-4xl sm:text-5xl tracking-tight text-foreground mb-16">
+        <h2 className="font-display text-4xl sm:text-5xl tracking-tight text-foreground mb-8">
           {t("title")}
         </h2>
 
-        <div className="flex flex-col gap-4 grid grid-cols-2 lg:grid-cols-3 lg:gap-8">
-          {releases.map((release, index) => (
-            <Release release={release} key={index} />
+        <GenreFilter genres={genres} />
+
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
+          {releases.map((release) => (
+            <Release key={release.id} release={release} />
           ))}
         </div>
       </div>

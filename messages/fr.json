@@ -96,7 +96,9 @@
   "releasesPage": {
     "metaTitle": "Sorties | Studio Bato",
     "metaDescription": "Parcourez toutes les sorties Studio Bato — singles, EPs et albums de nos artistes.",
-    "title": "Sorties"
+    "title": "Sorties",
+    "filterByGenre": "Filtrer par genre",
+    "allGenres": "Tout"
   },
   "videosPage": {
     "metaTitle": "Vidéos | Studio Bato",
@@ -114,7 +116,8 @@
     "listenOnPlatforms": "Écouter sur les plateformes",
     "buy": "Acheter",
     "playAll": "Tout écouter",
-    "variousArtists": "Artistes variés"
+    "variousArtists": "Artistes variés",
+    "relatedReleases": "Sorties similaires"
   },
   "notFound": {
     "title": "Page introuvable :/",

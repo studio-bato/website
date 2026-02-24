@@ -3,12 +3,32 @@ import {
   ArtistMapped,
   type Release,
   ReleaseMapped,
+  type Genre,
 } from "./types";
 
 import { artists, releases, genres } from "./local-data";
 
+export async function getGenres(): Promise<Array<Genre>> {
+  return genres;
+}
+
 export async function getGenreById(genreId: string) {
   return genres.find((g) => g.id === genreId);
+}
+
+export async function getRelatedReleases(
+  releaseId: string,
+  limit = 1000,
+): Promise<Array<Release>> {
+  const release = await getReleaseById(releaseId);
+  if (!release) return [];
+  return releases
+    .filter(
+      (r) =>
+        r.id !== releaseId &&
+        r.genreIds.some((genreId) => release.genreIds.includes(genreId)),
+    )
+    .slice(0, limit);
 }
 
 export async function getArtistById(artistId: string) {

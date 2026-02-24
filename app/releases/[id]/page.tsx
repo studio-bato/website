@@ -1,4 +1,5 @@
-import { getReleaseByIdMapped, getReleases } from "@/data";
+import { getReleaseByIdMapped, getReleases, getRelatedReleases } from "@/data";
+import { Release } from "@/components/release";
 import { mapReleaseToPlayer } from "@/data/player";
 import Image from "next/image";
 import Link from "next/link";
@@ -63,7 +64,10 @@ export default async function ReleasePage({
     notFound();
   }
 
-  const playerTracks = await mapReleaseToPlayer(releaseMapped);
+  const [playerTracks, relatedReleases] = await Promise.all([
+    mapReleaseToPlayer(releaseMapped),
+    getRelatedReleases(id, 6),
+  ]);
 
   return (
     <main>
@@ -115,12 +119,13 @@ export default async function ReleasePage({
               {releaseMapped.genres && (
                 <p className="text-sm text-muted-foreground mt-1">
                   {releaseMapped.genres.map((genre) => (
-                    <span
-                      className="not-first:before:content-[',_']"
+                    <Link
+                      href={`/releases?genres=${genre.id}`}
+                      className="not-first:before:content-[',_'] hover:text-foreground transition-colors"
                       key={genre.id}
                     >
                       {genre.label}
-                    </span>
+                    </Link>
                   ))}
                 </p>
               )}
@@ -201,6 +206,20 @@ export default async function ReleasePage({
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {releaseMapped.videoClips.map((clip, index) => (
                   <VideoClipEmbed key={index} clip={clip} />
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Related releases */}
+          {relatedReleases.length > 0 && (
+            <div className="mt-16">
+              <h2 className="font-display text-2xl sm:text-3xl tracking-tight text-foreground mb-8">
+                {t("relatedReleases")}
+              </h2>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-8">
+                {relatedReleases.map((release) => (
+                  <Release key={release.id} release={release} />
                 ))}
               </div>
             </div>
