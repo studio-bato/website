@@ -70,6 +70,7 @@ export function AutoForm<T extends z.ZodObject<z.ZodRawShape>>({
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-6">
+        <Button type="submit">{submitLabel}</Button>
         {fields.map((meta) => (
           <FieldRenderer
             key={meta.name}

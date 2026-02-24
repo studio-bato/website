@@ -122,14 +122,6 @@ function DefaultArrayField({
           {meta.label}
           {meta.required && <span className="text-destructive"> *</span>}
         </span>
-        <Button
-          type="button"
-          variant="outline"
-          size="sm"
-          onClick={() => append(isObjectArray ? {} : "")}
-        >
-          + Add {singularLabel}
-        </Button>
       </div>
 
       {fields.map((item, index) => (
@@ -176,6 +168,17 @@ function DefaultArrayField({
           No {meta.label.toLowerCase()} yet.
         </p>
       )}
+
+      <div className="flex items-center justify-between">
+        <Button
+          type="button"
+          variant="outline"
+          size="sm"
+          onClick={() => append(isObjectArray ? {} : "")}
+        >
+          + Add {singularLabel}
+        </Button>
+      </div>
     </div>
   );
 }
