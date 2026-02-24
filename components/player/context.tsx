@@ -23,16 +23,17 @@ export interface PlayerTrack {
 interface PlayerContextValue {
   playlist: PlayerTrack[];
   isPlaying: boolean;
-  setIsPlaying: (playing: boolean) => void;
-  setPlaylist: (tracks: PlayerTrack[]) => void;
-  addToPlaylist: (tracks: PlayerTrack[]) => void;
-  replaceAndPlay: (tracks: PlayerTrack[], index?: number) => void;
   currentTrackIndex: number;
-  setCurrentTrackIndex: (index: number) => void;
   currentTime: number;
   duration: number;
+  togglePlayback: () => void;
+  nextTrack: () => void;
+  prevTrack: () => void;
+  selectTrack: (index: number) => void;
   seek: (time: number) => void;
-  startRadio: () => Promise<void>;
+  replaceAndPlay: (tracks: PlayerTrack[], index?: number) => void;
+  addToPlaylist: (tracks: PlayerTrack[]) => void;
+  startRadio: () => void;
 }
 
 const PlayerContext = createContext<PlayerContextValue | null>(null);
@@ -41,6 +42,7 @@ interface PlayerProviderProps {
   children: ReactNode;
   allTracks?: PlayerTrack[];
 }
+
 export function PlayerProvider({
   children,
   allTracks = [],
@@ -52,72 +54,78 @@ export function PlayerProvider({
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
 
-  const nextTrack = useCallback(() => {
-    setCurrentTrackIndex((i) => (i < playlist.length - 1 ? i + 1 : 0));
-  }, [playlist]);
+  // Refs for latest values — avoids stale closures in stable callbacks
+  const playlistRef = useRef(playlist);
+  const currentTrackIndexRef = useRef(currentTrackIndex);
+  const isPlayingRef = useRef(isPlaying);
+  playlistRef.current = playlist;
+  currentTrackIndexRef.current = currentTrackIndex;
+  isPlayingRef.current = isPlaying;
 
-  // Create the Audio object once on mount
-  useEffect(() => {
-    audioRef.current = new Audio();
-    audioRef.current.preload = "metadata";
-    setPlaylist(shuffle(allTracks));
-    return () => {
-      audioRef.current?.pause();
-      audioRef.current = null;
-    };
+  // ── Imperative helpers ──────────────────────────────────────────────
+
+  const loadAndPlay = useCallback(
+    (tracks: PlayerTrack[], index: number, shouldPlay: boolean) => {
+      const audio = audioRef.current;
+      if (!audio || !tracks[index]) return;
+      audio.src = tracks[index].url;
+      audio.load();
+      if (shouldPlay) {
+        audio.play().catch(console.error);
+      }
+    },
+    [],
+  );
+
+  const togglePlayback = useCallback(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (isPlayingRef.current) {
+      audio.pause();
+      setIsPlaying(false);
+    } else {
+      audio.play().catch(console.error);
+      setIsPlaying(true);
+    }
   }, []);
 
-  // Sync play/pause state to audio
-  useEffect(() => {
+  const nextTrack = useCallback(() => {
+    const pl = playlistRef.current;
+    if (pl.length === 0) return;
+    const next =
+      currentTrackIndexRef.current < pl.length - 1
+        ? currentTrackIndexRef.current + 1
+        : 0;
+    setCurrentTrackIndex(next);
+    loadAndPlay(pl, next, isPlayingRef.current);
+  }, [loadAndPlay]);
+
+  const prevTrack = useCallback(() => {
     const audio = audioRef.current;
-    if (!audio) return;
-    if (isPlaying) {
-      audio.play().catch((e) => {
-        console.error(e);
-        nextTrack();
-      });
-    } else {
-      audio.pause();
+    const pl = playlistRef.current;
+    if (pl.length === 0) return;
+    // If more than 2s in, restart the current track
+    if (audio && audio.currentTime > 2) {
+      audio.currentTime = 0;
+      setCurrentTime(0);
+      return;
     }
-  }, [isPlaying, nextTrack]);
+    const prev =
+      currentTrackIndexRef.current > 0
+        ? currentTrackIndexRef.current - 1
+        : pl.length - 1;
+    setCurrentTrackIndex(prev);
+    loadAndPlay(pl, prev, isPlayingRef.current);
+  }, [loadAndPlay]);
 
-  // Update audio source when track changes
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio || !playlist[currentTrackIndex]) return;
-    audio.src = playlist[currentTrackIndex].url;
-    audio.load();
-    if (isPlaying) {
-      audio.play().catch((e) => {
-        console.error(e);
-        nextTrack();
-      });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentTrackIndex, playlist, nextTrack]);
-
-  // Audio event listeners
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    const onTimeUpdate = () => setCurrentTime(audio.currentTime);
-    const onLoadedMetadata = () => setDuration(audio.duration);
-    const onEnded = () => {
-      nextTrack();
-    };
-
-    audio.addEventListener("timeupdate", onTimeUpdate);
-    audio.addEventListener("loadedmetadata", onLoadedMetadata);
-    audio.addEventListener("ended", onEnded);
-    audio.addEventListener("all", console.log);
-
-    return () => {
-      audio.removeEventListener("timeupdate", onTimeUpdate);
-      audio.removeEventListener("loadedmetadata", onLoadedMetadata);
-      audio.removeEventListener("ended", onEnded);
-    };
-  }, [playlist, nextTrack]);
+  const selectTrack = useCallback(
+    (index: number) => {
+      setCurrentTrackIndex(index);
+      setIsPlaying(true);
+      loadAndPlay(playlistRef.current, index, true);
+    },
+    [loadAndPlay],
+  );
 
   const seek = useCallback((time: number) => {
     if (audioRef.current) {
@@ -135,30 +143,112 @@ export function PlayerProvider({
       setPlaylist(tracks);
       setCurrentTrackIndex(index);
       setIsPlaying(true);
+      loadAndPlay(tracks, index, true);
     },
-    [],
+    [loadAndPlay],
   );
 
-  const startRadio = useCallback(async () => {
-    const tracks = shuffle(allTracks);
-    console.log(tracks);
-    replaceAndPlay(tracks);
+  const startRadio = useCallback(() => {
+    replaceAndPlay(shuffle(allTracks));
+  }, [allTracks, replaceAndPlay]);
+
+  // ── Effects ─────────────────────────────────────────────────────────
+
+  // Create Audio element once on mount, set initial playlist, pre-load first track
+  useEffect(() => {
+    const audio = new Audio();
+    audio.preload = "metadata";
+    audioRef.current = audio;
+    const initial = shuffle(allTracks);
+    setPlaylist(initial);
+    if (initial[0]) {
+      audio.src = initial[0].url;
+      audio.load();
+    }
+    return () => {
+      audio.pause();
+      audioRef.current = null;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // Audio element event listeners
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const onTimeUpdate = () => setCurrentTime(audio.currentTime);
+    const onLoadedMetadata = () => setDuration(audio.duration);
+    const onEnded = () => nextTrack();
+
+    audio.addEventListener("timeupdate", onTimeUpdate);
+    audio.addEventListener("loadedmetadata", onLoadedMetadata);
+    audio.addEventListener("ended", onEnded);
+
+    return () => {
+      audio.removeEventListener("timeupdate", onTimeUpdate);
+      audio.removeEventListener("loadedmetadata", onLoadedMetadata);
+      audio.removeEventListener("ended", onEnded);
+    };
+  }, [nextTrack]);
+
+  // MediaSession API — hardware / OS media keys
+  useEffect(() => {
+    if (!("mediaSession" in navigator)) return;
+
+    const session = navigator.mediaSession;
+    session.setActionHandler("play", () => {
+      audioRef.current?.play().catch(console.error);
+      setIsPlaying(true);
+    });
+    session.setActionHandler("pause", () => {
+      audioRef.current?.pause();
+      setIsPlaying(false);
+    });
+    session.setActionHandler("previoustrack", prevTrack);
+    session.setActionHandler("nexttrack", nextTrack);
+    session.setActionHandler("seekto", (details) => {
+      if (details.seekTime != null) seek(details.seekTime);
+    });
+
+    return () => {
+      session.setActionHandler("play", null);
+      session.setActionHandler("pause", null);
+      session.setActionHandler("previoustrack", null);
+      session.setActionHandler("nexttrack", null);
+      session.setActionHandler("seekto", null);
+    };
+  }, [nextTrack, prevTrack, seek]);
+
+  // Update MediaSession metadata when track changes
+  useEffect(() => {
+    if (!("mediaSession" in navigator)) return;
+    const track = playlist[currentTrackIndex];
+    if (!track) return;
+
+    navigator.mediaSession.metadata = new MediaMetadata({
+      title: track.title,
+      artist: track.artist,
+      album: track.album,
+      artwork: track.cover ? [{ src: track.cover }] : [],
+    });
+  }, [playlist, currentTrackIndex]);
 
   return (
     <PlayerContext.Provider
       value={{
         isPlaying,
-        setIsPlaying,
         playlist,
-        setPlaylist,
-        addToPlaylist,
-        replaceAndPlay,
         currentTrackIndex,
-        setCurrentTrackIndex,
         currentTime,
         duration,
+        togglePlayback,
+        nextTrack,
+        prevTrack,
+        selectTrack,
         seek,
+        replaceAndPlay,
+        addToPlaylist,
         startRadio,
       }}
     >

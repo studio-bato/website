@@ -41,6 +41,7 @@ export default async function RootLayout({
 }>) {
   const locale = await getLocale();
   const messages = await getMessages();
+  const allTracks = await getAllTracksPlaylist(); // TODO: get initial playlist from release page ?
 
   return (
     <html lang={locale} suppressHydrationWarning>
@@ -54,9 +55,7 @@ export default async function RootLayout({
             enableSystem={false}
             disableTransitionOnChange
           >
-            <PlayerProvider
-              allTracks={await getAllTracksPlaylist()} // TODO: get initial playlist from release page ?
-            >
+            <PlayerProvider allTracks={allTracks}>
               <Navbar />
               <div className="mt-20">{children}</div>
               <Footer />

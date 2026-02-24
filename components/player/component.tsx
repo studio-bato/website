@@ -29,9 +29,11 @@ export function Player() {
   const {
     playlist,
     currentTrackIndex,
-    setCurrentTrackIndex,
     isPlaying,
-    setIsPlaying,
+    togglePlayback,
+    nextTrack,
+    prevTrack,
+    selectTrack,
     currentTime,
     duration,
     seek,
@@ -41,30 +43,6 @@ export function Player() {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const currentTrack = playlist[currentTrackIndex];
-
-  const togglePlay = useCallback(() => {
-    setIsPlaying(!isPlaying);
-  }, [isPlaying, setIsPlaying]);
-
-  const nextTrack = useCallback(() => {
-    setCurrentTrackIndex(
-      currentTrackIndex < playlist.length - 1 ? currentTrackIndex + 1 : 0,
-    );
-  }, [playlist.length, currentTrackIndex, setCurrentTrackIndex]);
-
-  const prevTrack = useCallback(() => {
-    setCurrentTrackIndex(
-      currentTrackIndex > 0 ? currentTrackIndex - 1 : playlist.length - 1,
-    );
-  }, [playlist.length, currentTrackIndex, setCurrentTrackIndex]);
-
-  const selectTrack = useCallback(
-    (index: number) => {
-      setCurrentTrackIndex(index);
-      setIsPlaying(true);
-    },
-    [setCurrentTrackIndex, setIsPlaying],
-  );
 
   const handleSeek = useCallback(
     (value: number[]) => {
@@ -83,12 +61,12 @@ export function Player() {
         )
       ) {
         e.preventDefault();
-        togglePlay();
+        togglePlayback();
       }
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [togglePlay]);
+  }, [togglePlayback]);
 
   if (!currentTrack) return null;
 
@@ -174,7 +152,7 @@ export function Player() {
                   variant="default"
                   size="icon"
                   className="h-14 w-14 rounded-full [&_svg]:size-6"
-                  onClick={togglePlay}
+                  onClick={togglePlayback}
                 >
                   {isPlaying ? (
                     <Pause className="h-6 w-6" />
@@ -234,7 +212,7 @@ export function Player() {
       <div className="fixed bottom-0 left-0 right-0 z-40 border-t bg-background/95 backdrop-blur-sm supports-backdrop-filter:bg-background/60">
         <div className="flex h-16 items-center gap-2 px-3">
           {/* Play/Pause */}
-          <Button variant="ghost" size="icon" onClick={togglePlay}>
+          <Button variant="ghost" size="icon" onClick={togglePlayback}>
             {isPlaying ? (
               <Pause className="h-5 w-5" />
             ) : (

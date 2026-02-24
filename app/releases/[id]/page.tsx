@@ -115,7 +115,10 @@ export default async function ReleasePage({
               {releaseMapped.genres && (
                 <p className="text-sm text-muted-foreground mt-1">
                   {releaseMapped.genres.map((genre) => (
-                    <span className="not-first:before:content-[',_']">
+                    <span
+                      className="not-first:before:content-[',_']"
+                      key={genre.id}
+                    >
                       {genre.label}
                     </span>
                   ))}
