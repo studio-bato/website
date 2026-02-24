@@ -147,5 +147,33 @@
     "copyright": "© 2026 StudioBato. Tous droits réservés.",
     "privacy": "Confidentialité",
     "terms": "Mentions légales"
+  },
+  "privacyPage": {
+    "metaTitle": "Confidentialité | Studio Bato",
+    "metaDescription": "Politique de confidentialité de Studio Bato. Aucune donnée personnelle n'est collectée. Un seul cookie est utilisé pour la préférence de langue.",
+    "subtitle": "Confidentialité",
+    "title": "Politique de confidentialité",
+    "intro": "Studio Bato respecte votre vie privée. Ce site ne collecte aucune donnée personnelle et n'utilise aucun outil de traçage ou d'analyse.",
+    "cookieTitle": "Cookies",
+    "cookieText": "Un seul cookie est utilisé : NEXT_LOCALE. Il mémorise votre préférence de langue (français, anglais ou allemand) et n'est partagé avec aucun tiers.",
+    "dataTitle": "Données personnelles",
+    "dataText": "Aucune donnée personnelle n'est collectée, stockée ou transmise. Ce site ne dispose d'aucun formulaire d'inscription, d'aucun système de compte, et n'intègre aucun outil d'analyse tiers.",
+    "contactTitle": "Contact",
+    "contactText": "Pour toute question relative à la confidentialité, contactez-nous via la <link>page contact</link>."
+  },
+  "termsPage": {
+    "metaTitle": "Mentions légales | Studio Bato",
+    "metaDescription": "Mentions légales de Studio Bato. Éditeur : Culture à Flot, association loi 1901, SIREN 848780029.",
+    "subtitle": "Mentions légales",
+    "title": "Mentions légales",
+    "publisherTitle": "Éditeur",
+    "publisherName": "Culture à Flot",
+    "publisherType": "Association loi 1901",
+    "publisherSiren": "SIREN : 848780029",
+    "publisherRegistry": "Voir les informations légales",
+    "hostingTitle": "Hébergement",
+    "hostingText": "Ce site est hébergé par Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis.",
+    "contactTitle": "Contact",
+    "contactText": "Pour toute question, rendez-vous sur notre <link>page contact</link>."
   }
 }

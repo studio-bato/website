@@ -148,5 +148,33 @@
     "copyright": "© 2026 StudioBato. All rights reserved.",
     "privacy": "Privacy",
     "terms": "Terms"
+  },
+  "privacyPage": {
+    "metaTitle": "Privacy | Studio Bato",
+    "metaDescription": "Privacy policy for Studio Bato. No personal data is collected. A single cookie is used for language preference.",
+    "subtitle": "Privacy",
+    "title": "Privacy Policy",
+    "intro": "Studio Bato respects your privacy. This site collects no personal data and uses no tracking or analytics tools.",
+    "cookieTitle": "Cookies",
+    "cookieText": "A single cookie is used: NEXT_LOCALE. It stores your language preference (French, English, or German) and is never shared with any third party.",
+    "dataTitle": "Personal Data",
+    "dataText": "No personal data is collected, stored, or transmitted. This site has no sign-up forms, no user accounts, and does not integrate any third-party analytics.",
+    "contactTitle": "Contact",
+    "contactText": "For any privacy-related questions, reach us through the <link>contact page</link>."
+  },
+  "termsPage": {
+    "metaTitle": "Legal Notice | Studio Bato",
+    "metaDescription": "Legal notice for Studio Bato. Publisher: Culture à Flot, association loi 1901, SIREN 848780029.",
+    "subtitle": "Legal Notice",
+    "title": "Legal Notice",
+    "publisherTitle": "Publisher",
+    "publisherName": "Culture à Flot",
+    "publisherType": "Association loi 1901",
+    "publisherSiren": "SIREN: 848780029",
+    "publisherRegistry": "View legal information",
+    "hostingTitle": "Hosting",
+    "hostingText": "This site is hosted by Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, United States.",
+    "contactTitle": "Contact",
+    "contactText": "For any enquiries, visit our <link>contact page</link>."
   }
 }

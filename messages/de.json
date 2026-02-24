@@ -147,5 +147,33 @@
     "copyright": "© 2026 StudioBato. Alle Rechte vorbehalten.",
     "privacy": "Datenschutz",
     "terms": "Impressum"
+  },
+  "privacyPage": {
+    "metaTitle": "Datenschutz | Studio Bato",
+    "metaDescription": "Datenschutzerklärung von Studio Bato. Es werden keine personenbezogenen Daten erhoben. Ein einziges Cookie wird für die Sprachpräferenz verwendet.",
+    "subtitle": "Datenschutz",
+    "title": "Datenschutzerklärung",
+    "intro": "Studio Bato respektiert Ihre Privatsphäre. Diese Website erhebt keine personenbezogenen Daten und verwendet keine Tracking- oder Analyse-Tools.",
+    "cookieTitle": "Cookies",
+    "cookieText": "Es wird ein einziges Cookie verwendet: NEXT_LOCALE. Es speichert Ihre Sprachpräferenz (Französisch, Englisch oder Deutsch) und wird niemals an Dritte weitergegeben.",
+    "dataTitle": "Personenbezogene Daten",
+    "dataText": "Es werden keine personenbezogenen Daten erhoben, gespeichert oder übertragen. Diese Website verfügt über keine Anmeldeformulare, keine Benutzerkonten und integriert keine Analyse-Tools von Drittanbietern.",
+    "contactTitle": "Kontakt",
+    "contactText": "Für datenschutzbezogene Fragen erreichen Sie uns über die <link>Kontaktseite</link>."
+  },
+  "termsPage": {
+    "metaTitle": "Impressum | Studio Bato",
+    "metaDescription": "Impressum von Studio Bato. Herausgeber: Culture à Flot, association loi 1901, SIREN 848780029.",
+    "subtitle": "Impressum",
+    "title": "Impressum",
+    "publisherTitle": "Herausgeber",
+    "publisherName": "Culture à Flot",
+    "publisherType": "Association loi 1901",
+    "publisherSiren": "SIREN: 848780029",
+    "publisherRegistry": "Rechtliche Informationen einsehen",
+    "hostingTitle": "Hosting",
+    "hostingText": "Diese Website wird von Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA gehostet.",
+    "contactTitle": "Kontakt",
+    "contactText": "Für alle Anfragen besuchen Sie unsere <link>Kontaktseite</link>."
   }
 }

@@ -72,13 +72,13 @@ export async function Footer() {
           <p className="text-xs text-muted-foreground">{t("copyright")}</p>
           <div className="flex items-center gap-6">
             <Link
-              href="#"
+              href="/privacy"
               className="text-xs text-muted-foreground hover:text-foreground transition-colors"
             >
               {t("privacy")}
             </Link>
             <Link
-              href="#"
+              href="/terms"
               className="text-xs text-muted-foreground hover:text-foreground transition-colors"
             >
               {t("terms")}
