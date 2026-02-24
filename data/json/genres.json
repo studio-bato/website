@@ -14,5 +14,13 @@
   {
     "id": "ambient",
     "label": "Ambient"
+  },
+  {
+    "id": "downtempo",
+    "label": "Downtempo"
+  },
+  {
+    "id": "trap",
+    "label": "Trap"
   }
 ]

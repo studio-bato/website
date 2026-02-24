@@ -41,5 +41,21 @@
     "bio": "Old-school survivor",
     "image": "https://sb-cdn.opac.me/file/studiobato-assets/artists/kmn/profile.jpg",
     "socials": {}
+  },
+  {
+    "id": "gezel",
+    "name": "Gezel"
+  },
+  {
+    "id": "matos",
+    "name": "Matos"
+  },
+  {
+    "id": "opac",
+    "name": "opac"
+  },
+  {
+    "id": "skrab",
+    "name": "Skrab"
   }
 ]
