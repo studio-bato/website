@@ -1,4 +1,4 @@
-import { getArtistByIdMapped, getArtists } from "@/data";
+import { getArtistByIdMapped, getArtists, getMediaUrl } from "@/data";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
@@ -76,7 +76,9 @@ export default async function ArtistPage({
             {/* Artist image */}
             <div className="relative aspect-square overflow-hidden md:col-span-5">
               <Image
-                src={artistMapped.image || "/placeholder-artist.svg"}
+                src={
+                  getMediaUrl(artistMapped.image) || "/placeholder-artist.svg"
+                }
                 alt={artistMapped.name}
                 fill
                 className="object-cover"

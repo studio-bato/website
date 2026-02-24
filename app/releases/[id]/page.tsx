@@ -91,7 +91,7 @@ export default async function ReleasePage({
             {/* Cover */}
             <div className="relative aspect-square overflow-hidden md:col-span-5">
               <Image
-                src={releaseMapped.cover || "/placeholder.svg"}
+                src={getMediaUrl(releaseMapped.cover) || "/placeholder.svg"}
                 alt={`${releaseMapped.title} album cover`}
                 fill
                 className="object-cover"

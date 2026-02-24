@@ -1,4 +1,4 @@
-import { getReleaseByIdMapped } from "@/data";
+import { getMediaUrl, getReleaseByIdMapped } from "@/data";
 import {
   ogSize,
   ogContentType,
@@ -24,7 +24,7 @@ export default async function Image({
   const t = await getTranslations("releaseDetail");
 
   const coverDataUri = releaseMapped.cover
-    ? await fetchImageAsDataUri(releaseMapped.cover)
+    ? await fetchImageAsDataUri(getMediaUrl(releaseMapped.cover)!)
     : null;
 
   return ogImage({

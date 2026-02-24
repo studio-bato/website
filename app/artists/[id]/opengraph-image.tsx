@@ -1,4 +1,4 @@
-import { getArtistById } from "@/data";
+import { getArtistById, getMediaUrl } from "@/data";
 import {
   ogSize,
   ogContentType,
@@ -26,7 +26,7 @@ export default async function Image({
       : artist.bio;
 
   const imageDataUri = artist.image
-    ? await fetchImageAsDataUri(artist.image)
+    ? await fetchImageAsDataUri(getMediaUrl(artist.image)!)
     : null;
 
   return ogImage({
