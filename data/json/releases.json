@@ -167,6 +167,7 @@
     ],
     "type": "Live",
     "plaftormLinks": {
+      "soundcloud": "https://soundcloud.com/radiobato/sets/live-sessions",
       "youtube": "https://www.youtube.com/playlist?list=PLyWGL_AAdR8q-yLR2M_e528fc1bNVu2if"
     },
     "tracks": [
@@ -558,6 +559,34 @@
     ]
   },
   {
+    "id": "youyou-kalaidon",
+    "title": "Kalaidon",
+    "artistIds": [
+      "youyou"
+    ],
+    "cover": "https://sb-cdn.opac.me/file/studiobato-assets/releases/youyou/random-shit/kalaidon.jpg",
+    "date": "2023-05-15",
+    "genreIds": [
+      "downtempo"
+    ],
+    "type": "Single",
+    "plaftormLinks": {
+      "spotify": "u",
+      "soundcloud": "https://soundcloud.com/studiobato/youyou-lapierrre-kalaidon?in=studiobato/sets/randomshit",
+      "deezer": "https://www.deezer.com/us/album/436593847",
+      "appleMusic": "https://music.apple.com/us/album/kalaidon-feat-la-pierrre-single/1686835445",
+      "youtube": "https://www.youtube.com/watch?v=E81vs-yQlng"
+    },
+    "tracks": [
+      {
+        "title": "Kalaidon",
+        "artistIds": [
+          "lapierrre"
+        ]
+      }
+    ]
+  },
+  {
     "id": "les-oubliettes",
     "title": "Les Oubliettes",
     "artistIds": [
@@ -723,34 +752,6 @@
           "gezel",
           "alphao",
           "walass"
-        ]
-      }
-    ]
-  },
-  {
-    "id": "youyou-kalaidon",
-    "title": "Kalaidon",
-    "artistIds": [
-      "youyou"
-    ],
-    "cover": "https://sb-cdn.opac.me/file/studiobato-assets/releases/youyou/random-shit/kalaidon.jpg",
-    "date": "2023-05-15",
-    "genreIds": [
-      "downtempo"
-    ],
-    "type": "Single",
-    "plaftormLinks": {
-      "spotify": "u",
-      "soundcloud": "https://soundcloud.com/studiobato/youyou-lapierrre-kalaidon?in=studiobato/sets/randomshit",
-      "deezer": "https://www.deezer.com/us/album/436593847",
-      "appleMusic": "https://music.apple.com/us/album/kalaidon-feat-la-pierrre-single/1686835445",
-      "youtube": "https://www.youtube.com/watch?v=E81vs-yQlng"
-    },
-    "tracks": [
-      {
-        "title": "Kalaidon",
-        "artistIds": [
-          "lapierrre"
         ]
       }
     ]
