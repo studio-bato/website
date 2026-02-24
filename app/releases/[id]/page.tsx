@@ -10,7 +10,7 @@ import { PlayReleaseButton } from "@/components/player/play-release-button";
 import { ListenDropdown } from "@/components/listen-dropdown";
 import { VideoClipEmbed } from "@/components/video-clip-embed";
 import { notFound } from "next/navigation";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getFormatter } from "next-intl/server";
 import type { Metadata } from "next";
 import { BuyDropdown } from "@/components/buy-dropdown";
 
@@ -58,6 +58,7 @@ export default async function ReleasePage({
 }) {
   const { id } = await params;
   const t = await getTranslations("releaseDetail");
+  const format = await getFormatter();
 
   const releaseMapped = await getReleaseByIdMapped(id);
   if (!releaseMapped) {
@@ -96,7 +97,12 @@ export default async function ReleasePage({
             {/* Info + tracklist */}
             <div className="flex flex-col md:col-span-7">
               <p className="text-xs text-muted-foreground mb-2">
-                {releaseMapped.type} &middot; {releaseMapped.date}
+                {releaseMapped.type} &middot;{" "}
+                {format.dateTime(new Date(releaseMapped.date), {
+                  year: "numeric",
+                  month: "numeric",
+                  day: "numeric",
+                })}
               </p>
               <h1 className="font-display text-3xl sm:text-4xl tracking-tight text-foreground">
                 {releaseMapped.title}

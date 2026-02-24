@@ -1,7 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { getReleaseByIdMapped, type Release } from "@/data";
 import { CardRow } from "./card-row";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getFormatter } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 interface ReleaseProps {
@@ -10,6 +10,7 @@ interface ReleaseProps {
 
 export async function Release({ release }: ReleaseProps) {
   const t = await getTranslations("releaseDetail");
+  const format = await getFormatter();
   const releaseMapped = await getReleaseByIdMapped(release.id);
   if (!releaseMapped) return null;
 
@@ -22,7 +23,12 @@ export async function Release({ release }: ReleaseProps) {
       <div className="flex flex-col flex-1">
         <div className="flex justify-between">
           <div className="text-xs lg:text-md text-muted-foreground mb-1">
-            {releaseMapped.type} &middot; {releaseMapped.date}
+            {releaseMapped.type} &middot;{" "}
+            {format.dateTime(new Date(releaseMapped.date), {
+              year: "numeric",
+              month: "numeric",
+              day: "numeric",
+            })}
           </div>
           <div className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
             <ArrowUpRight className="h-3.5 w-3.5 mr-2" />
