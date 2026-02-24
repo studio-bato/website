@@ -1,8 +1,8 @@
-import Link from "next/link";
 import { getSession } from "./session";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { login } from "./actions";
+import { AdminNav } from "./nav";
 
 export default async function AdminLayout({
   children,
@@ -32,23 +32,7 @@ export default async function AdminLayout({
 
   return (
     <div className="w-full">
-      <div className="mx-auto flex gap-4 items-center justify-center">
-        <div className="font-display text-2xl tracking-tight text-foreground">
-          Admin
-        </div>
-        <Link
-          href="/admin/artists"
-          className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-        >
-          Artists
-        </Link>
-        <Link
-          href="/admin/releases"
-          className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-        >
-          Releases
-        </Link>
-      </div>
+      <AdminNav />
       {children}
     </div>
   );
