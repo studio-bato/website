@@ -33,8 +33,10 @@ export default async function Releases({
   const releases =
     selectedGenres.length === 0
       ? allReleases
-      : allReleases.filter((release) =>
-          release.genreIds.some((id) => selectedGenres.includes(id)),
+      : allReleases.filter(
+          (release) =>
+            release.genreIds &&
+            release.genreIds.some((id) => selectedGenres.includes(id)),
         );
 
   return (

@@ -186,7 +186,7 @@ export default async function ReleasePage({
                           <span className="text-xs text-muted-foreground mt-1 ml-10">
                             {track.artists.map((artist) => (
                               <Link
-                                key={id}
+                                key={artist.id}
                                 href={`/artists/${artist.id}`}
                                 className="not-first:before:content-[',_']"
                               >

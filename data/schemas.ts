@@ -56,7 +56,9 @@ export const ReleaseSchema = z.object({
   cover: z.string().optional(),
   description: z.string().optional().describe("textarea"),
   date: z.string().min(1, "Date is required"),
-  genreIds: z.array(z.string()).min(1, "At least one genre is required"),
+  genreIds: z
+    .array(z.string())
+    .optional() /*.min(1, "At least one genre is required")*/,
   type: z.string().min(1, "Type is required"),
   plaftormLinks: AudioPlatformLinksSchema.optional(),
   buyLinks: BuyLinksSchema.optional(),

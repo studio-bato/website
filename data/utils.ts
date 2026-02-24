@@ -12,7 +12,9 @@ export async function getGenres(): Promise<Array<Genre>> {
   return genres;
 }
 
-export async function getGenreById(genreId: string) {
+export async function getGenreById(
+  genreId: string,
+): Promise<Genre | undefined> {
   return genres.find((g) => g.id === genreId);
 }
 
@@ -26,12 +28,21 @@ export async function getRelatedReleases(
     .filter(
       (r) =>
         r.id !== releaseId &&
-        r.genreIds.some((genreId) => release.genreIds.includes(genreId)),
+        r.genreIds &&
+        r.genreIds.some((genreId) => release.genreIds!.includes(genreId)),
     )
     .slice(0, limit);
 }
 
-export async function getArtistById(artistId: string) {
+export function getDefaultArtist(artistId: string): Artist {
+  return {
+    id: artistId,
+    name: artistId,
+  };
+}
+export async function getArtistById(
+  artistId: string,
+): Promise<Artist | undefined> {
   return artists.find((g) => g.id === artistId);
 }
 
@@ -39,7 +50,9 @@ export async function getArtists(): Promise<Array<Artist>> {
   return artists;
 }
 
-export async function getReleaseById(releaseId: string) {
+export async function getReleaseById(
+  releaseId: string,
+): Promise<Release | undefined> {
   return releases.find((g) => g.id === releaseId);
 }
 
@@ -60,9 +73,11 @@ export async function getReleaseByIdMapped(
     ...release,
     artists:
       release.artistIds &&
-      (
-        await Promise.all(release.artistIds.map((id) => getArtistById(id)))
-      ).filter((a) => !!a),
+      (await Promise.all(
+        release.artistIds.map(
+          async (id) => (await getArtistById(id)) || getDefaultArtist(id),
+        ),
+      )),
     genres:
       release.genreIds &&
       (
@@ -75,7 +90,10 @@ export async function getReleaseByIdMapped(
           ...track,
           artists: (
             await Promise.all(
-              track.artistIds?.map((artistId) => getArtistById(artistId)) || [],
+              track.artistIds?.map(
+                async (artistId) =>
+                  (await getArtistById(artistId)) || getDefaultArtist(artistId),
+              ) || [],
             )
           ).filter((a) => !!a),
         })),
