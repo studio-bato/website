@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "Studio Bato | We ship songs",
-    "description": "Label de musique indépendant. Découvrez nos artistes et nos dernières sorties."
+    "description": "Label de musique flottant. Découvrez nos artistes et nos dernières sorties. Production, distribution et résidences artistiques."
   },
   "nav": {
     "artists": "Artistes",
@@ -13,7 +13,7 @@
     "closeMenu": "Fermer le menu"
   },
   "hero": {
-    "subtitle": "Label de musique indépendant",
+    "subtitle": "Label de musique flottant",
     "title1": "We ship",
     "title2": "songs",
     "description": "Faits maison avec amour depuis notre bateau"
@@ -42,11 +42,11 @@
   },
   "aboutPage": {
     "metaTitle": "À propos | Studio Bato",
-    "metaDescription": "Studio Bato est un studio de musique indépendant basé sur un bateau à Bordeaux, France. Production, mix, enregistrement et distribution.",
+    "metaDescription": "Studio Bato est un espace dédié à la musique, ancré sur une péniche, à Bordeaux, France. Production, mix, enregistrement et distribution.",
     "subtitle": "À propos",
     "title1": "Un studio",
     "title2": "sur l'eau",
-    "heroDescription": "Studio Bato est un studio de musique indépendant basé sur un bateau à Bordeaux, France. Production, mix, enregistrement et distribution.",
+    "heroDescription": "Studio Bato est un espace dédié à la musique, ancré sur une péniche, à Bordeaux, France. <br></br>Production, mix, enregistrement et distribution.",
     "storyTitle": "Né sur le fleuve, construit pour la musique",
     "storyP1": "Studio Bato a été fondé avec une idée simple : créer un espace où la musique et la vie se rejoignent, loin du bruit de la ville. Notre bateau, amarré sur la Garonne à Bordeaux, est à la fois notre maison et notre moteur créatif.",
     "storyP2": "Nous sommes une petite équipe dévouée de producteurs, ingénieurs et passionnés de musique. On travaille étroitement avec chaque artiste qui monte à bord — de la première démo au master final, de la pochette à la stratégie de sortie. On croit que la bonne musique mérite une vision complète, et on est là pour la réaliser.",
@@ -79,14 +79,13 @@
     "metaTitle": "Contact | Studio Bato",
     "metaDescription": "Contactez Studio Bato. Écrivez-nous pour la production musicale, la distribution ou une résidence d'artiste sur notre bateau à Bordeaux.",
     "subtitle": "Contact",
-    "title1": "Prenez",
-    "title2": "contact",
-    "heroDescription": "Vous voulez produire ou distribuer votre musique avec nous ? Intéressé par une résidence d'artiste sur le bateau ? On serait ravis de vous entendre.",
+    "title1": "Envie de",
+    "title2": "discuter ?",
+    "heroDescription": "Vous souhaitez produire ou distribuer votre musique avec nous ?<br></br>Intéressé par une résidence d'artiste sur le bateau ?<br></br>On serait ravis de vous entendre.",
     "instagramTitle": "Instagram",
-    "instagramDesc": "Envoyez-nous un DM sur Instagram. C'est le moyen le plus rapide de démarrer une conversation — on consulte nos messages tous les jours.",
+    "instagramDesc": "Ecrivez nous sur Instagram. C'est le moyen le plus rapide de démarrer une conversation",
     "emailTitle": "Email",
-    "emailDesc": "Pour les propositions de projets, candidatures de résidence ou toute demande détaillée, envoyez-nous un email.",
-    "location": "Bordeaux, France — amarré sur la Garonne"
+    "emailDesc": "Pour les propositions de projets, candidatures de résidence ou toute autre demande, envoyez-nous un email."
   },
   "artistsPage": {
     "metaTitle": "Artistes | Studio Bato",
@@ -135,7 +134,7 @@
     "success": "C'est noté. On vous tient au courant."
   },
   "footer": {
-    "description": "Label de musique indépendant",
+    "description": "Label de musique flottant",
     "location": "Bordeaux, France",
     "labelSection": "Label",
     "connectSection": "Suivre",

@@ -9,6 +9,7 @@ import {
   Ship,
 } from "lucide-react";
 import { getTranslations } from "next-intl/server";
+import { richLineBreaker } from "@/i18n/rich-text";
 import type { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -75,7 +76,7 @@ export default async function About() {
           {t("title2")}
         </h1>
         <p className="mt-8 text-muted-foreground text-center max-w-lg leading-relaxed">
-          {t("heroDescription")}
+          {t.rich("heroDescription", richLineBreaker)}
         </p>
 
         <section className="w-full h-[500px] lg:h-[800px] max-w-(--breakpoint-lg) overflow-hidden mx-auto mt-16">

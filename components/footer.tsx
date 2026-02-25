@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { icons } from "@/lib/icons";
+import { Anchor } from "lucide-react";
 
 export async function Footer() {
   const t = await getTranslations("footer");
@@ -46,9 +47,11 @@ export async function Footer() {
             </Link>
             <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
               {t("description")}
-              <br />
-              <span className="italic">{t("location")}</span>
             </p>
+            <div className="mt-3 text-sm flex items-center  gap-2 text-muted-foreground italic leading-relaxed">
+              <Anchor className="h-4 w-4" />
+              <p className="text-sm">{t("location")}</p>
+            </div>
           </div>
 
           <div className="flex gap-4 pt-8">
