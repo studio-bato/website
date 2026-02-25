@@ -11,7 +11,7 @@ export default function Page() {
       <MarqueeBanner />
       <FeaturedReleases />
       <FeaturedArtists />
-      <AboutSection />
+      {/*<AboutSection />*/}
     </main>
   );
 }
