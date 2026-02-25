@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "Studio Bato | On envoie des sons",
-    "description": "Un label de musique indépendant qui soutient les artistes qui définissent le futur du son. Découvrez notre roster et nos dernières sorties."
+    "title": "Studio Bato | We ship songs",
+    "description": "Label de musique indépendant. Découvrez nos artistes et nos dernières sorties."
   },
   "nav": {
     "artists": "Artistes",
@@ -14,9 +14,9 @@
   },
   "hero": {
     "subtitle": "Label de musique indépendant",
-    "title1": "On envoie",
-    "title2": "des sons",
-    "description": "Faits maison avec amour depuis notre studio-bateau."
+    "title1": "We ship",
+    "title2": "songs",
+    "description": "Faits maison avec amour depuis notre bateau"
   },
   "marquee": {
     "artists": "Artistes",
@@ -125,7 +125,7 @@
   },
   "player": {
     "playlist": "Playlist",
-    "tuneRadio": "Tune radio"
+    "tuneRadio": "Lancer radio"
   },
   "newsletter": {
     "title": "Restez dans la boucle",
@@ -135,7 +135,7 @@
     "success": "C'est noté. On vous tient au courant."
   },
   "footer": {
-    "description": "Label de musique indépendant fait sur un bateau",
+    "description": "Label de musique indépendant",
     "location": "Bordeaux, France",
     "labelSection": "Label",
     "connectSection": "Suivre",
