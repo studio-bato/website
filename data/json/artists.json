@@ -36,7 +36,6 @@
   {
     "id": "dzuko",
     "name": "Dzuko",
-    "bio": "Lyriciste",
     "image": "artists/dzuko/profile-2.jpg",
     "socials": {
       "instagram": "https://www.instagram.com/dzuko.music/"
@@ -45,7 +44,6 @@
   {
     "id": "kmn",
     "name": "KMN",
-    "bio": "Old-school survivor",
     "image": "artists/kmn/profile-3.jpg",
     "socials": {
       "instagram": "https://www.instagram.com/kmn_mgp/"
@@ -54,7 +52,10 @@
   {
     "id": "gezel",
     "name": "Gezel",
-    "image": "artists/gezel/profile.jpg"
+    "image": "artists/gezel/profile.jpg",
+    "socials": {
+      "instagram": "https://www.instagram.com/gezel_x"
+    }
   },
   {
     "id": "matos",
