@@ -4,9 +4,11 @@ import { writeFileSync } from "fs";
 import { join } from "path";
 import { ArtistsSchema, GenresSchema, ReleasesSchema } from "@/data/schemas";
 import type { Artist, Genre, Release } from "@/data/types";
-import { createSession, deleteSession } from "./session";
+import { createSession, deleteSession, getSession } from "./session";
 
 export async function saveArtists(artists: Artist[]) {
+  if (!(await getSession())) return { success: false, error: "Unauthorized" };
+
   const parsed = ArtistsSchema.safeParse(artists);
   if (!parsed.success) {
     return { success: false, error: parsed.error.flatten() };
@@ -19,6 +21,8 @@ export async function saveArtists(artists: Artist[]) {
 }
 
 export async function saveReleases(releases: Release[]) {
+  if (!(await getSession())) return { success: false, error: "Unauthorized" };
+
   const parsed = ReleasesSchema.safeParse(releases);
   if (!parsed.success) {
     return { success: false, error: parsed.error.flatten() };
@@ -31,6 +35,8 @@ export async function saveReleases(releases: Release[]) {
 }
 
 export async function saveGenres(genres: Genre[]) {
+  if (!(await getSession())) return { success: false, error: "Unauthorized" };
+
   const parsed = GenresSchema.safeParse(genres);
   if (!parsed.success) {
     return { success: false, error: parsed.error.flatten() };
@@ -46,7 +52,9 @@ export async function login(formData: FormData) {
   const password = formData.get("password");
   if (password === process.env.ADMIN_PASSWORD) {
     await createSession("admin");
+    return { success: true };
   }
+  return { success: false };
 }
 
 export async function logout() {

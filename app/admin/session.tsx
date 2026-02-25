@@ -4,6 +4,7 @@ import { JWTPayload, SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
 
 const secretKey = process.env.SESSION_SECRET;
+if (!secretKey) throw new Error("SESSION_SECRET is not set");
 const encodedKey = new TextEncoder().encode(secretKey);
 
 interface SessionPayload extends JWTPayload {
@@ -38,7 +39,7 @@ export async function createSession(userId: string) {
     httpOnly: true,
     secure: true,
     expires: expiresAt,
-    sameSite: "lax",
+    sameSite: "strict",
     path: "/",
   });
 }
