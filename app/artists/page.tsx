@@ -27,7 +27,7 @@ export default async function Artists() {
           {t("title")}
         </h2>
 
-        <div className="flex flex-col gap-4 sm:grid sm:grid-cols-2 xl:grid-cols-3 lg:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
           {artists.map((artist, index) => (
             <Artist artist={artist} key={index} />
           ))}

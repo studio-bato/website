@@ -118,7 +118,7 @@ export default async function ReleasePage({
                     <Link
                       href={`/artists/${artist.id}`}
                       key={artist.id}
-                      className="not-first:before:content-[',_']"
+                      className="not-first:before:content-[',_'] hover:text-foreground"
                     >
                       {artist.name}
                     </Link>
@@ -141,9 +141,14 @@ export default async function ReleasePage({
                 </p>
               )}
               {releaseMapped.description && (
-                <p className="text-sm text-foreground mt-4">
-                  {releaseMapped.description}
-                </p>
+                <div className="text-sm mt-4 text-muted-foreground leading-relaxed">
+                  {releaseMapped.description.split("\n").map((line, index) => (
+                    <p key={index} className="">
+                      {line}
+                      <br />
+                    </p>
+                  ))}
+                </div>
               )}
 
               {/* Platform links */}
