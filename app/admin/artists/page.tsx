@@ -65,6 +65,18 @@ export default function AdminArtistsPage() {
       <div className="grid grid-cols-1 md:grid-cols-[300px_1fr] gap-8">
         {/* Sidebar: artist list */}
         <div className="space-y-2">
+          <Button
+            variant="outline"
+            className="w-full mb-4"
+            onClick={() => {
+              setSelectedId(null);
+              setIsNew(true);
+              setMessage(null);
+            }}
+          >
+            + Add Artist
+          </Button>
+
           {artists.map((artist) => (
             <button
               key={artist.id}

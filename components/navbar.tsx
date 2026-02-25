@@ -7,17 +7,19 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { useTranslations } from "next-intl";
 
-export function Navbar() {
+export function Navbar({ isAdmin = false }) {
   const [isOpen, setIsOpen] = useState(false);
   const t = useTranslations("nav");
 
-  const navLinks = [
+  let navLinks = [
     { label: t("artists"), href: "/artists" },
     { label: t("releases"), href: "/releases" },
     { label: t("videos"), href: "/videos" },
     { label: t("about"), href: "/about" },
     { label: t("contact"), href: "/contact" },
   ];
+
+  if (isAdmin) navLinks = [...navLinks, { label: "Admin", href: "/admin" }];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-xs h-20">

@@ -71,6 +71,18 @@ export default function AdminReleasesPage() {
       <div className="grid grid-cols-1 md:grid-cols-[300px_1fr] gap-8">
         {/* Sidebar: release list */}
         <div className="space-y-2">
+          <Button
+            variant="outline"
+            className="w-full mb-4"
+            onClick={() => {
+              setSelectedId(null);
+              setIsNew(true);
+              setMessage(null);
+            }}
+          >
+            + Add Release
+          </Button>
+
           {releases.map((release) => (
             <button
               key={release.id}

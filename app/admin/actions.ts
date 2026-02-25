@@ -4,7 +4,7 @@ import { writeFileSync } from "fs";
 import { join } from "path";
 import { ArtistsSchema, GenresSchema, ReleasesSchema } from "@/data/schemas";
 import type { Artist, Genre, Release } from "@/data/types";
-import { createSession } from "./session";
+import { createSession, deleteSession } from "./session";
 
 export async function saveArtists(artists: Artist[]) {
   const parsed = ArtistsSchema.safeParse(artists);
@@ -47,4 +47,8 @@ export async function login(formData: FormData) {
   if (password === process.env.ADMIN_PASSWORD) {
     await createSession("admin");
   }
+}
+
+export async function logout() {
+  await deleteSession();
 }

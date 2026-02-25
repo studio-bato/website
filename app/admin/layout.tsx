@@ -1,4 +1,5 @@
 import { getSession } from "./session";
+import { logout } from "./actions";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { login } from "./actions";
@@ -32,7 +33,7 @@ export default async function AdminLayout({
 
   return (
     <div className="w-full">
-      <AdminNav />
+      <AdminNav logoutAction={logout} />
       {children}
     </div>
   );

@@ -10,6 +10,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages, getTranslations } from "next-intl/server";
 
 import "./globals.css";
+import { getSession } from "@/app/admin/session";
 
 const _dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dm-sans" });
 const _playfair = Playfair_Display({
@@ -42,6 +43,7 @@ export default async function RootLayout({
   const locale = await getLocale();
   const messages = await getMessages();
   const allTracks = await getAllTracksPlaylist(); // TODO: get initial playlist from release page ?
+  const authenticated = await getSession();
 
   return (
     <html lang={locale} suppressHydrationWarning>
@@ -56,7 +58,7 @@ export default async function RootLayout({
             disableTransitionOnChange
           >
             <PlayerProvider allTracks={allTracks}>
-              <Navbar />
+              <Navbar isAdmin={authenticated} />
               <div className="mt-20">{children}</div>
               <Footer />
               <Player />
