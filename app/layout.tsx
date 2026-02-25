@@ -26,7 +26,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("metadata");
 
   return {
-    metadataBase: new URL("https://studiobato.com"),
+    metadataBase: new URL(process.env.SITE_URL || ""),
     title: t("title"),
     description: t("description"),
     openGraph: {

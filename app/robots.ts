@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: "/admin/",
       },
     ],
-    sitemap: "https://studiobato.com/sitemap.xml",
+    sitemap: `${process.env.SITE_URL}/sitemap.xml`,
   };
 }

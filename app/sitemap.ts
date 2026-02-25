@@ -1,7 +1,7 @@
 import { getArtists, getReleases } from "@/data/utils";
 import type { MetadataRoute } from "next";
 
-const BASE_URL = process.env.SITE_URL || "https://studiobato.com";
+const BASE_URL = process.env.SITE_URL;
 
 const staticRoutes = [
   { url: "/", priority: 1.0 },
