@@ -12,12 +12,10 @@ import {
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
 
-const locales = ["fr", "en", "de"] as const;
-
 const localeLabels: Record<string, string> = {
   fr: "Français",
   en: "English",
-  de: "Deutsch",
+  // de: "Deutsch",
 };
 
 export function LanguageSwitcher() {
@@ -44,13 +42,13 @@ export function LanguageSwitcher() {
         </div>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        {locales.map((loc) => (
+        {Object.entries(localeLabels).map(([loc, label]) => (
           <DropdownMenuItem
             key={loc}
             onClick={() => onChange(loc)}
             className={loc === locale ? "font-medium" : ""}
           >
-            {localeLabels[loc]}
+            {label}
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
