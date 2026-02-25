@@ -8,7 +8,8 @@ import { Release } from "@/components/release";
 import { mapReleaseToPlayer } from "@/data/player";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Pencil } from "lucide-react";
+import { getSession } from "@/app/admin/session";
 import { DownloadTrackButton } from "@/components/player/download-track-button";
 import { PlayTrackButton } from "@/components/player/play-track-button";
 import { PlayReleaseButton } from "@/components/player/play-release-button";
@@ -70,22 +71,34 @@ export default async function ReleasePage({
     notFound();
   }
 
-  const [playerTracks, relatedReleases] = await Promise.all([
+  const [playerTracks, relatedReleases, isAdmin] = await Promise.all([
     mapReleaseToPlayer(releaseMapped),
     getRelatedReleases(id, 6),
+    getSession(),
   ]);
 
   return (
     <main>
       <section className="py-12 lg:py-32">
         <div className="mx-auto max-w-6xl px-6">
-          <Link
-            href="/releases"
-            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mb-12"
-          >
-            <ArrowLeft className="h-3.5 w-3.5" />
-            {t("allReleases")}
-          </Link>
+          <div className="flex items-center justify-between mb-12">
+            <Link
+              href="/releases"
+              className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <ArrowLeft className="h-3.5 w-3.5" />
+              {t("allReleases")}
+            </Link>
+            {isAdmin && (
+              <Link
+                href={`/admin/releases?id=${id}`}
+                className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <Pencil className="h-3.5 w-3.5" />
+                Edit
+              </Link>
+            )}
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
             {/* Cover */}

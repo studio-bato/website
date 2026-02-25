@@ -1,12 +1,13 @@
 import { getArtistByIdMapped, getArtists, getMediaUrl } from "@/data";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Pencil } from "lucide-react";
 import { icons } from "@/lib/icons";
 import type { Metadata } from "next";
 import type { Socials } from "@/data";
 import { getTranslations } from "next-intl/server";
 import { Release } from "@/components/release";
+import { getSession } from "@/app/admin/session";
 
 export async function generateMetadata({
   params,
@@ -50,6 +51,7 @@ export default async function ArtistPage({
 }) {
   const { id } = await params;
   const t = await getTranslations("artistDetail");
+  const isAdmin = await getSession();
 
   let artistMapped = await getArtistByIdMapped(id);
   if (!artistMapped) {
@@ -64,13 +66,24 @@ export default async function ArtistPage({
     <main>
       <section className="py-12 lg:py-32">
         <div className="mx-auto max-w-6xl px-6">
-          <Link
-            href="/artists"
-            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mb-12"
-          >
-            <ArrowLeft className="h-3.5 w-3.5" />
-            {t("allArtists")}
-          </Link>
+          <div className="flex items-center justify-between mb-12">
+            <Link
+              href="/artists"
+              className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <ArrowLeft className="h-3.5 w-3.5" />
+              {t("allArtists")}
+            </Link>
+            {isAdmin && (
+              <Link
+                href={`/admin/artists?id=${id}`}
+                className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <Pencil className="h-3.5 w-3.5" />
+                Edit
+              </Link>
+            )}
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
             {/* Artist image */}

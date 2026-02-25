@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { releases as initialReleases } from "@/data/local-data";
 import { ReleaseSchema } from "@/data/schemas";
 import type { Release } from "@/data/types";
@@ -8,9 +9,12 @@ import { AutoForm, type FieldOverrides } from "@/components/auto-form";
 import { Button } from "@/components/ui/button";
 import { saveReleases } from "@/app/admin/actions";
 
-export default function AdminReleasesPage() {
+function AdminReleasesContent() {
+  const searchParams = useSearchParams();
   const [releases, setReleases] = useState<Release[]>(initialReleases);
-  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [selectedId, setSelectedId] = useState<string | null>(
+    searchParams.get("id")
+  );
   const [isNew, setIsNew] = useState(false);
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
@@ -160,5 +164,13 @@ export default function AdminReleasesPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function AdminReleasesPage() {
+  return (
+    <Suspense>
+      <AdminReleasesContent />
+    </Suspense>
   );
 }

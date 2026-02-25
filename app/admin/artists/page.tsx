@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { artists as initialArtists } from "@/data/local-data";
 import { ArtistSchema } from "@/data/schemas";
 import type { Artist } from "@/data/types";
@@ -8,9 +9,12 @@ import { AutoForm, type FieldOverrides } from "@/components/auto-form";
 import { Button } from "@/components/ui/button";
 import { saveArtists } from "@/app/admin/actions";
 
-export default function AdminArtistsPage() {
+function AdminArtistsContent() {
+  const searchParams = useSearchParams();
   const [artists, setArtists] = useState<Artist[]>(initialArtists);
-  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [selectedId, setSelectedId] = useState<string | null>(
+    searchParams.get("id")
+  );
   const [isNew, setIsNew] = useState(false);
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
@@ -151,5 +155,13 @@ export default function AdminArtistsPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function AdminArtistsPage() {
+  return (
+    <Suspense>
+      <AdminArtistsContent />
+    </Suspense>
   );
 }
