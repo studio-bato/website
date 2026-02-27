@@ -133,10 +133,16 @@ export default async function ArtistPage({
                     })}
                   </div>
                 )}
-
-              <p className="text-lg text-muted-foreground mt-4 leading-relaxed">
-                {artistMapped.bio}
-              </p>
+              {artistMapped.bio && (
+                <div className="text-lg text-muted-foreground mt-4 leading-relaxed">
+                  {artistMapped.bio.split("\n").map((line, index) => (
+                    <p key={index} className="">
+                      {line}
+                      <br />
+                    </p>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
 

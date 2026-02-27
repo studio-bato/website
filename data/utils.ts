@@ -142,5 +142,6 @@ const MEDIA_CDN_URL =
 
 export function getMediaUrl(url: string | undefined): string | undefined {
   if (!url) return undefined;
+  if (url.startsWith("http")) return url;
   return `${MEDIA_CDN_URL}${url}`;
 }
