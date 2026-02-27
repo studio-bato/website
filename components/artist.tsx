@@ -23,9 +23,9 @@ export async function Artist({ artist }: { artist: Artist }) {
           {artistMapped.releases.length} releases
         </p> */}
 
-        <p className="text-sm text-muted-foreground leading-relaxed mt-4">
-          {artist.bio}
-        </p>
+        {/*<p className="text-sm text-muted-foreground leading-relaxed mt-4">*/}
+        {/*  {artist.bio}*/}
+        {/*</p>*/}
       </div>
     </CardRow>
   );
