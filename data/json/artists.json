@@ -110,7 +110,8 @@
   {
     "id": "edikt",
     "name": "Edikt",
-    "image": "artists/edikt/profile.jpg",
+    "bio": "Edikt est un rappeur de Bordeaux qui aime bien cuisinier et adore les oiseaux",
+    "image": "artists/edikt/profile-2.webp",
     "socials": {
       "instagram": "https://www.instagram.com/edikt_oazo"
     }
