@@ -1,4 +1,4 @@
-# Studio Bato Website
+# StudioBato Website
 
 Independent music label website — "We ship songs."
 

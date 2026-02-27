@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "title": "Studio Bato | We ship songs",
+    "title": "StudioBato | We ship songs",
     "description": "An independent music label championing artists who define the future of sound. Discover our roster and latest releases."
   },
   "nav": {
@@ -41,14 +41,14 @@
     "countriesRepresented": "Countries represented"
   },
   "aboutPage": {
-    "metaTitle": "About | Studio Bato",
-    "metaDescription": "Studio Bato is an independent music studio based on a boat in Bordeaux, France. We produce, record, mix, master, and distribute music.",
+    "metaTitle": "About | StudioBato",
+    "metaDescription": "StudioBato is an independent music studio based on a boat in Bordeaux, France. We produce, record, mix, master, and distribute music.",
     "subtitle": "About Us",
     "title1": "A studio",
     "title2": "on the water",
-    "heroDescription": "Studio Bato is an independent music studio based on a boat in Bordeaux, France. We produce, record, and share music that moves.",
+    "heroDescription": "StudioBato is an independent music studio based on a boat in Bordeaux, France. We produce, record, and share music that moves.",
     "storyTitle": "Born on the river, built for the music",
-    "storyP1": "Studio Bato was founded with a simple idea: create a space where music and life converge, away from the noise of the city. Our boat, moored on the Garonne in Bordeaux, is both our home and our creative engine.",
+    "storyP1": "StudioBato was founded with a simple idea: create a space where music and life converge, away from the noise of the city. Our boat, moored on the Garonne in Bordeaux, is both our home and our creative engine.",
     "storyP2": "We are a small, dedicated team of producers, engineers, and music lovers. We work closely with every artist who comes aboard — from the first demo to the final master, from the album artwork to the release strategy. We believe great music deserves a complete vision, and we are here to make it happen.",
     "storyP3": "Being independent means we answer to the music, not to a boardroom. Every project we take on is a choice, not an obligation. That freedom is what allows us to stay honest, experimental, and deeply invested in the artists we work with.",
     "servicesTitle": "What we do",
@@ -76,8 +76,8 @@
     "yourProject": "Your project, your vision"
   },
   "contactPage": {
-    "metaTitle": "Contact | Studio Bato",
-    "metaDescription": "Get in touch with Studio Bato. Reach out for music production, distribution, or artist residency on our boat in Bordeaux.",
+    "metaTitle": "Contact | StudioBato",
+    "metaDescription": "Get in touch with StudioBato. Reach out for music production, distribution, or artist residency on our boat in Bordeaux.",
     "subtitle": "Contact",
     "title1": "Get in",
     "title2": "touch",
@@ -88,20 +88,20 @@
     "emailDesc": "For project proposals, residency applications, or any detailed inquiry, drop us a line by email."
   },
   "artistsPage": {
-    "metaTitle": "Artists | Studio Bato",
-    "metaDescription": "Explore the Studio Bato roster. Discover the artists we produce, record, and release music with.",
+    "metaTitle": "Artists | StudioBato",
+    "metaDescription": "Explore the StudioBato roster. Discover the artists we produce, record, and release music with.",
     "title": "Artists"
   },
   "releasesPage": {
-    "metaTitle": "Releases | Studio Bato",
-    "metaDescription": "Browse all Studio Bato releases — singles, EPs, and albums from our artists.",
+    "metaTitle": "Releases | StudioBato",
+    "metaDescription": "Browse all StudioBato releases — singles, EPs, and albums from our artists.",
     "title": "Releases",
     "filterByGenre": "Filter by genre",
     "allGenres": "All"
   },
   "videosPage": {
-    "metaTitle": "Videos | Studio Bato",
-    "metaDescription": "Watch music videos and visual content from Studio Bato artists.",
+    "metaTitle": "Videos | StudioBato",
+    "metaDescription": "Watch music videos and visual content from StudioBato artists.",
     "title": "Videos"
   },
   "artistDetail": {
@@ -149,11 +149,11 @@
     "terms": "Terms"
   },
   "privacyPage": {
-    "metaTitle": "Privacy | Studio Bato",
-    "metaDescription": "Privacy policy for Studio Bato. No personal data is collected. A single cookie is used for language preference.",
+    "metaTitle": "Privacy | StudioBato",
+    "metaDescription": "Privacy policy for StudioBato. No personal data is collected. A single cookie is used for language preference.",
     "subtitle": "Privacy",
     "title": "Privacy Policy",
-    "intro": "Studio Bato respects your privacy. This site collects no personal data and uses no tracking or analytics tools.",
+    "intro": "StudioBato respects your privacy. This site collects no personal data and uses no tracking or analytics tools.",
     "cookieTitle": "Cookies",
     "cookieText": "A single cookie is used: NEXT_LOCALE. It stores your language preference (French, English, or German) and is never shared with any third party.",
     "dataTitle": "Personal Data",
@@ -162,8 +162,8 @@
     "contactText": "For any privacy-related questions, reach us through the <link>contact page</link>."
   },
   "termsPage": {
-    "metaTitle": "Legal Notice | Studio Bato",
-    "metaDescription": "Legal notice for Studio Bato. Publisher: Culture à Flot, association loi 1901, SIREN 848780029.",
+    "metaTitle": "Legal Notice | StudioBato",
+    "metaDescription": "Legal notice for StudioBato. Publisher: Culture à Flot, association loi 1901, SIREN 848780029.",
     "subtitle": "Legal Notice",
     "title": "Legal Notice",
     "publisherTitle": "Publisher",

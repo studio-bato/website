@@ -79,7 +79,7 @@ export function ogImage({
         }}
       >
         <div style={{ display: "flex", fontSize: 24, color: muted }}>
-          Studio Bato
+          StudioBato
         </div>
         <div
           style={{

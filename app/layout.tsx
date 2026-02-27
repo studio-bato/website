@@ -30,7 +30,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: t("title"),
     description: t("description"),
     openGraph: {
-      siteName: "Studio Bato",
+      siteName: "StudioBato",
     },
   };
 }

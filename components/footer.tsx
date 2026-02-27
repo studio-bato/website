@@ -43,7 +43,7 @@ export async function Footer() {
               href="/"
               className="font-display text-xl tracking-tight text-foreground"
             >
-              Studio Bato
+              StudioBato
             </Link>
             <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
               {t("description")}

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "title": "Studio Bato | We ship songs",
+    "title": "StudioBato | We ship songs",
     "description": "Label de musique flottant. Découvrez nos artistes et nos dernières sorties. Production, distribution et résidences artistiques."
   },
   "nav": {
@@ -33,7 +33,7 @@
   },
   "aboutSection": {
     "title": "Fait pour les artistes qui refusent d'être ordinaires",
-    "description1": "Fondé en 2018, Studio Bato est né de la conviction que la bonne musique mérite plus qu'un algorithme. Nous sommes une communauté de créateurs, de curateurs et de passionnés du pouvoir transformateur du son.",
+    "description1": "Fondé en 2018, StudioBato est né de la conviction que la bonne musique mérite plus qu'un algorithme. Nous sommes une communauté de créateurs, de curateurs et de passionnés du pouvoir transformateur du son.",
     "description2": "Chaque sortie sur notre label répond à un standard sans compromis d'excellence sonore. Nous défendons les sons qui façonnent demain, avec un esprit indépendant et une distribution mondiale.",
     "artistsOnRoster": "Artistes au roster",
     "totalReleases": "Sorties totales",
@@ -41,14 +41,14 @@
     "countriesRepresented": "Pays représentés"
   },
   "aboutPage": {
-    "metaTitle": "À propos | Studio Bato",
-    "metaDescription": "Studio Bato est un espace dédié à la musique, ancré sur une péniche, à Bordeaux, France. Production, mix, enregistrement et distribution.",
+    "metaTitle": "À propos | StudioBato",
+    "metaDescription": "StudioBato est un espace dédié à la musique, ancré sur une péniche, à Bordeaux, France. Production, mix, enregistrement et distribution.",
     "subtitle": "À propos",
     "title1": "Un studio",
     "title2": "sur l'eau",
-    "heroDescription": "Studio Bato est un espace dédié à la musique, ancré sur une péniche, à Bordeaux, France. <br></br>Production, mix, enregistrement et distribution.",
+    "heroDescription": "StudioBato est un espace dédié à la musique, ancré sur une péniche, à Bordeaux, France. <br></br>Production, mix, enregistrement et distribution.",
     "storyTitle": "Né sur le fleuve, construit pour la musique",
-    "storyP1": "Studio Bato a été fondé avec une idée simple : créer un espace où la musique et la vie se rejoignent, loin du bruit de la ville. Notre bateau, amarré sur la Garonne à Bordeaux, est à la fois notre maison et notre moteur créatif.",
+    "storyP1": "StudioBato a été fondé avec une idée simple : créer un espace où la musique et la vie se rejoignent, loin du bruit de la ville. Notre bateau, amarré sur la Garonne à Bordeaux, est à la fois notre maison et notre moteur créatif.",
     "storyP2": "Nous sommes une petite équipe dévouée de producteurs, ingénieurs et passionnés de musique. On travaille étroitement avec chaque artiste qui monte à bord — de la première démo au master final, de la pochette à la stratégie de sortie. On croit que la bonne musique mérite une vision complète, et on est là pour la réaliser.",
     "storyP3": "Être indépendant signifie qu'on répond à la musique, pas à un conseil d'administration. Chaque projet qu'on prend est un choix, pas une obligation. Cette liberté est ce qui nous permet de rester honnêtes, expérimentaux et profondément investis dans les artistes avec qui on travaille.",
     "servicesTitle": "Ce qu'on fait",
@@ -76,8 +76,8 @@
     "yourProject": "Votre projet, votre vision"
   },
   "contactPage": {
-    "metaTitle": "Contact | Studio Bato",
-    "metaDescription": "Contactez Studio Bato. Écrivez-nous pour la production musicale, la distribution ou une résidence d'artiste sur notre bateau à Bordeaux.",
+    "metaTitle": "Contact | StudioBato",
+    "metaDescription": "Contactez StudioBato. Écrivez-nous pour la production musicale, la distribution ou une résidence d'artiste sur notre bateau à Bordeaux.",
     "subtitle": "Contact",
     "title1": "Envie de",
     "title2": "discuter ?",
@@ -88,20 +88,20 @@
     "emailDesc": "Pour les propositions de projets, candidatures de résidence ou toute autre demande, envoyez-nous un email."
   },
   "artistsPage": {
-    "metaTitle": "Artistes | Studio Bato",
-    "metaDescription": "Explorez le roster de Studio Bato. Découvrez les artistes avec qui nous produisons, enregistrons et sortons de la musique.",
+    "metaTitle": "Artistes | StudioBato",
+    "metaDescription": "Explorez le roster de StudioBato. Découvrez les artistes avec qui nous produisons, enregistrons et sortons de la musique.",
     "title": "Artistes"
   },
   "releasesPage": {
-    "metaTitle": "Sorties | Studio Bato",
-    "metaDescription": "Parcourez toutes les sorties Studio Bato — singles, EPs et albums de nos artistes.",
+    "metaTitle": "Sorties | StudioBato",
+    "metaDescription": "Parcourez toutes les sorties StudioBato — singles, EPs et albums de nos artistes.",
     "title": "Sorties",
     "filterByGenre": "Filtrer par genre",
     "allGenres": "Tout"
   },
   "videosPage": {
-    "metaTitle": "Vidéos | Studio Bato",
-    "metaDescription": "Regardez les clips et contenus visuels des artistes Studio Bato.",
+    "metaTitle": "Vidéos | StudioBato",
+    "metaDescription": "Regardez les clips et contenus visuels des artistes StudioBato.",
     "title": "Vidéos"
   },
   "artistDetail": {
@@ -148,11 +148,11 @@
     "terms": "Mentions légales"
   },
   "privacyPage": {
-    "metaTitle": "Confidentialité | Studio Bato",
-    "metaDescription": "Politique de confidentialité de Studio Bato. Aucune donnée personnelle n'est collectée. Un seul cookie est utilisé pour la préférence de langue.",
+    "metaTitle": "Confidentialité | StudioBato",
+    "metaDescription": "Politique de confidentialité de StudioBato. Aucune donnée personnelle n'est collectée. Un seul cookie est utilisé pour la préférence de langue.",
     "subtitle": "Confidentialité",
     "title": "Politique de confidentialité",
-    "intro": "Studio Bato respecte votre vie privée. Ce site ne collecte aucune donnée personnelle et n'utilise aucun outil de traçage ou d'analyse.",
+    "intro": "StudioBato respecte votre vie privée. Ce site ne collecte aucune donnée personnelle et n'utilise aucun outil de traçage ou d'analyse.",
     "cookieTitle": "Cookies",
     "cookieText": "Un seul cookie est utilisé : NEXT_LOCALE. Il mémorise votre préférence de langue (français, anglais ou allemand) et n'est partagé avec aucun tiers.",
     "dataTitle": "Données personnelles",
@@ -161,8 +161,8 @@
     "contactText": "Pour toute question relative à la confidentialité, contactez-nous via la <link>page contact</link>."
   },
   "termsPage": {
-    "metaTitle": "Mentions légales | Studio Bato",
-    "metaDescription": "Mentions légales de Studio Bato. Éditeur : Culture à Flot, association loi 1901, SIREN 848780029.",
+    "metaTitle": "Mentions légales | StudioBato",
+    "metaDescription": "Mentions légales de StudioBato. Éditeur : Culture à Flot, association loi 1901, SIREN 848780029.",
     "subtitle": "Mentions légales",
     "title": "Mentions légales",
     "publisherTitle": "Éditeur",

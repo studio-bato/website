@@ -18,9 +18,9 @@ export async function generateMetadata({
   const artistMapped = await getArtistByIdMapped(id);
   if (!artistMapped) return {};
 
-  const title = `${artistMapped.name} | Studio Bato`;
+  const title = `${artistMapped.name} | StudioBato`;
   const description =
-    artistMapped.bio || `Discover ${artistMapped.name} on Studio Bato.`;
+    artistMapped.bio || `Discover ${artistMapped.name} on StudioBato.`;
 
   return {
     title,

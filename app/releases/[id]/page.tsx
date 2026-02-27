@@ -30,7 +30,7 @@ export async function generateMetadata({
   if (!releaseMapped) return {};
 
   const artistNames = releaseMapped.artists?.map((a) => a.name).join(", ");
-  const title = `${releaseMapped.title} by ${artistNames} | Studio Bato`;
+  const title = `${releaseMapped.title} by ${artistNames} | StudioBato`;
   const description =
     releaseMapped.description ||
     `Listen to ${releaseMapped.title} by ${artistNames}. ${releaseMapped.type} · ${releaseMapped.genres?.join(", ")}.`;
