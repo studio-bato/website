@@ -2,7 +2,7 @@
   {
     "id": "radiobato",
     "name": "RadioBato",
-    "bio": "Robotic Poetry eats mushrooms at party",
+    "bio": "RadioBato is an electronic live music quartet based in Bordeaux.\n\nThey propose a journey between smoggy downtempo, westcoasty hip-hop, melodic deephouse and dark techno, mixed with acoustic instruments and human grooves.\n\n\"Organic influences and robotic poetry.\"",
     "image": "artists/radiobato/profile.webp",
     "socials": {
       "spotify": "https://open.spotify.com/artist/5R712bVV3bkwrzKocBIOao",
@@ -15,10 +15,11 @@
   {
     "id": "walass",
     "name": "Walass",
-    "bio": "Quand c'est pas l'angoissse",
+    "bio": "Sous le pseudonyme walass, il écoute le silence pour tenter d’en saisir une profondeur, une respiration. \nC’est dans cet interstice qu’il y perçoit un rythme dans lequel il s’engouffre pour créer.\n\nTantôt Vidéaste tantôt compositeur et parfois les deux, depuis maintenant 10 ans ses diverses expériences le mènent à se questionner sans arrêts, sortir de ses zones de confort pour questionner plus encore. \n\nIl affectionne particulièrement l’échange et la création avec le jeune public au travers d’ateliers d’écriture et de théâtre par exemple.",
     "image": "artists/walass/profile.webp",
     "socials": {
       "instagram": "https://instagram.com/___walass___",
+      "soundcloud": "https://soundcloud.com/theo-lasnier",
       "youtube": "https://www.youtube.com/channel/UCJ6Js5k57v-7KZZ3ROSMm6g",
       "bandcamp": "https://voilawalass.bandcamp.com"
     }
@@ -67,7 +68,8 @@
     "name": "opac",
     "image": "artists/opac/profile-2.webp",
     "socials": {
-      "instagram": "https://www.instagram.com/pacobacpac/"
+      "instagram": "https://www.instagram.com/pacobacpac/",
+      "soundcloud": "https://soundcloud.com/pacobacpac"
     }
   },
   {
@@ -81,7 +83,10 @@
   {
     "id": "alphao",
     "name": "Al'Phao",
-    "image": "artists/alphao/profile-1.webp"
+    "image": "artists/alphao/profile-1.webp",
+    "socials": {
+      "instagram": "https://www.instagram.com/alphaolejayce"
+    }
   },
   {
     "id": "lapierrre",
