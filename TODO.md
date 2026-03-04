@@ -4,7 +4,7 @@ merch
 
 collaborations
 
-qobuz links
+qobuz links (soundcloud api ?)
 
 release description link @ to artist and hrefs
 
@@ -13,6 +13,7 @@ Page à destination des artistes. Description du role et engagements du label, a
 
 section "photos" artistes
 
+page release: role SB
 
 pwa
 webamp
