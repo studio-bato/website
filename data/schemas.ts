@@ -55,7 +55,10 @@ export const ReleaseSchema = z.object({
   artistIds: z.array(z.string().describe("artist-id")).optional(),
   cover: z.string().optional(),
   description: z.string().optional().describe("textarea"),
-  date: z.string().min(1, "Date is required"),
+  date: z
+    .string()
+    .min(1, "Date is required")
+    .regex(/^\d{4}-\d{2}-\d{2}$/, "Date must be in YYYY-MM-DD format"),
   genreIds: z
     .array(z.string())
     .optional() /*.min(1, "At least one genre is required")*/,

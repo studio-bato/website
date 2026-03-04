@@ -6,7 +6,7 @@ import {
   type Genre,
 } from "./types";
 
-import { artists, releases, genres } from "./local-data";
+import { artists, releases, genres } from "./json";
 
 export async function getGenres(): Promise<Array<Genre>> {
   return genres;
@@ -62,7 +62,9 @@ export async function getReleaseById(
 }
 
 export async function getReleases(): Promise<Array<Release>> {
-  return releases;
+  return releases
+    .filter((release) => new Date(release.date).getTime() < Date.now())
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
 export async function getReleaseByIdMapped(

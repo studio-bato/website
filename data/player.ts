@@ -1,6 +1,6 @@
 import { type PlayerTrack, shuffle } from "@/components/player";
 import { ReleaseMapped } from "@/data/schemas";
-import { getMediaUrl, getReleasesMapped } from "@/data/utils";
+import { getMediaUrl, getReleasesMapped } from "./data";
 
 export function mapReleaseToPlayer(release: ReleaseMapped): Array<PlayerTrack> {
   if (!release.tracks) return [];

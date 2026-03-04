@@ -1,4 +1,4 @@
-import { getArtists, getReleases } from "@/data/utils";
+import { getArtists, getReleases } from "@/data";
 import type { MetadataRoute } from "next";
 
 const BASE_URL = process.env.SITE_URL;

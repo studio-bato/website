@@ -2,7 +2,7 @@
 
 import { useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
-import { releases as initialReleases } from "@/data/local-data";
+import { releases as initialReleases } from "@/data/json";
 import { ReleaseSchema } from "@/data/schemas";
 import type { Release } from "@/data/types";
 import { AutoForm, type FieldOverrides } from "@/components/auto-form";
@@ -13,7 +13,7 @@ function AdminReleasesContent() {
   const searchParams = useSearchParams();
   const [releases, setReleases] = useState<Release[]>(initialReleases);
   const [selectedId, setSelectedId] = useState<string | null>(
-    searchParams.get("id")
+    searchParams.get("id"),
   );
   const [isNew, setIsNew] = useState(false);
   const [saving, setSaving] = useState(false);

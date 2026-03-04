@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { genres as initialGenres } from "@/data/local-data";
+import { genres as initialGenres } from "@/data/json";
 import { GenreSchema } from "@/data/schemas";
 import type { Genre } from "@/data/types";
 import { AutoForm } from "@/components/auto-form";
