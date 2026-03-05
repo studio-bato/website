@@ -19,6 +19,7 @@ import { notFound } from "next/navigation";
 import { getTranslations, getFormatter } from "next-intl/server";
 import type { Metadata } from "next";
 import { BuyDropdown } from "@/components/buy-dropdown";
+import { Artist } from "@/components/artist";
 
 export async function generateMetadata({
   params,
@@ -230,7 +231,7 @@ export default async function ReleasePage({
 
           {/* Video clips */}
           {releaseMapped.videoClips && releaseMapped.videoClips.length > 0 && (
-            <div className="mt-16">
+            <div className="mt-8 lg:mt-16">
               <h2 className="font-display text-2xl sm:text-3xl tracking-tight text-foreground mb-8">
                 {t("videoClips")}
               </h2>
@@ -242,9 +243,24 @@ export default async function ReleasePage({
             </div>
           )}
 
+          {/* Release artists */}
+          {releaseMapped.artists && releaseMapped.artists.length > 0 && (
+            <section className="mt-8 lg:mt-16 flex flex-col">
+              <h2 className="font-display text-2xl sm:text-3xl tracking-tight text-foreground mb-8">
+                {t("releaseArtists")}
+              </h2>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-8">
+                {releaseMapped.artists &&
+                  releaseMapped.artists.map((artist) => (
+                    <Artist artist={artist} key={artist.id} />
+                  ))}
+              </div>
+            </section>
+          )}
+
           {/* Related releases */}
           {relatedReleases.length > 0 && (
-            <div className="mt-16">
+            <div className="mt-8 lg:mt-16">
               <h2 className="font-display text-2xl sm:text-3xl tracking-tight text-foreground mb-8">
                 {t("relatedReleases")}
               </h2>
