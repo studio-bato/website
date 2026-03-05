@@ -95,6 +95,9 @@ importers:
       '@radix-ui/react-tooltip':
         specifier: 1.1.6
         version: 1.1.6(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+      '@vercel/functions':
+        specifier: ^3.4.3
+        version: 3.4.3
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.23(postcss@8.5.6)
@@ -1588,6 +1591,19 @@ packages:
 
   '@types/whatwg-url@13.0.0':
     resolution: {integrity: sha512-N8WXpbE6Wgri7KUSvrmQcqrMllKZ9uxkYWMt+mCSGwNc0Hsw9VQTW7ApqI4XNrx6/SaM2QQJCzMPDEXE058s+Q==}
+
+  '@vercel/functions@3.4.3':
+    resolution: {integrity: sha512-kA14KIUVgAY6VXbhZ5jjY+s0883cV3cZqIU3WhrSRxuJ9KvxatMjtmzl0K23HK59oOUjYl7HaE/eYMmhmqpZzw==}
+    engines: {node: '>= 20'}
+    peerDependencies:
+      '@aws-sdk/credential-provider-web-identity': '*'
+    peerDependenciesMeta:
+      '@aws-sdk/credential-provider-web-identity':
+        optional: true
+
+  '@vercel/oidc@3.2.0':
+    resolution: {integrity: sha512-UycprH3T6n3jH0k44NHMa7pnFHGu/N05MjojYr+Mc6I7obkoLIJujSWwin1pCvdy/eOxrI/l3uDLQsmcrOb4ug==}
+    engines: {node: '>= 20'}
 
   aria-hidden@1.2.6:
     resolution: {integrity: sha512-ik3ZgC9dY/lYVVM++OISsaYDeg1tb0VtP5uL3ouh1koGOaUMDPpbFIei4JkFimWUFPn90sbMNMXQAIVOlnYKJA==}
@@ -3451,6 +3467,12 @@ snapshots:
   '@types/whatwg-url@13.0.0':
     dependencies:
       '@types/webidl-conversions': 7.0.3
+
+  '@vercel/functions@3.4.3':
+    dependencies:
+      '@vercel/oidc': 3.2.0
+
+  '@vercel/oidc@3.2.0': {}
 
   aria-hidden@1.2.6:
     dependencies:

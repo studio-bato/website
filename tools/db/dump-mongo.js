@@ -3,12 +3,17 @@
 // Usage: node tools/dump-mongo.js [--uri mongodb://...] [--db studiobato]
 
 import { MongoClient } from "mongodb";
-import { writeFileSync } from "fs";
+import { writeFileSync, existsSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, "../..");
+
+for (const file of [".env.local", ".env"]) {
+  const p = resolve(root, file);
+  if (existsSync(p)) { process.loadEnvFile(p); break; }
+}
 
 const args = process.argv.slice(2);
 const getArg = (flag) => {

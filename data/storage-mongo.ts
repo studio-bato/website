@@ -1,15 +1,22 @@
 import type { Artist, Genre, Release } from "@/data/schemas";
-import { MongoClient } from "mongodb";
+import { MongoClient, MongoClientOptions } from "mongodb";
+import { attachDatabasePool } from "@vercel/functions";
 
 const uri = process.env.MONGODB_URI ?? "mongodb://localhost:27017";
 const dbName = process.env.MONGODB_DB ?? "studiobato";
 
 let client: MongoClient | null = null;
 
+const options: MongoClientOptions = {
+  appName: "devrel.vercel.integration",
+  maxIdleTimeMS: 5000,
+};
+
 const getClient = async (): Promise<MongoClient> => {
   if (!client) {
-    client = new MongoClient(uri);
+    client = new MongoClient(uri, options);
     await client.connect();
+    attachDatabasePool(client);
   }
   return client;
 };
