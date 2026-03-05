@@ -6,8 +6,10 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { getAllTracksPlaylist } from "@/data";
 import { Player, PlayerProvider } from "@/components/player";
+import { AllTracksInitializer } from "@/components/player/all-tracks-loader";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages, getTranslations } from "next-intl/server";
+import { Suspense } from "react";
 
 import "./globals.css";
 import { getSession } from "@/app/admin/session";
@@ -17,6 +19,11 @@ const _playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair",
 });
+
+async function AllTracksLoader() {
+  const allTracks = await getAllTracksPlaylist();
+  return <AllTracksInitializer tracks={allTracks} />;
+}
 
 export const viewport: Viewport = {
   themeColor: "#0d0d0d",
@@ -42,7 +49,6 @@ export default async function RootLayout({
 }>) {
   const locale = await getLocale();
   const messages = await getMessages();
-  const allTracks = await getAllTracksPlaylist(); // TODO: get initial playlist from release page ?
   const authenticated = await getSession();
 
   return (
@@ -57,7 +63,10 @@ export default async function RootLayout({
             enableSystem={false}
             disableTransitionOnChange
           >
-            <PlayerProvider allTracks={allTracks}>
+            <PlayerProvider>
+              <Suspense>
+                <AllTracksLoader />
+              </Suspense>
               <Navbar isAdmin={authenticated} />
               <div className="mt-20">{children}</div>
               <Footer />

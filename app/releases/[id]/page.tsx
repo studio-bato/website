@@ -1,4 +1,5 @@
 import { getReleaseByIdMapped, getReleases, getRelatedReleases } from "@/data";
+import { Suspense } from "react";
 import { getMediaUrl } from "@/data/media";
 import { Release } from "@/components/release";
 import { mapReleaseToPlayer } from "@/data";
@@ -54,219 +55,230 @@ export async function generateStaticParams() {
   }));
 }
 
+async function ReleaseDetail({ id }: { id: string }) {
+  const t = await getTranslations("releaseDetail");
+  const format = await getFormatter();
+
+  const releaseMapped = await getReleaseByIdMapped(id);
+  if (!releaseMapped) notFound();
+
+  const [playerTracks, isAdmin] = await Promise.all([
+    mapReleaseToPlayer(releaseMapped),
+    getSession(),
+  ]);
+
+  return (
+    <>
+      <div className="flex items-center justify-between mb-8">
+        <Link
+          href="/releases"
+          className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+        >
+          <ArrowLeft className="h-3.5 w-3.5" />
+          {t("allReleases")}
+        </Link>
+        {isAdmin && (
+          <Link
+            href={`/admin/releases?id=${id}`}
+            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <Pencil className="h-3.5 w-3.5" />
+            Edit
+          </Link>
+        )}
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+        {/* Cover */}
+        <div className="relative aspect-square overflow-hidden md:col-span-5">
+          <Image
+            src={getMediaUrl(releaseMapped.cover) || "/placeholder.svg"}
+            alt={`${releaseMapped.title} album cover`}
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+
+        {/* Info + tracklist */}
+        <div className="flex flex-col md:col-span-7">
+          <p className="text-xs text-muted-foreground mb-2">
+            {releaseMapped.type} &middot;{" "}
+            {format.dateTime(new Date(releaseMapped.date), {
+              year: "numeric",
+              month: "numeric",
+              day: "numeric",
+            })}
+          </p>
+          <h1 className="font-display text-3xl sm:text-4xl tracking-tight text-foreground">
+            {releaseMapped.title}
+          </h1>
+          <p className="text-lg text-muted-foreground mt-1 flex">
+            {releaseMapped.artists ? (
+              releaseMapped.artists.map((artist) => (
+                <Link
+                  href={`/artists/${artist.id}`}
+                  key={artist.id}
+                  className="not-first:before:content-[',_'] hover:text-foreground"
+                >
+                  {artist.name}
+                </Link>
+              ))
+            ) : (
+              <span>{t("variousArtists")}</span>
+            )}
+          </p>
+          {releaseMapped.genres && releaseMapped.genres.length > 0 && (
+            <p className="text-sm text-muted-foreground mt-1">
+              {releaseMapped.genres.map((genre) => (
+                <Link
+                  href={`/releases?genres=${genre.id}`}
+                  className="not-first:before:content-[',_'] hover:text-foreground transition-colors"
+                  key={genre.id}
+                >
+                  {genre.label}
+                </Link>
+              ))}
+            </p>
+          )}
+          {releaseMapped.description && (
+            <div className="text-sm mt-4 text-muted-foreground leading-relaxed">
+              {releaseMapped.description.split("\n").map((line, index) => (
+                <p key={index} className="">
+                  {line}
+                  <br />
+                </p>
+              ))}
+            </div>
+          )}
+
+          {/* Platform links */}
+          <div className="mt-6 flex flex-wrap gap-4">
+            <PlayReleaseButton tracks={playerTracks} />
+            {releaseMapped.plaftormLinks &&
+              Object.values(releaseMapped.plaftormLinks).some(Boolean) && (
+                <ListenDropdown links={releaseMapped.plaftormLinks} />
+              )}
+            {releaseMapped.buyLinks &&
+              Object.values(releaseMapped.buyLinks).some(Boolean) && (
+                <BuyDropdown links={releaseMapped.buyLinks} />
+              )}
+          </div>
+
+          {/* Track list */}
+          {releaseMapped.tracks && releaseMapped.tracks.length > 0 && (
+            <div className="mt-8">
+              <div className="flex justify-between items-end mb-4">
+                <h2 className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                  {t("tracklist")}
+                </h2>
+              </div>
+              <ol className="divide-y divide-border">
+                {releaseMapped.tracks.map((track, index) => (
+                  <li key={index} className="flex flex-col py-2">
+                    <div className="flex items-center gap-4">
+                      <span className="text-xs text-muted-foreground w-6 text-right tabular-nums">
+                        {index + 1}
+                      </span>
+                      <span className="text-sm text-foreground flex-1">
+                        {track.title}
+                      </span>
+                      {track.url && (
+                        <div className="flex gap-2">
+                          <DownloadTrackButton url={getMediaUrl(track.url)!} />
+                          <PlayTrackButton tracks={playerTracks} index={index} />
+                        </div>
+                      )}
+                    </div>
+                    {track.artists && track.artists.length > 0 && (
+                      <span className="text-xs text-muted-foreground mt-1 ml-10">
+                        {track.artists.map((artist) => (
+                          <Link
+                            key={artist.id}
+                            href={`/artists/${artist.id}`}
+                            className="not-first:before:content-[',_']"
+                          >
+                            {artist.name}
+                          </Link>
+                        ))}
+                      </span>
+                    )}
+                  </li>
+                ))}
+              </ol>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Video clips */}
+      {releaseMapped.videoClips && releaseMapped.videoClips.length > 0 && (
+        <div className="mt-8 lg:mt-16">
+          <h2 className="font-display text-2xl sm:text-3xl tracking-tight text-foreground mb-8">
+            {t("videoClips")}
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {releaseMapped.videoClips.map((clip, index) => (
+              <VideoClipEmbed key={index} clip={clip} />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Release artists */}
+      {releaseMapped.artists && releaseMapped.artists.length > 0 && (
+        <section className="mt-8 lg:mt-16 flex flex-col">
+          <h2 className="font-display text-2xl sm:text-3xl tracking-tight text-foreground mb-8">
+            {t("releaseArtists")}
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-8">
+            {releaseMapped.artists &&
+              releaseMapped.artists.map((artist) => (
+                <Artist artist={artist} key={artist.id} />
+              ))}
+          </div>
+        </section>
+      )}
+    </>
+  );
+}
+
+async function RelatedReleasesSection({ id }: { id: string }) {
+  const t = await getTranslations("releaseDetail");
+  const relatedReleases = await getRelatedReleases(id, 6);
+  if (relatedReleases.length === 0) return null;
+
+  return (
+    <div className="mt-8 lg:mt-16">
+      <h2 className="font-display text-2xl sm:text-3xl tracking-tight text-foreground mb-8">
+        {t("relatedReleases")}
+      </h2>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-8">
+        {relatedReleases.map((release) => (
+          <Release key={release.id} release={release} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default async function ReleasePage({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const t = await getTranslations("releaseDetail");
-  const format = await getFormatter();
-
-  const releaseMapped = await getReleaseByIdMapped(id);
-  if (!releaseMapped) {
-    notFound();
-  }
-
-  const [playerTracks, relatedReleases, isAdmin] = await Promise.all([
-    mapReleaseToPlayer(releaseMapped),
-    getRelatedReleases(id, 6),
-    getSession(),
-  ]);
 
   return (
     <main>
       <section className="py-4 lg:py-16">
         <div className="mx-auto max-w-6xl px-6">
-          <div className="flex items-center justify-between mb-8">
-            <Link
-              href="/releases"
-              className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <ArrowLeft className="h-3.5 w-3.5" />
-              {t("allReleases")}
-            </Link>
-            {isAdmin && (
-              <Link
-                href={`/admin/releases?id=${id}`}
-                className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <Pencil className="h-3.5 w-3.5" />
-                Edit
-              </Link>
-            )}
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
-            {/* Cover */}
-            <div className="relative aspect-square overflow-hidden md:col-span-5">
-              <Image
-                src={getMediaUrl(releaseMapped.cover) || "/placeholder.svg"}
-                alt={`${releaseMapped.title} album cover`}
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-
-            {/* Info + tracklist */}
-            <div className="flex flex-col md:col-span-7">
-              <p className="text-xs text-muted-foreground mb-2">
-                {releaseMapped.type} &middot;{" "}
-                {format.dateTime(new Date(releaseMapped.date), {
-                  year: "numeric",
-                  month: "numeric",
-                  day: "numeric",
-                })}
-              </p>
-              <h1 className="font-display text-3xl sm:text-4xl tracking-tight text-foreground">
-                {releaseMapped.title}
-              </h1>
-              <p className="text-lg text-muted-foreground mt-1 flex">
-                {releaseMapped.artists ? (
-                  releaseMapped.artists.map((artist) => (
-                    <Link
-                      href={`/artists/${artist.id}`}
-                      key={artist.id}
-                      className="not-first:before:content-[',_'] hover:text-foreground"
-                    >
-                      {artist.name}
-                    </Link>
-                  ))
-                ) : (
-                  <span>{t("variousArtists")}</span>
-                )}
-              </p>
-              {releaseMapped.genres && releaseMapped.genres.length > 0 && (
-                <p className="text-sm text-muted-foreground mt-1">
-                  {releaseMapped.genres.map((genre) => (
-                    <Link
-                      href={`/releases?genres=${genre.id}`}
-                      className="not-first:before:content-[',_'] hover:text-foreground transition-colors"
-                      key={genre.id}
-                    >
-                      {genre.label}
-                    </Link>
-                  ))}
-                </p>
-              )}
-              {releaseMapped.description && (
-                <div className="text-sm mt-4 text-muted-foreground leading-relaxed">
-                  {releaseMapped.description.split("\n").map((line, index) => (
-                    <p key={index} className="">
-                      {line}
-                      <br />
-                    </p>
-                  ))}
-                </div>
-              )}
-
-              {/* Platform links */}
-              <div className="mt-6 flex flex-wrap gap-4">
-                <PlayReleaseButton tracks={playerTracks} />
-                {releaseMapped.plaftormLinks &&
-                  Object.values(releaseMapped.plaftormLinks).some(Boolean) && (
-                    <ListenDropdown links={releaseMapped.plaftormLinks} />
-                  )}
-                {releaseMapped.buyLinks &&
-                  Object.values(releaseMapped.buyLinks).some(Boolean) && (
-                    <BuyDropdown links={releaseMapped.buyLinks} />
-                  )}
-              </div>
-
-              {/* Track list */}
-              {releaseMapped.tracks && releaseMapped.tracks.length > 0 && (
-                <div className="mt-8">
-                  <div className="flex justify-between items-end mb-4">
-                    <h2 className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                      {t("tracklist")}
-                    </h2>
-                  </div>
-                  <ol className="divide-y divide-border">
-                    {releaseMapped.tracks.map((track, index) => (
-                      <li key={index} className="flex flex-col py-2">
-                        <div className="flex items-center gap-4">
-                          <span className="text-xs text-muted-foreground w-6 text-right tabular-nums">
-                            {index + 1}
-                          </span>
-                          <span className="text-sm text-foreground flex-1">
-                            {track.title}
-                          </span>
-                          {track.url && (
-                            <div className="flex gap-2">
-                              <DownloadTrackButton
-                                url={getMediaUrl(track.url)!}
-                              />
-                              <PlayTrackButton
-                                tracks={playerTracks}
-                                index={index}
-                              />
-                            </div>
-                          )}
-                        </div>
-                        {track.artists && track.artists.length > 0 && (
-                          <span className="text-xs text-muted-foreground mt-1 ml-10">
-                            {track.artists.map((artist) => (
-                              <Link
-                                key={artist.id}
-                                href={`/artists/${artist.id}`}
-                                className="not-first:before:content-[',_']"
-                              >
-                                {artist.name}
-                              </Link>
-                            ))}
-                          </span>
-                        )}
-                      </li>
-                    ))}
-                  </ol>
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* Video clips */}
-          {releaseMapped.videoClips && releaseMapped.videoClips.length > 0 && (
-            <div className="mt-8 lg:mt-16">
-              <h2 className="font-display text-2xl sm:text-3xl tracking-tight text-foreground mb-8">
-                {t("videoClips")}
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {releaseMapped.videoClips.map((clip, index) => (
-                  <VideoClipEmbed key={index} clip={clip} />
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Release artists */}
-          {releaseMapped.artists && releaseMapped.artists.length > 0 && (
-            <section className="mt-8 lg:mt-16 flex flex-col">
-              <h2 className="font-display text-2xl sm:text-3xl tracking-tight text-foreground mb-8">
-                {t("releaseArtists")}
-              </h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-8">
-                {releaseMapped.artists &&
-                  releaseMapped.artists.map((artist) => (
-                    <Artist artist={artist} key={artist.id} />
-                  ))}
-              </div>
-            </section>
-          )}
-
-          {/* Related releases */}
-          {relatedReleases.length > 0 && (
-            <div className="mt-8 lg:mt-16">
-              <h2 className="font-display text-2xl sm:text-3xl tracking-tight text-foreground mb-8">
-                {t("relatedReleases")}
-              </h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-8">
-                {relatedReleases.map((release) => (
-                  <Release key={release.id} release={release} />
-                ))}
-              </div>
-            </div>
-          )}
+          <Suspense>
+            <ReleaseDetail id={id} />
+          </Suspense>
+          <Suspense>
+            <RelatedReleasesSection id={id} />
+          </Suspense>
         </div>
       </section>
     </main>

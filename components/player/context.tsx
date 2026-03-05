@@ -35,6 +35,7 @@ interface PlayerContextValue {
   replaceAndPlay: (tracks: PlayerTrack[], index?: number) => void;
   addToPlaylist: (tracks: PlayerTrack[]) => void;
   startRadio: () => void;
+  initAllTracks: (tracks: PlayerTrack[]) => void;
 }
 
 const PlayerContext = createContext<PlayerContextValue | null>(null);
@@ -54,6 +55,9 @@ export function PlayerProvider({
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
+
+  // Ref for all tracks (radio source) — updated lazily via initAllTracks
+  const allTracksRef = useRef<PlayerTrack[]>(allTracks);
 
   // Refs for latest values — avoids stale closures in stable callbacks
   const playlistRef = useRef(playlist);
@@ -150,8 +154,25 @@ export function PlayerProvider({
   );
 
   const startRadio = useCallback(() => {
-    replaceAndPlay(shuffle(allTracks));
-  }, [allTracks, replaceAndPlay]);
+    replaceAndPlay(shuffle(allTracksRef.current));
+  }, [replaceAndPlay]);
+
+  const initAllTracks = useCallback(
+    (tracks: PlayerTrack[]) => {
+      allTracksRef.current = tracks;
+      // Initialize the playlist if it's still empty (no user interaction yet)
+      if (playlistRef.current.length === 0) {
+        const initial = shuffle(tracks);
+        setPlaylist(initial);
+        const audio = audioRef.current;
+        if (initial[0] && audio) {
+          audio.src = initial[0].url;
+          audio.load();
+        }
+      }
+    },
+    [],
+  );
 
   // ── Effects ─────────────────────────────────────────────────────────
 
@@ -251,6 +272,7 @@ export function PlayerProvider({
         replaceAndPlay,
         addToPlaylist,
         startRadio,
+        initAllTracks,
       }}
     >
       {children}
