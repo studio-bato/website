@@ -122,5 +122,23 @@
     "socials": {
       "instagram": "https://www.instagram.com/edikt_oazo"
     }
+  },
+  {
+    "id": "manmeet",
+    "name": "Manmeet",
+    "bio": "5 albums old since 2014, Manmeet is India’s pioneer female\nemcee (English speaking) and a beatmaker performing live for\nmore than a decade with her poetry ranging between the realms of\nnature loving and humans’ social mannerisms.\nMirroring vibes of the crowd by improvising on any given and\nchosen words beyond musical genres, is her best bet to attempt\ncreativity on stage.\nBeing her own manager since day 1, she has rocked the mic in\nDenmark, Belgium, Germany, France, Spain, Sardinia and across\nmany states in India.\nHer experimental music blends field recordings into pockets of\natmospheric, sophisticated rhythms adding a organic aura for her\nwordplay. Socially active, she engages in inclusive workshops in\nschools and universities on how to de-industrialize rap music with\na mission to make it bio-friendly and edutaining.",
+    "image": "artists/manmeet/profile.webp",
+    "socials": {
+      "youtube": "https://youtube.com/@manmeetkaur1592",
+      "bandcamp": "https://mcmanmeetkaur.bandcamp.com"
+    }
+  },
+  {
+    "id": "sern",
+    "name": "SERN.",
+    "socials": {
+      "spotify": "https://open.spotify.com/artist/0h7qLoe0hTjQWf67iERUVU",
+      "instagram": "https://www.instagram.com/sern.bass"
+    }
   }
 ]
