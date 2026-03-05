@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
-import { type Artist, getMediaUrl } from "@/data";
+import { type Artist } from "@/data";
+import { getMediaUrl } from "@/data/media";
 import { CardRow } from "./card-row";
 
 export async function Artist({ artist }: { artist: Artist }) {

@@ -18,7 +18,7 @@ import { Slider } from "@/components/ui/slider";
 import { cn } from "@/lib/utils";
 import { usePlayer } from "./context";
 import { useTranslations } from "next-intl";
-import { getMediaUrl } from "@/data";
+import { getMediaUrl } from "@/data/media";
 
 function formatTime(seconds: number): string {
   if (!isFinite(seconds)) return "0:00";

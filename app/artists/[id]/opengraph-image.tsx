@@ -1,4 +1,5 @@
-import { getArtistById, getMediaUrl } from "@/data";
+import { getMediaUrl } from "@/data/media";
+import { getArtistById } from "@/data";
 import {
   ogSize,
   ogContentType,

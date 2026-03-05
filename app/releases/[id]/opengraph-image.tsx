@@ -1,4 +1,5 @@
-import { getMediaUrl, getReleaseByIdMapped } from "@/data";
+import { getMediaUrl } from "@/data/media";
+import { getReleaseByIdMapped } from "@/data";
 import {
   ogSize,
   ogContentType,

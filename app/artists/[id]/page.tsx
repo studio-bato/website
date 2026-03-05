@@ -1,4 +1,5 @@
-import { getArtistByIdMapped, getArtists, getMediaUrl } from "@/data";
+import { getMediaUrl } from "@/data/media";
+import { getArtistByIdMapped, getArtists } from "@/data";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Pencil } from "lucide-react";

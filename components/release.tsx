@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
-import { getMediaUrl, getReleaseByIdMapped, type Release } from "@/data";
+import { getMediaUrl } from "@/data/media";
+import { getReleaseByIdMapped, type Release } from "@/data";
 import { CardRow } from "./card-row";
 import { getTranslations, getFormatter } from "next-intl/server";
 import { notFound } from "next/navigation";

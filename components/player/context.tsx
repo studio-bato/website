@@ -10,7 +10,7 @@ import {
   type ReactNode,
 } from "react";
 import { shuffle } from "@/components/player/utils";
-import { getMediaUrl } from "@/data";
+import { getMediaUrl } from "@/data/media";
 
 export interface PlayerTrack {
   title: string;

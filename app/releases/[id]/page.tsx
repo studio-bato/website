@@ -1,9 +1,5 @@
-import {
-  getReleaseByIdMapped,
-  getReleases,
-  getRelatedReleases,
-  getMediaUrl,
-} from "@/data";
+import { getReleaseByIdMapped, getReleases, getRelatedReleases } from "@/data";
+import { getMediaUrl } from "@/data/media";
 import { Release } from "@/components/release";
 import { mapReleaseToPlayer } from "@/data";
 import Image from "next/image";
