@@ -33,6 +33,9 @@ export function VideoClipEmbed({ clip }: { clip: ReleaseVideoClip }) {
 }
 
 export function getYouTubeId(url: string): string | null {
-  const match = url.match(/[?&]v=([a-zA-Z0-9_-]+)/);
-  return match ? match[1] : null;
+  const standardMatch = url.match(/[?&]v=([a-zA-Z0-9_-]+)/);
+  if (standardMatch) return standardMatch[1];
+
+  const shortMatch = url.match(/youtu\.be\/([a-zA-Z0-9_-]+)/);
+  return shortMatch ? shortMatch[1] : null;
 }
