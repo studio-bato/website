@@ -5,7 +5,7 @@ import {
   getMediaUrl,
 } from "@/data";
 import { Release } from "@/components/release";
-import { mapReleaseToPlayer } from "@/data/player";
+import { mapReleaseToPlayer } from "@/data";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Pencil } from "lucide-react";

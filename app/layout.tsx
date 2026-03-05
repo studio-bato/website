@@ -4,7 +4,7 @@ import { DM_Sans, Playfair_Display } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
-import { getAllTracksPlaylist } from "@/data/player";
+import { getAllTracksPlaylist } from "@/data";
 import { Player, PlayerProvider } from "@/components/player";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages, getTranslations } from "next-intl/server";
