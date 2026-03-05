@@ -40,7 +40,7 @@ export default async function Releases({
         );
 
   return (
-    <section id="releases" className="py-12 lg:py-32">
+    <section id="releases" className="py-4 lg:py-16">
       <div className="mx-auto max-w-6xl px-6">
         <h2 className="font-display text-4xl sm:text-5xl tracking-tight text-foreground mb-8">
           {t("title")}

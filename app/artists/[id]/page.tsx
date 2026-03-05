@@ -64,9 +64,9 @@ export default async function ArtistPage({
 
   return (
     <main>
-      <section className="py-12 lg:py-32">
+      <section className="py-4 lg:py-16">
         <div className="mx-auto max-w-6xl px-6">
-          <div className="flex items-center justify-between mb-12">
+          <div className="flex items-center justify-between mb-8">
             <Link
               href="/artists"
               className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"

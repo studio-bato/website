@@ -21,7 +21,7 @@ export default async function Artists() {
   const artists = await getArtists();
 
   return (
-    <section id="artists" className="py-12 lg:py-32">
+    <section id="artists" className="py-4 lg:py-16">
       <div className="mx-auto max-w-6xl px-6">
         <h2 className="font-display text-4xl sm:text-5xl tracking-tight text-foreground mb-16">
           {t("title")}

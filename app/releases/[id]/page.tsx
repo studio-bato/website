@@ -79,9 +79,9 @@ export default async function ReleasePage({
 
   return (
     <main>
-      <section className="py-12 lg:py-32">
+      <section className="py-4 lg:py-16">
         <div className="mx-auto max-w-6xl px-6">
-          <div className="flex items-center justify-between mb-12">
+          <div className="flex items-center justify-between mb-8">
             <Link
               href="/releases"
               className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
@@ -165,7 +165,7 @@ export default async function ReleasePage({
               )}
 
               {/* Platform links */}
-              <div className="mt-6 flex gap-4">
+              <div className="mt-6 flex flex-wrap gap-4">
                 <PlayReleaseButton tracks={playerTracks} />
                 {releaseMapped.plaftormLinks &&
                   Object.values(releaseMapped.plaftormLinks).some(Boolean) && (
