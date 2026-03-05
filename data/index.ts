@@ -1,3 +1,3 @@
-export * from "./data";
+export * from "./getters";
 export * from "./types";
 export * from "./media";

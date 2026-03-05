@@ -1,6 +1,6 @@
 import { type PlayerTrack, shuffle } from "@/components/player";
 import { ReleaseMapped } from "@/data/schemas";
-import { getReleasesMapped } from "./data";
+import { getReleasesMapped } from "./getters";
 
 const MEDIA_CDN_URL =
   process.env.MEDIA_CDN_URL || "https://media.studiobato.org";

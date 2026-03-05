@@ -7,17 +7,22 @@ import {
 } from "./types";
 import { cache } from "react";
 import { artists, releases, genres } from "./json";
+import {
+  getArtistsStorage,
+  getGenresStorage,
+  getReleasesStorage,
+} from "./storage";
 
 export const getGenres = cache(async (): Promise<Array<Genre>> => {
-  return genres;
+  return getGenresStorage();
 });
 
 export const getArtists = cache(async (): Promise<Array<Artist>> => {
-  return artists;
+  return getArtistsStorage();
 });
 
 export const getReleases = cache(async (): Promise<Array<Release>> => {
-  return releases
+  return (await getReleasesStorage())
     .filter((release) => new Date(release.date).getTime() < Date.now())
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 });
@@ -45,7 +50,7 @@ export const getArtistByIdMapped = cache(
       return null;
     }
 
-    const releases = await getReleases();
+    const releases = await getReleasesStorage();
     const artistReleases = releases.filter(
       (r) =>
         r.artistIds?.includes(artist.id) ||
@@ -61,7 +66,7 @@ export const getArtistByIdMapped = cache(
 
 export const getReleaseById = cache(
   async (releaseId: string): Promise<Release | undefined> => {
-    return (await getReleases()).find((g) => g.id === releaseId);
+    return (await getReleasesStorage()).find((g) => g.id === releaseId);
   },
 );
 
