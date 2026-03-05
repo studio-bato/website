@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { ReleaseSchema } from "@/data/schemas";
 import type { Release } from "@/data/types";
 import { AutoForm, type FieldOverrides } from "@/components/auto-form";
@@ -15,11 +15,23 @@ export function AdminReleasesContent({
 }: {
   initialReleases: Release[];
 }) {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const [releases, setReleases] = useState<Release[]>(initialReleases);
   const [selectedId, setSelectedId] = useState<string | null>(
     searchParams.get("id"),
   );
+
+  function selectId(id: string | null) {
+    setSelectedId(id);
+    const params = new URLSearchParams(searchParams.toString());
+    if (id) {
+      params.set("id", id);
+    } else {
+      params.delete("id");
+    }
+    router.replace(`?${params.toString()}`);
+  }
   const [isNew, setIsNew] = useState(false);
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
@@ -49,7 +61,7 @@ export function AdminReleasesContent({
 
     if (result.success) {
       setReleases(updated);
-      setSelectedId(data.id);
+      selectId(data.id);
       setIsNew(false);
       setMessage("Saved successfully.");
     } else {
@@ -65,7 +77,7 @@ export function AdminReleasesContent({
       setSaving(false);
       if (result.success) {
         setReleases(updated);
-        setSelectedId(null);
+        selectId(null);
         setMessage("Deleted successfully.");
       } else {
         setMessage("Error deleting.");
@@ -84,7 +96,7 @@ export function AdminReleasesContent({
             variant="outline"
             className="w-full mb-4"
             onClick={() => {
-              setSelectedId(null);
+              selectId(null);
               setIsNew(true);
               setMessage(null);
             }}
@@ -96,7 +108,7 @@ export function AdminReleasesContent({
             <button
               key={release.id}
               onClick={() => {
-                setSelectedId(release.id);
+                selectId(release.id);
                 setIsNew(false);
                 setMessage(null);
               }}
@@ -117,7 +129,7 @@ export function AdminReleasesContent({
             variant="outline"
             className="w-full mt-4"
             onClick={() => {
-              setSelectedId(null);
+              selectId(null);
               setIsNew(true);
               setMessage(null);
             }}

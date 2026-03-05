@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { ArtistSchema } from "@/data/schemas";
 import type { Artist } from "@/data/types";
 import { AutoForm, type FieldOverrides } from "@/components/auto-form";
@@ -15,11 +15,23 @@ export function AdminArtistsContent({
 }: {
   initialArtists: Artist[];
 }) {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const [artists, setArtists] = useState<Artist[]>(initialArtists);
   const [selectedId, setSelectedId] = useState<string | null>(
     searchParams.get("id"),
   );
+
+  function selectId(id: string | null) {
+    setSelectedId(id);
+    const params = new URLSearchParams(searchParams.toString());
+    if (id) {
+      params.set("id", id);
+    } else {
+      params.delete("id");
+    }
+    router.replace(`?${params.toString()}`);
+  }
   const [isNew, setIsNew] = useState(false);
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
@@ -43,7 +55,7 @@ export function AdminArtistsContent({
 
     if (result.success) {
       setArtists(updated);
-      setSelectedId(data.id);
+      selectId(data.id);
       setIsNew(false);
       setMessage("Saved successfully.");
     } else {
@@ -59,7 +71,7 @@ export function AdminArtistsContent({
       setSaving(false);
       if (result.success) {
         setArtists(updated);
-        setSelectedId(null);
+        selectId(null);
         setMessage("Deleted successfully.");
       } else {
         setMessage("Error deleting.");
@@ -78,7 +90,7 @@ export function AdminArtistsContent({
             variant="outline"
             className="w-full mb-4"
             onClick={() => {
-              setSelectedId(null);
+              selectId(null);
               setIsNew(true);
               setMessage(null);
             }}
@@ -90,7 +102,7 @@ export function AdminArtistsContent({
             <button
               key={artist.id}
               onClick={() => {
-                setSelectedId(artist.id);
+                selectId(artist.id);
                 setIsNew(false);
                 setMessage(null);
               }}
@@ -109,7 +121,7 @@ export function AdminArtistsContent({
             variant="outline"
             className="w-full mt-4"
             onClick={() => {
-              setSelectedId(null);
+              selectId(null);
               setIsNew(true);
               setMessage(null);
             }}
