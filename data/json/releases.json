@@ -931,5 +931,37 @@
         ]
       }
     ]
+  },
+  {
+    "id": "radiobato-have-you-seen-the-groove",
+    "title": "Hey! Have you seen the groove ?",
+    "artistIds": [
+      "radiobato"
+    ],
+    "cover": "releases/radiobato/have-you-seen-the-groove/cover.webp",
+    "date": "2021-10-29",
+    "genreIds": [
+      "electronic",
+      "downtempo"
+    ],
+    "type": "EP",
+    "plaftormLinks": {
+      "spotify": "https://open.spotify.com/album/6zF0TP3FpEr8mVjyQ9MbO0",
+      "soundcloud": "https://soundcloud.com/radiobato/sets/hey-have-you-ever-seen-the-groove"
+    },
+    "tracks": [
+      {
+        "title": "Poutsi"
+      },
+      {
+        "title": "Hydrate"
+      },
+      {
+        "title": "Night bird"
+      },
+      {
+        "title": "Creuse"
+      }
+    ]
   }
 ]
