@@ -17,6 +17,7 @@ import { getTranslations, getFormatter } from "next-intl/server";
 import type { Metadata } from "next";
 import { BuyDropdown } from "@/components/buy-dropdown";
 import { Artist } from "@/components/artist";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export async function generateMetadata({
   params,
@@ -186,7 +187,10 @@ async function ReleaseDetail({ id }: { id: string }) {
                       {track.url && (
                         <div className="flex gap-2">
                           <DownloadTrackButton url={getMediaUrl(track.url)!} />
-                          <PlayTrackButton tracks={playerTracks} index={index} />
+                          <PlayTrackButton
+                            tracks={playerTracks}
+                            index={index}
+                          />
                         </div>
                       )}
                     </div>
@@ -262,6 +266,14 @@ async function RelatedReleasesSection({ id }: { id: string }) {
   );
 }
 
+function ReleaseSkeleton() {
+  return (
+    <div className="flex">
+      <Skeleton className="h-64 w-64 rounded-none" />
+    </div>
+  );
+}
+
 export default async function ReleasePage({
   params,
 }: {
@@ -273,7 +285,7 @@ export default async function ReleasePage({
     <main>
       <section className="py-4 lg:py-16">
         <div className="mx-auto max-w-6xl px-6">
-          <Suspense>
+          <Suspense fallback={<ReleaseSkeleton />}>
             <ReleaseDetail id={id} />
           </Suspense>
           <Suspense>

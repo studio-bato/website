@@ -84,7 +84,7 @@ export function Player() {
           />
 
           {/* Panel anchored to bottom, half viewport height */}
-          <div className="fixed bottom-0 left-0 right-0 z-50 flex h-[90vh] lg:h-[50vh] flex-col rounded-t-2xl bg-background shadow-2xl">
+          <div className="fixed bottom-0 left-0 right-0 z-50 flex h-[90vh] lg:h-[70vh] flex-col rounded-t-2xl bg-background shadow-2xl">
             {/* Header */}
             <div className="flex items-center justify-end px-4 pt-3 pb-1">
               <Button
