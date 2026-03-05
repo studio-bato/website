@@ -3,7 +3,7 @@ import { MongoClient, MongoClientOptions } from "mongodb";
 import { attachDatabasePool } from "@vercel/functions";
 
 const uri = process.env.MONGODB_URI ?? "mongodb://localhost:27017";
-const dbName = process.env.MONGODB_DB ?? "studiobato";
+const dbName = process.env.MONGODB_DB ?? "studiobato-website";
 
 let client: MongoClient | null = null;
 

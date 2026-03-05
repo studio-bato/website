@@ -1,1 +1,1 @@
-export * from "./storage-json";
+export * from "./storage-mongo";

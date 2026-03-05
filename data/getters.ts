@@ -5,12 +5,18 @@ import {
   ReleaseMapped,
   type Genre,
 } from "./types";
-import { cache } from "react";
 import {
   getArtistsStorage,
   getGenresStorage,
   getReleasesStorage,
 } from "./storage";
+import { cache } from "react";
+
+import { cache as react_cache } from "react";
+// function no_cache<T>(t: T): T {
+//   return t;
+// }
+// const cache = react_cache;
 
 export const getGenres = cache(async (): Promise<Array<Genre>> => {
   return getGenresStorage();
