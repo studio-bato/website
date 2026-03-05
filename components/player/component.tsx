@@ -7,6 +7,7 @@ import {
   Play,
   Pause,
   SkipForward,
+  FastForward,
   SkipBack,
   ChevronUp,
   ChevronDown,
@@ -216,25 +217,25 @@ export function Player() {
 
       {/* Minimized bottom bar */}
       <div className="fixed bottom-0 left-0 right-0 z-40 border-t bg-background/95 backdrop-blur-sm supports-backdrop-filter:bg-background/60">
-        <div className="flex h-16 items-center gap-2 px-3">
+        <div className="flex h-16 items-center md:gap-2 px-1 md:px-3">
           {/* Play/Pause */}
           <Button variant="ghost" size="icon" onClick={togglePlayback}>
             {isPlaying ? (
-              <Pause className="h-5 w-5" />
+              <Pause className="h-4 w-4" />
             ) : (
-              <Play className="h-5 w-5 ml-0.5" />
+              <Play className="h-4 w-4" />
             )}
           </Button>
 
           {/* Next */}
           <Button variant="ghost" size="icon" onClick={nextTrack}>
-            <SkipForward className="h-4 w-4" />
+            <FastForward className="h-4 w-4" />
           </Button>
 
           {/* Cover thumbnail */}
           <div
             onClick={() => setIsExpanded(true)}
-            className="flex flex-1 gap-2 cursor-pointer"
+            className="flex flex-1 gap-2 cursor-pointer min-w-0"
           >
             <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded">
               <Image
@@ -248,7 +249,7 @@ export function Player() {
             </div>
 
             {/* Track info */}
-            <div className="min-w-0 flex-1">
+            <div className="min-w-0 flex-1 overflow-hidden">
               <p className="truncate text-sm font-medium">
                 {currentTrack.title}
               </p>
