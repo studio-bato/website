@@ -65,7 +65,7 @@ source "$NVM_DIR/nvm.sh"
 
 for f in "$@"
 do
-	node /Users/opac/dev/studiobato/website/tools/image-encoder.js $f
+	node /Users/opac/dev/studiobato/website/tools/encoders/image-encoder.js $f
 done</string>
 					<key>CheckedForUserDefaultShell</key>
 					<true/>

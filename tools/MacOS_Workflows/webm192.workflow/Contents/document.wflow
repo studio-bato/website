@@ -66,7 +66,7 @@ export PATH=$PATH:/opt/homebrew/bin
 
 for f in "$@"
 do
-	node /Users/opac/dev/studiobato/website/tools/track-encoder.js "$f"
+	node /Users/opac/dev/studiobato/website/tools/encoders/track-encoder.js "$f"
 done</string>
 					<key>CheckedForUserDefaultShell</key>
 					<true/>
