@@ -718,5 +718,31 @@
         "url": "https://www.youtube.com/watch?v=UYI1qKxuq2s&list=PLxAf5K4U5jvHIha7ggxBX4vibFCN92V6e&index=5"
       }
     ]
+  },
+  {
+    "id": "kmn-allo-docteur",
+    "title": "Allo Docteur",
+    "artistIds": ["kmn"],
+    "cover": "releases/kmn/singles/allo-docteur.webp",
+    "date": "2025-03-06",
+    "genreIds": ["rap"],
+    "type": "Single",
+    "plaftormLinks": {
+      "spotify": "https://open.spotify.com/track/null",
+      "deezer": "https://www.deezer.com/us/track/null",
+      "appleMusic": "https://music.apple.com/us/album/1882023016?i=1882023017",
+      "youtube": "https://youtu.be/uDuH8rk-9B0"
+    },
+    "tracks": [
+      {
+        "title": "Allo Docteur"
+      }
+    ],
+    "videoClips": [
+      {
+        "title": "KMN - Allo Docteur",
+        "url": "https://youtu.be/uDuH8rk-9B0"
+      }
+    ]
   }
 ]
