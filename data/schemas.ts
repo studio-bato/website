@@ -9,6 +9,7 @@ export const SocialsSchema = z.object({
   twitter: z.string().optional(),
   mastodon: z.string().optional(),
   bandcamp: z.string().optional(),
+  linktree: z.string().optional(),
 });
 
 export const AudioPlatformLinksSchema = z.object({
