@@ -14,7 +14,7 @@ export function AdminNav({ logoutAction }: { logoutAction: () => void }) {
   const pathname = usePathname();
 
   return (
-    <nav className="border-b mb-8">
+    <nav className="border-b mb-4">
       <div className="container mx-auto px-4 flex items-center gap-6 h-14">
         <span className="font-display text-lg tracking-tight font-semibold">
           Admin
