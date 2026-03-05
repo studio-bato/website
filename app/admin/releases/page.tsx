@@ -8,6 +8,8 @@ import type { Release } from "@/data/types";
 import { AutoForm, type FieldOverrides } from "@/components/auto-form";
 import { Button } from "@/components/ui/button";
 import { saveReleases } from "@/app/admin/actions";
+import Link from "next/link";
+import { ExternalLink, Trash } from "lucide-react";
 
 function AdminReleasesContent() {
   const searchParams = useSearchParams();
@@ -129,19 +131,28 @@ function AdminReleasesContent() {
 
           {(selectedRelease || isNew) && (
             <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <h2 className="text-xl font-semibold">
+              <div className="flex items-center justify-between gap-4">
+                <h2 className="text-xl font-semibold flex-1">
                   {isNew ? "New Release" : `Edit: ${selectedRelease?.title}`}
                 </h2>
                 {!isNew && selectedId && (
-                  <Button
-                    variant="destructive"
-                    size="sm"
-                    onClick={() => handleDelete(selectedId)}
-                    disabled={saving}
-                  >
-                    Delete
-                  </Button>
+                  <>
+                    <Link href={`/releases/${selectedId}`}>
+                      <Button variant="outline" size="sm">
+                        <ExternalLink />
+                        Open
+                      </Button>
+                    </Link>
+                    <Button
+                      variant="destructive"
+                      size="sm"
+                      onClick={() => handleDelete(selectedId)}
+                      disabled={saving}
+                    >
+                      <Trash />
+                      Delete
+                    </Button>
+                  </>
                 )}
               </div>
 
