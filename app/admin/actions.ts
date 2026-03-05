@@ -1,9 +1,8 @@
 "use server";
 
-import { writeFileSync } from "fs";
-import { join } from "path";
 import { ArtistsSchema, GenresSchema, ReleasesSchema } from "@/data/schemas";
 import type { Artist, Genre, Release } from "@/data/types";
+import { saveArtistsStorage, saveGenresStorage, saveReleasesStorage } from "@/data/storage";
 import { createSession, deleteSession, getSession } from "./session";
 
 export async function saveArtists(artists: Artist[]) {
@@ -14,8 +13,7 @@ export async function saveArtists(artists: Artist[]) {
     return { success: false, error: parsed.error.flatten() };
   }
 
-  const filePath = join(process.cwd(), "data", "json", "artists.json");
-  writeFileSync(filePath, JSON.stringify(parsed.data, null, 2), "utf-8");
+  await saveArtistsStorage(parsed.data);
 
   return { success: true };
 }
@@ -28,8 +26,7 @@ export async function saveReleases(releases: Release[]) {
     return { success: false, error: parsed.error.flatten() };
   }
 
-  const filePath = join(process.cwd(), "data", "json", "releases.json");
-  writeFileSync(filePath, JSON.stringify(parsed.data, null, 2), "utf-8");
+  await saveReleasesStorage(parsed.data);
 
   return { success: true };
 }
@@ -42,8 +39,7 @@ export async function saveGenres(genres: Genre[]) {
     return { success: false, error: parsed.error.flatten() };
   }
 
-  const filePath = join(process.cwd(), "data", "json", "genres.json");
-  writeFileSync(filePath, JSON.stringify(parsed.data, null, 2), "utf-8");
+  await saveGenresStorage(parsed.data);
 
   return { success: true };
 }

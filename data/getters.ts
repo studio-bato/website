@@ -6,7 +6,6 @@ import {
   type Genre,
 } from "./types";
 import { cache } from "react";
-import { artists, releases, genres } from "./json";
 import {
   getArtistsStorage,
   getGenresStorage,
