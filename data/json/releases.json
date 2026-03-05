@@ -22,19 +22,24 @@
     },
     "tracks": [
       {
-        "title": "Intro"
+        "title": "Intro",
+        "url": "releases/walass/walass-x-manmeet-random-waves/01-intro-mix.mp3"
       },
       {
-        "title": "Fami"
+        "title": "Fami",
+        "url": "releases/walass/walass-x-manmeet-random-waves/02-fami-mix.mp3"
       },
       {
-        "title": "Hagbow"
+        "title": "Hagbow",
+        "url": "releases/walass/walass-x-manmeet-random-waves/03-hagbow.mp3"
       },
       {
-        "title": "La cale"
+        "title": "La cale",
+        "url": "releases/walass/walass-x-manmeet-random-waves/04-la-cale.mp3"
       },
       {
-        "title": "Jald Milte Hain"
+        "title": "Jald Milte Hain",
+        "url": "releases/walass/walass-x-manmeet-random-waves/05-jald-milte-hain.mp3"
       }
     ],
     "videoClips": [
@@ -78,7 +83,7 @@
   },
   {
     "id": "sern-pheromoney",
-    "title": "Pheromoney ",
+    "title": "Pheromoney",
     "artistIds": [
       "sern"
     ],
@@ -146,34 +151,44 @@
     },
     "tracks": [
       {
-        "title": "What I'm feeling now. You ?"
+        "title": "What I'm feeling now. You ?",
+        "url": "releases/walass/time-of-love/01-what_im_feeling_now_you_1.mp3"
       },
       {
-        "title": "What i'm feeling now. You ??"
+        "title": "What i'm feeling now. You ??",
+        "url": "releases/walass/time-of-love/02-what_im_feeling_now_you_2.mp3"
       },
       {
-        "title": "I Would Be Fine. You ???"
+        "title": "I Would Be Fine. You ???",
+        "url": "releases/walass/time-of-love/03-i-would-be-fine-you.mp3"
       },
       {
-        "title": "Until now anyway !"
+        "title": "Until now anyway !",
+        "url": "releases/walass/time-of-love/04-until-now-anyway.mp3"
       },
       {
-        "title": "Equinox"
+        "title": "Equinox",
+        "url": "releases/walass/time-of-love/05-equinox.mp3"
       },
       {
-        "title": "a long spring of war"
+        "title": "a long spring of war",
+        "url": "releases/walass/time-of-love/06-a-long-spring-of-war.mp3"
       },
       {
-        "title": "PURAVIDA"
+        "title": "PURAVIDA",
+        "url": "releases/walass/time-of-love/07-puravida.mp3"
       },
       {
-        "title": "Nothing happens except the electrical signals"
+        "title": "Nothing happens except the electrical signals",
+        "url": "releases/walass/time-of-love/08-nothing-happend.mp3"
       },
       {
-        "title": "Time escapes"
+        "title": "Time escapes",
+        "url": "releases/walass/time-of-love/09-time-escapes.mp3"
       },
       {
-        "title": "One sunny fall"
+        "title": "One sunny fall",
+        "url": "releases/walass/time-of-love/10-one-sunny-fall.mp3"
       }
     ]
   },
@@ -463,25 +478,32 @@
     },
     "tracks": [
       {
-        "title": "Carrousel"
+        "title": "Carrousel",
+        "url": "releases/walass/walass-x-skrab-banalite/01-carrousel.m4a"
       },
       {
-        "title": "Le temps"
+        "title": "Le temps",
+        "url": "releases/walass/walass-x-skrab-banalite/02-le-temps.m4a"
       },
       {
-        "title": "Chop One"
+        "title": "Chop One",
+        "url": "releases/walass/walass-x-skrab-banalite/03-chop-one.m4a"
       },
       {
-        "title": "Pas de retour"
+        "title": "Pas de retour",
+        "url": "releases/walass/walass-x-skrab-banalite/04-pas-de-retour.m4a"
       },
       {
-        "title": "Sancho di pancho"
+        "title": "Sancho di pancho",
+        "url": "releases/walass/walass-x-skrab-banalite/05-sancho-di-pancho.m4a"
       },
       {
-        "title": "Plaisir ab vier"
+        "title": "Plaisir ab vier",
+        "url": "releases/walass/walass-x-skrab-banalite/06-plaisir-ab-vier.m4a"
       },
       {
-        "title": "Im Badezimmer"
+        "title": "Im Badezimmer",
+        "url": "releases/walass/walass-x-skrab-banalite/07-im-badezimmer.m4a"
       }
     ],
     "videoClips": [
@@ -640,6 +662,7 @@
     "tracks": [
       {
         "title": "Kalaidon",
+        "url": "releases/youyou/random-shit/kalaidon.m4a",
         "artistIds": [
           "lapierrre"
         ]
@@ -843,27 +866,33 @@
     "tracks": [
       {
         "title": "L'Ocean",
+        "url": "releases/walass/ocean/01-ocean.mp3",
         "artistIds": [
           "matos"
         ]
       },
       {
         "title": "BOOM",
+        "url": "releases/walass/ocean/02-boom.mp3",
         "artistIds": [
           "edikt"
         ]
       },
       {
-        "title": "Soleil Bleu"
+        "title": "Soleil Bleu",
+        "url": "releases/walass/ocean/03-soleil-bleu.mp3"
       },
       {
-        "title": "Lame de fond"
+        "title": "Ocean",
+        "url": "releases/walass/ocean/04-ocean.mp3"
       },
       {
-        "title": "Lune bleue"
+        "title": "Lune bleue",
+        "url": "releases/walass/ocean/05-lune-bleue.mp3"
       },
       {
-        "title": "Frequence"
+        "title": "Frequence",
+        "url": "releases/walass/ocean/06-frequence.mp3"
       }
     ],
     "videoClips": [
