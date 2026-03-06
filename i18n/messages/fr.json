@@ -150,12 +150,10 @@
   },
   "privacyPage": {
     "metaTitle": "Confidentialité | StudioBato",
-    "metaDescription": "Politique de confidentialité de StudioBato. Aucune donnée personnelle n'est collectée. Un seul cookie est utilisé pour la préférence de langue.",
+    "metaDescription": "Politique de confidentialité de StudioBato. Aucune donnée personnelle n'est collectée.",
     "subtitle": "Confidentialité",
     "title": "Politique de confidentialité",
     "intro": "StudioBato respecte votre vie privée. Ce site ne collecte aucune donnée personnelle et n'utilise aucun outil de traçage ou d'analyse.",
-    "cookieTitle": "Cookies",
-    "cookieText": "Un seul cookie est utilisé : NEXT_LOCALE. Il mémorise votre préférence de langue (français, anglais ou allemand) et n'est partagé avec aucun tiers.",
     "dataTitle": "Données personnelles",
     "dataText": "Aucune donnée personnelle n'est collectée, stockée ou transmise. Ce site ne dispose d'aucun formulaire d'inscription, d'aucun système de compte, et n'intègre aucun outil d'analyse tiers.",
     "contactTitle": "Contact",

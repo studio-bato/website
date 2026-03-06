@@ -52,15 +52,6 @@ export default async function Privacy({
             <div className="space-y-12">
               <div>
                 <h2 className="font-display text-2xl tracking-tight text-foreground mb-4">
-                  {t("cookieTitle")}
-                </h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  {t("cookieText")}
-                </p>
-              </div>
-
-              <div>
-                <h2 className="font-display text-2xl tracking-tight text-foreground mb-4">
                   {t("dataTitle")}
                 </h2>
                 <p className="text-muted-foreground leading-relaxed">

@@ -149,12 +149,10 @@
   },
   "privacyPage": {
     "metaTitle": "Datenschutz | StudioBato",
-    "metaDescription": "Datenschutzerklärung von StudioBato. Es werden keine personenbezogenen Daten erhoben. Ein einziges Cookie wird für die Sprachpräferenz verwendet.",
+    "metaDescription": "Datenschutzerklärung von StudioBato. Es werden keine personenbezogenen Daten erhoben.",
     "subtitle": "Datenschutz",
     "title": "Datenschutzerklärung",
     "intro": "StudioBato respektiert Ihre Privatsphäre. Diese Website erhebt keine personenbezogenen Daten und verwendet keine Tracking- oder Analyse-Tools.",
-    "cookieTitle": "Cookies",
-    "cookieText": "Es wird ein einziges Cookie verwendet: NEXT_LOCALE. Es speichert Ihre Sprachpräferenz (Französisch, Englisch oder Deutsch) und wird niemals an Dritte weitergegeben.",
     "dataTitle": "Personenbezogene Daten",
     "dataText": "Es werden keine personenbezogenen Daten erhoben, gespeichert oder übertragen. Diese Website verfügt über keine Anmeldeformulare, keine Benutzerkonten und integriert keine Analyse-Tools von Drittanbietern.",
     "contactTitle": "Kontakt",

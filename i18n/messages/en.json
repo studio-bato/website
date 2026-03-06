@@ -151,12 +151,10 @@
   },
   "privacyPage": {
     "metaTitle": "Privacy | StudioBato",
-    "metaDescription": "Privacy policy for StudioBato. No personal data is collected. A single cookie is used for language preference.",
+    "metaDescription": "Privacy policy for StudioBato. No personal data is collected.",
     "subtitle": "Privacy",
     "title": "Privacy Policy",
     "intro": "StudioBato respects your privacy. This site collects no personal data and uses no tracking or analytics tools.",
-    "cookieTitle": "Cookies",
-    "cookieText": "A single cookie is used: NEXT_LOCALE. It stores your language preference (French, English, or German) and is never shared with any third party.",
     "dataTitle": "Personal Data",
     "dataText": "No personal data is collected, stored, or transmitted. This site has no sign-up forms, no user accounts, and does not integrate any third-party analytics.",
     "contactTitle": "Contact",
