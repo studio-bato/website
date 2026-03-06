@@ -9,6 +9,7 @@ import {
   SiDeezer,
   SiApplemusic,
   SiLinktree,
+  SiGithub,
 } from "@icons-pack/react-simple-icons";
 import { ExternalLink, Turntable } from "lucide-react";
 import type { ComponentType } from "react";
@@ -84,4 +85,5 @@ export const icons: Record<string, IconEntry> = {
   appleMusic: { icon: SiApplemusic, label: "Apple Music" },
   elasticStage: { icon: Turntable, label: "Vinyl" },
   linktree: { icon: SiLinktree, label: "Linktree" },
+  github: { icon: SiGithub, label: "Github" },
 };

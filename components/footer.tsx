@@ -6,24 +6,6 @@ import { Anchor } from "lucide-react";
 export async function Footer() {
   const t = await getTranslations("footer");
 
-  const footerLinks = {
-    [t("labelSection")]: [
-      { label: t("about"), href: "/about" },
-      { label: t("artists"), href: "/artists" },
-      { label: t("releases"), href: "/releases" },
-    ],
-    [t("connectSection")]: [
-      { label: "Instagram", href: "https://instagram.com/studio.bato" },
-      { label: "Youtube", href: "https://www.youtube.com/@studiobato" },
-      {
-        label: "Spotify",
-        href: "https://open.spotify.com/playlist/7yFysgG2WnkdMiigB6pJLo?si=f68df9108ec54827&nd=1",
-      },
-      { label: "SoundCloud", href: "https://soundcloud.com/studiobato" },
-    ],
-    [t("infoSection")]: [{ label: t("contact"), href: "/contact" }],
-  };
-
   const socials = [
     { label: "instagram", href: "https://instagram.com/studio.bato" },
     { label: "youtube", href: "https://www.youtube.com/@studiobato" },
@@ -32,6 +14,7 @@ export async function Footer() {
       href: "https://open.spotify.com/playlist/7yFysgG2WnkdMiigB6pJLo?si=f68df9108ec54827&nd=1",
     },
     { label: "soundcloud", href: "https://soundcloud.com/studiobato" },
+    { label: "github", href: "https://github.com/studio-bato" },
   ];
 
   return (
