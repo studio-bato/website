@@ -126,6 +126,9 @@ function DefaultArrayField({
 
       {fields.map((item, index) => (
         <div key={item.id} className="flex gap-2 items-start">
+          <span className="text-sm text-muted-foreground w-5 pt-2 shrink-0 text-right">
+            {index + 1}
+          </span>
           {isObjectArray && meta.objectSchema ? (
             <fieldset className="flex-1 border p-3 space-y-3">
               {extractFields(meta.objectSchema).map((sub) => (
