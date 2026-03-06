@@ -1,5 +1,6 @@
 import { getArtists, getReleases } from "@/data";
 import type { MetadataRoute } from "next";
+import { routing } from "@/i18n/routing";
 
 const BASE_URL = process.env.SITE_URL;
 
@@ -12,25 +13,36 @@ const staticRoutes = [
   { url: "/contact", priority: 0.4 },
 ];
 
+function localePath(locale: string, path: string) {
+  if (locale === routing.defaultLocale) return path;
+  return `/${locale}${path}`;
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [artists, releases] = await Promise.all([getArtists(), getReleases()]);
 
-  const artistEntries: MetadataRoute.Sitemap = artists.map((artist) => ({
-    url: `${BASE_URL}/artists/${artist.id}`,
-    priority: 0.8,
-  }));
+  const staticEntries: MetadataRoute.Sitemap = routing.locales.flatMap(
+    (locale) =>
+      staticRoutes.map(({ url, priority }) => ({
+        url: `${BASE_URL}${localePath(locale, url)}`,
+        priority,
+      })),
+  );
 
-  const releaseEntries: MetadataRoute.Sitemap = releases.map((release) => ({
-    url: `${BASE_URL}/releases/${release.id}`,
-    // lastModified: new Date(release.date), // TODO
-    priority: 0.8,
-  }));
+  const artistEntries: MetadataRoute.Sitemap = routing.locales.flatMap(
+    (locale) =>
+      artists.map((artist) => ({
+        url: `${BASE_URL}${localePath(locale, `/artists/${artist.id}`)}`,
+        priority: 0.8,
+      })),
+  );
 
-  const staticEntries: MetadataRoute.Sitemap = staticRoutes.map(
-    ({ url, priority }) => ({
-      url: `${BASE_URL}${url}`,
-      priority,
-    }),
+  const releaseEntries: MetadataRoute.Sitemap = routing.locales.flatMap(
+    (locale) =>
+      releases.map((release) => ({
+        url: `${BASE_URL}${localePath(locale, `/releases/${release.id}`)}`,
+        priority: 0.8,
+      })),
   );
 
   return [...staticEntries, ...artistEntries, ...releaseEntries];
