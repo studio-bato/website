@@ -55,7 +55,7 @@ export default async function LocaleLayout({
           <ThemeProvider
             attribute="class"
             defaultTheme="light"
-            enableSystem={false}
+            enableSystem={true}
             disableTransitionOnChange
           >
             <PlayerProvider>
