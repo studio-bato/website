@@ -9,10 +9,10 @@ export async function Footer() {
   const socials = [
     { label: "instagram", href: "https://instagram.com/studio.bato" },
     { label: "youtube", href: "https://www.youtube.com/@studiobato" },
-    {
-      label: "spotify",
-      href: "https://open.spotify.com/playlist/7yFysgG2WnkdMiigB6pJLo?si=f68df9108ec54827&nd=1",
-    },
+    // {
+    //   label: "spotify",
+    //   href: "https://open.spotify.com/playlist/7yFysgG2WnkdMiigB6pJLo?si=f68df9108ec54827&nd=1",
+    // },
     { label: "soundcloud", href: "https://soundcloud.com/studiobato" },
     { label: "github", href: "https://github.com/studio-bato" },
   ];
