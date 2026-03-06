@@ -2,12 +2,21 @@ import { getSession } from "./session";
 import { logout, login } from "./actions";
 import { AdminNav } from "./nav";
 import { LoginForm } from "./login-form";
+import { Suspense } from "react";
 
 export default async function AdminLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  return (
+    <Suspense>
+      <AdminLayoutContent>{children}</AdminLayoutContent>
+    </Suspense>
+  );
+}
+
+async function AdminLayoutContent({ children }: { children: React.ReactNode }) {
   const authenticated = await getSession();
 
   if (!authenticated) {

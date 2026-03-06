@@ -23,7 +23,17 @@ async function GenreFilterLoader() {
   return <GenreFilter genres={genres} />;
 }
 
-async function ReleasesGrid({ selectedGenres }: { selectedGenres: string[] }) {
+async function ReleasesGrid({
+  searchParams,
+}: {
+  searchParams: Promise<{ genres?: string }>;
+}) {
+  const { genres: genresParam } = await searchParams;
+
+  const selectedGenres = genresParam
+    ? genresParam.split(",").filter(Boolean)
+    : [];
+
   const allReleases = await getReleases();
   const releases =
     selectedGenres.length === 0
@@ -66,11 +76,6 @@ export default async function Releases({
   searchParams: Promise<{ genres?: string }>;
 }) {
   const t = await getTranslations("releasesPage");
-  const { genres: genresParam } = await searchParams;
-
-  const selectedGenres = genresParam
-    ? genresParam.split(",").filter(Boolean)
-    : [];
 
   return (
     <section id="releases" className="py-4 lg:py-16">
@@ -84,7 +89,7 @@ export default async function Releases({
         </Suspense>
 
         <Suspense fallback={<ReleasesGridSkeleton />}>
-          <ReleasesGrid selectedGenres={selectedGenres} />
+          <ReleasesGrid searchParams={searchParams} />
         </Suspense>
       </div>
     </section>

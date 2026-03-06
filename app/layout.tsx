@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import type { Metadata, Viewport } from "next";
 import { DM_Sans, Playfair_Display } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -9,10 +9,10 @@ import { Player, PlayerProvider } from "@/components/player";
 import { AllTracksInitializer } from "@/components/player/all-tracks-loader";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages, getTranslations } from "next-intl/server";
-import { Suspense } from "react";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { getSession } from "@/app/admin/session";
+import { connection } from "next/server";
 
 const _dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dm-sans" });
 const _playfair = Playfair_Display({
@@ -21,6 +21,7 @@ const _playfair = Playfair_Display({
 });
 
 async function AllTracksLoader() {
+  await connection();
   const allTracks = await getAllTracksPlaylist();
   return <AllTracksInitializer tracks={allTracks} />;
 }
@@ -42,6 +43,11 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
+async function NavAuthed() {
+  const authenticated = await getSession();
+  return <Navbar isAdmin={authenticated} />;
+}
+
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -49,7 +55,6 @@ export default async function RootLayout({
 }>) {
   const locale = await getLocale();
   const messages = await getMessages();
-  const authenticated = await getSession();
 
   return (
     <html lang={locale} suppressHydrationWarning>
@@ -68,10 +73,12 @@ export default async function RootLayout({
               <Suspense>
                 <AllTracksLoader />
               </Suspense>
-              <Navbar isAdmin={authenticated} />
+              <Suspense fallback={<Navbar isAdmin={false} />}>
+                <NavAuthed />
+              </Suspense>
               <div className="mt-20">{children}</div>
               <Footer />
-              <Player />
+              <Suspense>{/*<Player />*/}</Suspense>
             </PlayerProvider>
           </ThemeProvider>
         </NextIntlClientProvider>

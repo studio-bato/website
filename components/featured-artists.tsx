@@ -3,8 +3,16 @@ import { FeaturedList } from "@/components/featured-list";
 import { Artist } from "./artist";
 import { getArtists } from "@/data";
 import { connection } from "next/server";
+import { Suspense } from "react";
 
 export async function FeaturedArtists() {
+  return (
+    <Suspense>
+      <FeaturedArtistsSuspense />
+    </Suspense>
+  );
+}
+async function FeaturedArtistsSuspense() {
   await connection();
   const t = await getTranslations("featuredArtists");
   const featuredArtists = (await getArtists())

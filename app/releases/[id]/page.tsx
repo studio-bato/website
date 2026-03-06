@@ -6,7 +6,6 @@ import { mapReleaseToPlayer } from "@/data";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Pencil } from "lucide-react";
-import { getSession } from "@/app/admin/session";
 import { DownloadTrackButton } from "@/components/player/download-track-button";
 import { PlayTrackButton } from "@/components/player/play-track-button";
 import { PlayReleaseButton } from "@/components/player/play-release-button";
@@ -18,6 +17,7 @@ import type { Metadata } from "next";
 import { BuyDropdown } from "@/components/buy-dropdown";
 import { Artist } from "@/components/artist";
 import { Skeleton } from "@/components/ui/skeleton";
+import { EditButton } from "@/components/edit-button";
 
 export async function generateMetadata({
   params,
@@ -63,10 +63,7 @@ async function ReleaseDetail({ id }: { id: string }) {
   const releaseMapped = await getReleaseByIdMapped(id);
   if (!releaseMapped) notFound();
 
-  const [playerTracks, isAdmin] = await Promise.all([
-    mapReleaseToPlayer(releaseMapped),
-    getSession(),
-  ]);
+  const playerTracks = await mapReleaseToPlayer(releaseMapped);
 
   return (
     <>
@@ -78,15 +75,7 @@ async function ReleaseDetail({ id }: { id: string }) {
           <ArrowLeft className="h-3.5 w-3.5" />
           {t("allReleases")}
         </Link>
-        {isAdmin && (
-          <Link
-            href={`/admin/releases?id=${id}`}
-            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <Pencil className="h-3.5 w-3.5" />
-            Edit
-          </Link>
-        )}
+        <EditButton url={`/admin/releases?id=${id}`} />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">

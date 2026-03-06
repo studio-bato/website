@@ -8,8 +8,8 @@ import type { Metadata } from "next";
 import type { Socials } from "@/data";
 import { getTranslations } from "next-intl/server";
 import { Release } from "@/components/release";
-import { getSession } from "@/app/admin/session";
 import { Suspense } from "react";
+import { EditButton } from "@/components/edit-button";
 
 export async function generateMetadata({
   params,
@@ -48,7 +48,6 @@ export async function generateStaticParams() {
 
 async function ArtistDetail({ id }: { id: string }) {
   const t = await getTranslations("artistDetail");
-  const isAdmin = await getSession();
 
   let artistMapped = await getArtistByIdMapped(id);
   if (!artistMapped) {
@@ -69,24 +68,14 @@ async function ArtistDetail({ id }: { id: string }) {
           <ArrowLeft className="h-3.5 w-3.5" />
           {t("allArtists")}
         </Link>
-        {isAdmin && (
-          <Link
-            href={`/admin/artists?id=${id}`}
-            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <Pencil className="h-3.5 w-3.5" />
-            Edit
-          </Link>
-        )}
+        <EditButton url={`/admin/artists?id=${id}`} />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
         {/* Artist image */}
         <div className="relative aspect-square overflow-hidden md:col-span-5">
           <Image
-            src={
-              getMediaUrl(artistMapped.image) || "/placeholder-artist.svg"
-            }
+            src={getMediaUrl(artistMapped.image) || "/placeholder-artist.svg"}
             alt={artistMapped.name}
             fill
             className="object-cover"
