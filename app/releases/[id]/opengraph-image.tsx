@@ -7,8 +7,6 @@ import {
   notFoundOg,
   ogImage,
 } from "@/lib/og";
-import { getTranslations } from "next-intl/server";
-
 export const alt = "Release";
 export const size = ogSize;
 export const contentType = ogContentType;
@@ -22,7 +20,6 @@ export default async function Image({
 
   const releaseMapped = await getReleaseByIdMapped(id);
   if (!releaseMapped) return notFoundOg();
-  const t = await getTranslations("releaseDetail");
 
   const coverDataUri = releaseMapped.cover
     ? await fetchImageAsDataUri(getMediaUrl(releaseMapped.cover)!)
@@ -32,9 +29,7 @@ export default async function Image({
     imageDataUri: coverDataUri,
     title: releaseMapped.title,
     titleSize: 56,
-    subtitle:
-      releaseMapped.artists?.map((a) => a.name).join(", ") ||
-      t("variousArtists"),
+    subtitle: releaseMapped.artists?.map((a) => a.name).join(", ") || "",
     detail: `${releaseMapped.type} · ${releaseMapped.genres?.map((g) => g.label).join(", ")}`,
   });
 }

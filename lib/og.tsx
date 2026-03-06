@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import sharp from "sharp";
 
 export const ogSize = { width: 1200, height: 630 };
 export const ogContentType = "image/png";
@@ -10,10 +11,11 @@ const muted = "hsl(0, 0%, 45%)";
 export async function fetchImageAsDataUri(url: string): Promise<string | null> {
   try {
     const res = await fetch(url);
+    if (!res.ok) return null;
     const buffer = await res.arrayBuffer();
-    const base64 = Buffer.from(buffer).toString("base64");
-    const ct = res.headers.get("content-type") || "image/jpeg";
-    return `data:${ct};base64,${base64}`;
+    const pngBuffer = await sharp(Buffer.from(buffer)).png().toBuffer();
+    const base64 = pngBuffer.toString("base64");
+    return `data:image/png;base64,${base64}`;
   } catch {
     return null;
   }
