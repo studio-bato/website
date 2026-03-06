@@ -1,3 +1,5 @@
+"use cache";
+
 import {
   type Artist,
   ArtistMapped,
@@ -10,29 +12,34 @@ import {
   getGenresStorage,
   getReleasesStorage,
 } from "./storage";
-import { cache } from "react";
+import { cacheTag } from "next/cache";
+// import { cache } from "react";
 
-import { cache as react_cache } from "react";
-// function no_cache<T>(t: T): T {
-//   return t;
-// }
-// const cache = react_cache;
+// import { cache as react_cache } from "react";
+function no_cache<T>(t: T): T {
+  return t;
+}
+const cache = no_cache;
 
 export const getGenres = cache(async (): Promise<Array<Genre>> => {
+  cacheTag("all");
   return getGenresStorage();
 });
 
 export const getArtists = cache(async (): Promise<Array<Artist>> => {
+  cacheTag("all");
   return getArtistsStorage();
 });
 
 export const getReleases = cache(async (): Promise<Array<Release>> => {
+  cacheTag("all");
   return (await getReleasesStorage())
     .filter((release) => new Date(release.date).getTime() < Date.now())
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 });
 
 export const getGenreById = cache(async (genreId: string): Promise<Genre> => {
+  cacheTag("all");
   return (
     (await getGenres()).find((g) => g.id === genreId) || {
       id: genreId,
@@ -43,12 +50,14 @@ export const getGenreById = cache(async (genreId: string): Promise<Genre> => {
 
 export const getArtistById = cache(
   async (artistId: string): Promise<Artist | undefined> => {
+    cacheTag("all");
     return (await getArtists()).find((g) => g.id === artistId);
   },
 );
 
 export const getArtistByIdMapped = cache(
   async (artistId: string): Promise<ArtistMapped | null> => {
+    cacheTag("all");
     const artist = await getArtistById(artistId);
 
     if (!artist) {
@@ -71,12 +80,14 @@ export const getArtistByIdMapped = cache(
 
 export const getReleaseById = cache(
   async (releaseId: string): Promise<Release | undefined> => {
+    cacheTag("all");
     return (await getReleasesStorage()).find((g) => g.id === releaseId);
   },
 );
 
 export const getReleaseByIdMapped = cache(
   async (releaseId: string): Promise<ReleaseMapped | null> => {
+    cacheTag("all");
     const release = await getReleaseById(releaseId);
 
     if (!release) {
@@ -124,6 +135,7 @@ export const getReleaseByIdMapped = cache(
 
 export const getReleasesMapped = cache(
   async (): Promise<Array<ReleaseMapped>> => {
+    cacheTag("all");
     const releases = await getReleases();
     const mappedReleases = await Promise.all(
       releases.map(async (release) => getReleaseByIdMapped(release.id)),
@@ -134,6 +146,7 @@ export const getReleasesMapped = cache(
 
 export const getRelatedReleases = cache(
   async (releaseId: string, limit = 1000): Promise<Array<Release>> => {
+    cacheTag("all");
     const release = await getReleaseById(releaseId);
     if (!release) return [];
     return (await getReleases())

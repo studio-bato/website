@@ -2,8 +2,13 @@
 
 import { ArtistsSchema, GenresSchema, ReleasesSchema } from "@/data/schemas";
 import type { Artist, Genre, Release } from "@/data/types";
-import { saveArtistsStorage, saveGenresStorage, saveReleasesStorage } from "@/data/storage";
+import {
+  saveArtistsStorage,
+  saveGenresStorage,
+  saveReleasesStorage,
+} from "@/data/storage";
 import { createSession, deleteSession, getSession } from "./session";
+import { revalidateTag } from "next/cache";
 
 export async function saveArtists(artists: Artist[]) {
   if (!(await getSession())) return { success: false, error: "Unauthorized" };
@@ -14,6 +19,7 @@ export async function saveArtists(artists: Artist[]) {
   }
 
   await saveArtistsStorage(parsed.data);
+  revalidateTag("all", "max");
 
   return { success: true };
 }
@@ -27,6 +33,7 @@ export async function saveReleases(releases: Release[]) {
   }
 
   await saveReleasesStorage(parsed.data);
+  revalidateTag("all", "max");
 
   return { success: true };
 }
@@ -40,6 +47,7 @@ export async function saveGenres(genres: Genre[]) {
   }
 
   await saveGenresStorage(parsed.data);
+  revalidateTag("all", "max");
 
   return { success: true };
 }
