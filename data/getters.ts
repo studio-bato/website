@@ -65,11 +65,13 @@ export const getArtistByIdMapped = cache(
     }
 
     const releases = await getReleasesStorage();
-    const artistReleases = releases.filter(
-      (r) =>
-        r.artistIds?.includes(artist.id) ||
-        r.tracks?.some((t) => t.artistIds?.includes(artist.id)),
-    );
+    const artistReleases = releases
+      .filter(
+        (r) =>
+          r.artistIds?.includes(artist.id) ||
+          r.tracks?.some((t) => t.artistIds?.includes(artist.id)),
+      )
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
     return {
       ...artist,
