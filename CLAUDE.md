@@ -40,8 +40,8 @@ The site supports 3 languages: **French** (default), **English**, and **German**
 ### How it works
 
 - **Library**: `next-intl` with the Next.js plugin configured in `next.config.mjs`
-- **Locale detection**: Cookie-based (`NEXT_LOCALE`), defaults to `fr`. Configured in `i18n/request.ts`.
-- **Translation files**: `messages/fr.json`, `messages/en.json`, `messages/de.json` — all must have identical keys.
+- **Locale detection**: Route-based, defaults to `fr`. Configured in `i18n/request.ts`.
+- **Translation files**: `i18n/[locale].json` — all must have identical keys. Locales are fr, en and de.
 - **Provider**: `NextIntlClientProvider` wraps the app in `app/layout.tsx`.
 - **Language switcher**: `components/language-switcher.tsx` sets the cookie via the `setLocale` server action in `app/actions.ts`.
 

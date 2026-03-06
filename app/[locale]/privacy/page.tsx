@@ -1,10 +1,15 @@
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
-import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations("termsPage");
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("privacyPage");
   const title = t("metaTitle");
   const description = t("metaDescription");
 
@@ -15,8 +20,14 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function Terms() {
-  const t = await getTranslations("termsPage");
+export default async function Privacy({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("privacyPage");
 
   return (
     <main>
@@ -34,35 +45,26 @@ export default async function Terms() {
       <section className="py-16 lg:py-24 border-t border-border">
         <div className="mx-auto max-w-6xl px-6">
           <div className="max-w-2xl">
+            <p className="text-muted-foreground leading-relaxed mb-12">
+              {t("intro")}
+            </p>
+
             <div className="space-y-12">
               <div>
                 <h2 className="font-display text-2xl tracking-tight text-foreground mb-4">
-                  {t("publisherTitle")}
+                  {t("cookieTitle")}
                 </h2>
-                <div className="text-muted-foreground leading-relaxed space-y-1">
-                  <p className="font-medium text-foreground">
-                    {t("publisherName")}
-                  </p>
-                  <p>{t("publisherType")}</p>
-                  <p>{t("publisherSiren")}</p>
-                  <a
-                    href="https://annuaire-entreprises.data.gouv.fr/entreprise/culture-a-flot-848780029"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-foreground underline underline-offset-4 hover:text-muted-foreground transition-colors mt-2"
-                  >
-                    {t("publisherRegistry")}
-                    <ArrowUpRight className="h-3.5 w-3.5" />
-                  </a>
-                </div>
+                <p className="text-muted-foreground leading-relaxed">
+                  {t("cookieText")}
+                </p>
               </div>
 
               <div>
                 <h2 className="font-display text-2xl tracking-tight text-foreground mb-4">
-                  {t("hostingTitle")}
+                  {t("dataTitle")}
                 </h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  {t("hostingText")}
+                  {t("dataText")}
                 </p>
               </div>
 

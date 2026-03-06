@@ -4,27 +4,29 @@ import { getMediaUrl } from "@/data/media";
 import { Release } from "@/components/release";
 import { mapReleaseToPlayer } from "@/data";
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowLeft, Pencil } from "lucide-react";
+import { Link } from "@/i18n/navigation";
+import { ArrowLeft } from "lucide-react";
 import { DownloadTrackButton } from "@/components/player/download-track-button";
 import { PlayTrackButton } from "@/components/player/play-track-button";
 import { PlayReleaseButton } from "@/components/player/play-release-button";
 import { ListenDropdown } from "@/components/listen-dropdown";
 import { VideoClipEmbed } from "@/components/video-clip-embed";
 import { notFound } from "next/navigation";
-import { getTranslations, getFormatter } from "next-intl/server";
+import { getTranslations, getFormatter, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { BuyDropdown } from "@/components/buy-dropdown";
 import { Artist } from "@/components/artist";
 import { Skeleton } from "@/components/ui/skeleton";
 import { EditButton } from "@/components/edit-button";
+import { routing } from "@/i18n/routing";
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: Promise<{ locale: string; id: string }>;
 }): Promise<Metadata> {
-  const { id } = await params;
+  const { locale, id } = await params;
+  setRequestLocale(locale);
   const releaseMapped = await getReleaseByIdMapped(id);
   if (!releaseMapped) return {};
 
@@ -51,9 +53,10 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  return (await getReleases()).map((release) => ({
-    id: release.id,
-  }));
+  const releases = await getReleases();
+  return routing.locales.flatMap((locale) =>
+    releases.map((release) => ({ locale, id: release.id })),
+  );
 }
 
 async function ReleaseDetail({ id }: { id: string }) {
@@ -266,9 +269,10 @@ function ReleaseSkeleton() {
 export default async function ReleasePage({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: Promise<{ locale: string; id: string }>;
 }) {
-  const { id } = await params;
+  const { locale, id } = await params;
+  setRequestLocale(locale);
 
   return (
     <main>

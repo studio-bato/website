@@ -2,7 +2,7 @@
 
 import { ReleaseSchema } from "@/data/schemas";
 import type { Release } from "@/data/types";
-import { saveReleases } from "@/app/admin/actions";
+import { saveReleases } from "@/app/[locale]/admin/actions";
 import { AdminEntityContent } from "@/components/admin/admin-entity-content";
 
 export function AdminReleasesContent({

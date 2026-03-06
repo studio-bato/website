@@ -1,11 +1,17 @@
 import { getArtists } from "@/data";
 import { Artist } from "@/components/artist";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("artistsPage");
   const title = t("metaTitle");
   const description = t("metaDescription");
@@ -43,7 +49,13 @@ function ArtistsGridSkeleton() {
   );
 }
 
-export default async function Artists() {
+export default async function Artists({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("artistsPage");
 
   return (

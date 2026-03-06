@@ -1,9 +1,8 @@
 "use client";
 
 import { useLocale } from "next-intl";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "@/i18n/navigation";
 import { useTransition } from "react";
-import { setLocale } from "@/app/actions";
 import { Globe } from "lucide-react";
 import {
   DropdownMenu,
@@ -21,12 +20,12 @@ const localeLabels: Record<string, string> = {
 export function LanguageSwitcher() {
   const locale = useLocale();
   const router = useRouter();
+  const pathname = usePathname();
   const [isPending, startTransition] = useTransition();
 
   function onChange(nextLocale: string) {
-    startTransition(async () => {
-      await setLocale(nextLocale);
-      router.refresh();
+    startTransition(() => {
+      router.replace(pathname, { locale: nextLocale });
     });
   }
 

@@ -8,11 +8,17 @@ import {
   Video,
   Ship,
 } from "lucide-react";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { richLineBreaker } from "@/i18n/rich-text";
 import type { Metadata } from "next";
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("aboutPage");
   const title = t("metaTitle");
   const description = t("metaDescription");
@@ -24,7 +30,13 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function About() {
+export default async function About({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("aboutPage");
 
   const services = [

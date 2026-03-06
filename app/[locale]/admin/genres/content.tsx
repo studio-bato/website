@@ -2,7 +2,7 @@
 
 import { GenreSchema } from "@/data/schemas";
 import type { Genre } from "@/data/types";
-import { saveGenres } from "@/app/admin/actions";
+import { saveGenres } from "@/app/[locale]/admin/actions";
 import { AdminEntityContent } from "@/components/admin/admin-entity-content";
 
 export function AdminGenresContent({

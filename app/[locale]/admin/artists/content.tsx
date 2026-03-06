@@ -2,7 +2,7 @@
 
 import { ArtistSchema } from "@/data/schemas";
 import type { Artist } from "@/data/types";
-import { saveArtists } from "@/app/admin/actions";
+import { saveArtists } from "@/app/[locale]/admin/actions";
 import { AdminEntityContent } from "@/components/admin/admin-entity-content";
 
 export function AdminArtistsContent({

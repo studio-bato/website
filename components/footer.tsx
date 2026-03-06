@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { icons } from "@/lib/icons";
 import { Anchor } from "lucide-react";
@@ -41,14 +41,14 @@ export async function Footer() {
             {socials.map((social) => {
               const Icon = icons[social.label].icon;
               return (
-                <Link
+                <a
                   key={social.label}
                   href={social.href}
                   className="text-sm text-foreground/60 hover:text-foreground transition-colors"
                   aria-label={social.label}
                 >
                   <Icon className="h-8 w-8" />
-                </Link>
+                </a>
               );
             })}
           </div>

@@ -1,10 +1,16 @@
 import { getReleasesMapped } from "@/data";
 import { VideoClipEmbed } from "@/components/video-clip-embed";
-import Link from "next/link";
-import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("videosPage");
   const title = t("metaTitle");
   const description = t("metaDescription");
@@ -16,7 +22,13 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function VideosPage() {
+export default async function VideosPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("videosPage");
 
   const releasesWithVideos = (await getReleasesMapped()).filter(

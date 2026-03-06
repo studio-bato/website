@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import NextLink from "next/link";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { LanguageSwitcher } from "@/components/language-switcher";
@@ -11,15 +12,13 @@ export function Navbar({ isAdmin = false }) {
   const [isOpen, setIsOpen] = useState(false);
   const t = useTranslations("nav");
 
-  let navLinks = [
+  const navLinks = [
     { label: t("releases"), href: "/releases" },
     { label: t("artists"), href: "/artists" },
     { label: t("videos"), href: "/videos" },
     { label: t("about"), href: "/about" },
     { label: t("contact"), href: "/contact" },
   ];
-
-  if (isAdmin) navLinks = [...navLinks, { label: "Admin", href: "/admin" }];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-xs h-20">
@@ -42,6 +41,14 @@ export function Navbar({ isAdmin = false }) {
                 {link.label}
               </Link>
             ))}
+            {isAdmin && (
+              <NextLink
+                href="/admin"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Admin
+              </NextLink>
+            )}
           </div>
 
           <div className="flex items-center gap-2">
@@ -76,6 +83,15 @@ export function Navbar({ isAdmin = false }) {
                 {link.label}
               </Link>
             ))}
+            {isAdmin && (
+              <NextLink
+                href="/admin"
+                onClick={() => setIsOpen(false)}
+                className="text-lg text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Admin
+              </NextLink>
+            )}
           </div>
         </div>
       )}

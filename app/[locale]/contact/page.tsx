@@ -1,10 +1,16 @@
-import { Mail, Anchor } from "lucide-react";
+import { Mail } from "lucide-react";
 import { SiInstagram } from "@icons-pack/react-simple-icons";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { richLineBreaker } from "@/i18n/rich-text";
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("contactPage");
   const title = t("metaTitle");
   const description = t("metaDescription");
@@ -16,7 +22,13 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function Contact() {
+export default async function Contact({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("contactPage");
 
   return (

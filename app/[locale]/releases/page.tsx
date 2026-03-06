@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { getGenres, getReleases } from "@/data";
 import { Release } from "@/components/release";
@@ -6,7 +6,13 @@ import { GenreFilter } from "@/components/genre-filter";
 import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("releasesPage");
   const title = t("metaTitle");
   const description = t("metaDescription");
@@ -75,10 +81,14 @@ function ReleasesGridSkeleton() {
 }
 
 export default async function Releases({
+  params,
   searchParams,
 }: {
+  params: Promise<{ locale: string }>;
   searchParams: Promise<{ genres?: string }>;
 }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("releasesPage");
 
   return (

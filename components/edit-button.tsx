@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Pencil } from "lucide-react";
-import { getSession } from "@/app/admin/session";
+import { getSession } from "@/app/[locale]/admin/session";
 import { Suspense } from "react";
 
 export function EditButton({ url }: { url: string }) {

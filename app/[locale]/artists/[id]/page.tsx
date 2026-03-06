@@ -1,22 +1,24 @@
 import { getMediaUrl } from "@/data/media";
 import { getArtistByIdMapped, getArtists } from "@/data";
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowLeft, Pencil } from "lucide-react";
+import { Link } from "@/i18n/navigation";
+import { ArrowLeft } from "lucide-react";
 import { icons } from "@/lib/icons";
 import type { Metadata } from "next";
 import type { Socials } from "@/data";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Release } from "@/components/release";
 import { Suspense } from "react";
 import { EditButton } from "@/components/edit-button";
+import { routing } from "@/i18n/routing";
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: Promise<{ locale: string; id: string }>;
 }): Promise<Metadata> {
-  const { id } = await params;
+  const { locale, id } = await params;
+  setRequestLocale(locale);
   const artistMapped = await getArtistByIdMapped(id);
   if (!artistMapped) return {};
 
@@ -41,9 +43,10 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  return (await getArtists()).map((artist) => ({
-    id: artist.id,
-  }));
+  const artists = await getArtists();
+  return routing.locales.flatMap((locale) =>
+    artists.map((artist) => ({ locale, id: artist.id })),
+  );
 }
 
 async function ArtistDetail({ id }: { id: string }) {
@@ -150,9 +153,10 @@ async function ArtistDetail({ id }: { id: string }) {
 export default async function ArtistPage({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: Promise<{ locale: string; id: string }>;
 }) {
-  const { id } = await params;
+  const { locale, id } = await params;
+  setRequestLocale(locale);
 
   return (
     <main>
