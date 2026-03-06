@@ -42,15 +42,12 @@ export function AdminEntityContent<T extends { id: string }>({
   const router = useRouter();
   const searchParams = useSearchParams();
   const [items, setItems] = useState<T[]>(initialItems);
-  const [selectedId, setSelectedId] = useState<string | null>(
-    searchParams.get("id"),
-  );
   const [isNew, setIsNew] = useState(false);
+  const selectedId = isNew ? null : searchParams.get("id");
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
 
   function selectId(id: string | null) {
-    setSelectedId(id);
     const params = new URLSearchParams(searchParams.toString());
     if (id) {
       params.set("id", id);
