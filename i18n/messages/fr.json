@@ -9,8 +9,8 @@
     "videos": "Vidéos",
     "about": "À propos",
     "contact": "Contact",
-    "openMenu": "Ouvrir le menu",
-    "closeMenu": "Fermer le menu"
+    "browse": "Explorer",
+    "closeMenu": "Fermer"
   },
   "hero": {
     "subtitle": "Label de musique flottant",

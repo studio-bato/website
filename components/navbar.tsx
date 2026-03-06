@@ -6,6 +6,7 @@ import NextLink from "next/link";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { LanguageSwitcher } from "@/components/language-switcher";
+import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
 
 export function Navbar({ isAdmin = false }) {
@@ -52,26 +53,31 @@ export function Navbar({ isAdmin = false }) {
           </div>
 
           <div className="flex items-center gap-2">
-            <LanguageSwitcher />
-            <ThemeToggle />
-            <button
-              type="button"
+            <div className="hidden md:flex items-center gap-2">
+              <LanguageSwitcher />
+              <ThemeToggle />
+            </div>
+            <Button
+              variant="ghost"
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden text-foreground"
-              aria-label={isOpen ? t("closeMenu") : t("openMenu")}
+              className="md:hidden flex items-center gap-2"
+              aria-label={t("browse")}
             >
+              <span className="text-[10px] font-medium uppercase tracking-widest">
+                {isOpen ? t("closeMenu") : t("browse")}
+              </span>
               {isOpen ? (
-                <X className="h-5 w-5" />
+                <X className="h-7 w-7" />
               ) : (
-                <Menu className="h-5 w-5" />
+                <Menu className="h-7 w-7" />
               )}
-            </button>
+            </Button>
           </div>
         </div>
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-background border-t border-border">
+        <div className="md:hidden bg-background border-t border-b border-border">
           <div className="px-6 py-8 flex flex-col gap-6">
             {navLinks.map((link) => (
               <Link
@@ -92,6 +98,10 @@ export function Navbar({ isAdmin = false }) {
                 Admin
               </NextLink>
             )}
+            <div className="flex items-center gap-2 pt-2 border-t border-border">
+              <LanguageSwitcher />
+              <ThemeToggle />
+            </div>
           </div>
         </div>
       )}
