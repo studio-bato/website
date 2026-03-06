@@ -1,12 +1,18 @@
 import { Suspense } from "react";
 import { getArtistsStorage } from "@/data/storage";
 import { AdminArtistsContent } from "./content";
+import { connection } from "next/server";
 
 export default async function AdminArtistsPage() {
-  const artists = await getArtistsStorage();
   return (
     <Suspense>
-      <AdminArtistsContent initialArtists={artists} />
+      <AdminArtists />
     </Suspense>
   );
+}
+
+async function AdminArtists() {
+  await connection();
+  const artists = await getArtistsStorage();
+  return <AdminArtistsContent initialArtists={artists} />;
 }
