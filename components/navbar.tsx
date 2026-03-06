@@ -12,8 +12,8 @@ export function Navbar({ isAdmin = false }) {
   const t = useTranslations("nav");
 
   let navLinks = [
-    { label: t("artists"), href: "/artists" },
     { label: t("releases"), href: "/releases" },
+    { label: t("artists"), href: "/artists" },
     { label: t("videos"), href: "/videos" },
     { label: t("about"), href: "/about" },
     { label: t("contact"), href: "/contact" },

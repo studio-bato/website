@@ -10,7 +10,7 @@ import { AllTracksInitializer } from "@/components/player/all-tracks-loader";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages, getTranslations } from "next-intl/server";
 import { Suspense } from "react";
-
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { getSession } from "@/app/admin/session";
 
@@ -56,6 +56,7 @@ export default async function RootLayout({
       <body
         className={`${_dmSans.variable} ${_playfair.variable} font-sans antialiased mb-12`}
       >
+        <Analytics />
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider
             attribute="class"
